@@ -46,7 +46,7 @@ nivel_1 = {
         ],
         "correcta": "1969"
     },
-    "pregunta_1":{
+    "pregunta_6":{
         "pregunta": "¿Qué imperio fue gobernado por Julio César?",
         "opciones": [
         "Imperio británico"
@@ -56,7 +56,7 @@ nivel_1 = {
         ],
         "correcta": "Imperio romano"
     },
-    "pregunta_2":{
+    "pregunta_7":{
         "pregunta": "¿En qué obra literaria aparece el personaje 'Jay Gatsby'?",
         "opciones": [
         "Moby Dick"
@@ -66,7 +66,7 @@ nivel_1 = {
         ],
         "correcta": "El gran Gatsby"
     },
-    "pregunta_3":{
+    "pregunta_8":{
         "pregunta": "¿Qué artista musical es conocido como 'El Rey del Pop'?",
         "opciones": [ 
         "Freddie Mercury", 
@@ -76,7 +76,7 @@ nivel_1 = {
         ], 
         "correcta": "Michael Jackson"
     },
-    "pregunta_4":{
+    "pregunta_9":{
         "pregunta": "¿Cuál es el metal más abundante en la corteza terrestre?",
         "opciones": [
         "Oro"
@@ -86,7 +86,7 @@ nivel_1 = {
         ],
         "correcta": "Aluminio"
     },
-     "pregunta_1":{
+     "pregunta_10":{
         "pregunta": "¿Qué poeta escribió 'El cuervo'?",
         "opciones": [
         "William Shakespeare", 
@@ -96,7 +96,7 @@ nivel_1 = {
         ],
         "correcta": "Edgar Allan Poe"
     },
-    "pregunta_2":{
+    "pregunta_11":{
         "pregunta": "¿En qué país se originó el sushi?",
         "opciones": [
         "Tailandia", 
@@ -106,7 +106,7 @@ nivel_1 = {
         ],
         "correcta": "Japón"
     },
-    "pregunta_3":{
+    "pregunta_12":{
         "pregunta": "¿Qué filósofo dijo 'Pienso, luego existo'?",
         "opciones": [ 
         "Friedrich Nietzsche"
@@ -116,7 +116,7 @@ nivel_1 = {
         ], 
         "correcta": "René Descartes"
     },
-    "pregunta_4":{
+    "pregunta_13":{
         "pregunta": "¿En qué año se disolvió la Unión Soviética?",
         "opciones": [
         "1975"
