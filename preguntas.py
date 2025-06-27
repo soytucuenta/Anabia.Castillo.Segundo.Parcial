@@ -45,10 +45,7 @@ nivel_1 = {
         "1989"
         ],
         "correcta": "1969"
-    }
-}
-
-nivel_2 = {
+    },
     "pregunta_1":{
         "pregunta": "¿Qué imperio fue gobernado por Julio César?",
         "opciones": [
@@ -89,20 +86,7 @@ nivel_2 = {
         ],
         "correcta": "Aluminio"
     },
-    "pregunta_5":{
-        "pregunta": "¿Qué famoso científico formuló la teoría de la relatividad?",
-        "opciones": [
-        "Isaac Newton", 
-        "Stephen Hawking", 
-        "Nikola Tesla"
-        "Albert Einstein", 
-        ],
-        "correcta": "Albert Einstein"
-    }
-}
-
-nivel_3 = {
-    "pregunta_1":{
+     "pregunta_1":{
         "pregunta": "¿Qué poeta escribió 'El cuervo'?",
         "opciones": [
         "William Shakespeare", 
@@ -120,7 +104,7 @@ nivel_3 = {
         "Japón", 
         "Corea del Sur", 
         ],
-        "correcta": "Francia"
+        "correcta": "Japón"
     },
     "pregunta_3":{
         "pregunta": "¿Qué filósofo dijo 'Pienso, luego existo'?",
@@ -142,14 +126,5 @@ nivel_3 = {
         ],
         "correcta": "1991"
     },
-    "pregunta_5":{
-        "pregunta": "¿Qué lengua romance se habla en Rumania?",
-        "opciones": [
-        "Louis Pasteur", 
-        "Marie Curie", 
-        "Gregor Mendel"
-        "Alexander Fleming", 
-        ],
-        "correcta": "Alexander Fleming"
-    }
 }
+

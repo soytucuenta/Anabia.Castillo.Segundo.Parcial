@@ -77,8 +77,10 @@ def procesar_respuesta(eleccion, pregunta_dict, dinero, apuesta):
     opciones = pregunta_dict["opciones"]
     correcta = pregunta_dict["correcta"]
     dinero -= apuesta
+
     if opciones[eleccion - 1] == correcta:
-        dinero += apuesta  
+        dinero += apuesta
+        dinero += apuesta
         print(f"¡Correcto! Recuperas tu apuesta de ${apuesta}.")
     else:
         print(f"Incorrecto. La respuesta correcta era: {correcta}")
