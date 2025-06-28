@@ -19,7 +19,7 @@ def solicitar_apuestas(dinero):
     Parámetros:
         dinero (int): La cantidad de dinero disponible para apostar.
     Retorna:
-        (list): La cantidad/es apostada/s por el usuario, validada según las restricciones.
+        (list): La cantidad/es apostada/s por el usuario.
     """
     apuestas = [0, 0, 0, 0]
     apostando = 0
@@ -35,12 +35,12 @@ def solicitar_apuestas(dinero):
 
 def procesar_respuesta(pregunta_dict, dinero, apuestas):
     """
-    Procesa las respuestas del usuario, y devuelve el nuevo dinero del usuario.
+    Procesa las respuestas del usuario, y devuelve el nuevo dinero.
     Args:
-        dinero (int): Cantidad actual de dinero del usuario antes de la/s apuesta/s.
-        apuestas (int): Cantidad de dinero apostado por opciones.
+        dinero (int): Cantidad actual de dinero antes de la/s apuesta/s.
+        apuestas (int): Cantidad de dinero apostado en cada opción.
     Returns:
-        int: Cantidad actualizada de dinero después de procesar las apuestas.
+        int: Cantidad actualizada del dinero del usuarios después de procesar la/s apuesta/s.
     """
     correcta = pregunta_dict["correcta"]
     dinero = apuestas[correcta]
@@ -53,6 +53,9 @@ def procesar_respuesta(pregunta_dict, dinero, apuestas):
     return dinero
 
 def gameplay():
+    """
+    Gameplay general del juego Salve al millón.
+    """
     dinero = 1000000
     nivel = 1
     
@@ -77,4 +80,9 @@ def gameplay():
             print("\n¡Te has quedado sin dinero! Fin del juego.")
             break
 
-    print(f"\nJuego terminado. Usted terminó con ${dinero}.\n")
+    if dinero == 1000000:
+        print("\n¡Felicidades! ¡Ústed salvó al millón!\n")
+    else:
+        print(f"\nJuego terminado. Se va con ${dinero}.\n")
+
+        
