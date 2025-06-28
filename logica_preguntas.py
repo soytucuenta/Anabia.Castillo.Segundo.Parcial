@@ -45,6 +45,11 @@ def procesar_respuesta(pregunta_dict, dinero, apuestas):
     correcta = pregunta_dict["correcta"]
     dinero = apuestas[correcta]
 
+    print(f"\n¡Y la respuesta correcta era {pregunta_dict["opciones"][correcta]}!")
+    print(f"¡La opción número {correcta+1}!")
+    print(f"¡Espero que haya apostado bien!")
+    print("Su dinero es...")
+
     return dinero
 
 def gameplay():
