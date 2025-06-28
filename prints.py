@@ -1,5 +1,5 @@
 menu = (
-    "#### Bienvenido al juego de Salve al Millón ####\n\n"
+    "\n#### ¡Bienvenido al juego del millón copiado de Susana Gimenez! ####\n\n"
     "1. Inciar Juego\n"
     "2. Instrucciones\n"
     "3. Salir\n\n"

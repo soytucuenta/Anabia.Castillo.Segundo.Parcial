@@ -1,107 +1,75 @@
 from preguntas import *
 
-
-def obtener_numero_respuesta_correcta(pregunta):
+def mostrar_pregunta_y_opciones(pregunta_dict):
     """
-    Returns the position (1-based index) of the correct answer option in a given question.
-    Args:
-        pregunta (dict): A dictionary representing a question. It must contain:
-            - 'opciones': a list of possible answer options.
-            - 'correcta': the correct answer option (should match one of the items in 'opciones').
-    Returns:
-        int: The 1-based index of the correct answer option in the 'opciones' list.
-    Example:
-        pregunta = {
-            'opciones': ['A', 'B', 'C', 'D'],
-            'correcta': 'C'
-        }
-        obtener_numero_respuesta_correcta(pregunta)  # Returns 3
-    """
-    
-
-    contador = 1
-    for opcion in pregunta['opciones']:
-        if opcion == pregunta['correcta']:
-            break
-        contador += 1
-    return contador
-
-
-def mostrar_pregunta(pregunta_dict):
-    """
-    Muestra una pregunta y sus opciones por consola, solicita al usuario que elija una opción y devuelve la elección.
+    Muestra una pregunta y sus opciones por consola.
     Args:
         pregunta_dict (dict): Un diccionario que contiene la pregunta bajo la clave "pregunta" y una lista de opciones bajo la clave "opciones".
-    Returns:
-        int: El número de la opción elegida por el usuario (basado en 1).
-    Raises:
-        ValueError: Si la entrada del usuario no es un número entero válido.
-        KeyError: Si el diccionario no contiene las claves esperadas ("pregunta" y "opciones").
     """
 
     print(pregunta_dict["pregunta"])
+    print("")
     opciones = pregunta_dict["opciones"]
     for i in range(len(opciones)):
         print(f"{i+1}. {opciones[i]}")
-    eleccion = int(input("Elige el número de la opción: "))
-    return eleccion
 
-def solicitar_apuesta(dinero):
+def solicitar_apuestas(dinero):
     """
-    Solicita al usuario que ingrese una cantidad de dinero para apostar, validando que la apuesta sea mayor que 0 y no supere el dinero disponible.
+    Solicita al usuario que ingrese una cantidad de dinero para apostar por cada opción, validando que las apuestas no supere el dinero disponible.
     Parámetros:
         dinero (int): La cantidad de dinero disponible para apostar.
     Retorna:
-        int: La cantidad apostada por el usuario, validada según las restricciones.
+        (list): La cantidad/es apostada/s por el usuario, validada según las restricciones.
     """
+    apuestas = [0, 0, 0, 0]
+    apostando = 0
+    print("")
+    for i in range(len(apuestas)):
+        apuestas[i] = int(input(f"¿Cuánto apuesta por la opción {i+1}?: "))
+        while apostando + apuestas[i] > dinero:
+            print(f"\nLo siento, no cuenta con dinero suficiente. Usted tiene ${dinero - apostando}.")
+            apuestas[i] = int(input(f"¿Cuánto apuesta por la opción {i+1}?: "))
+        apostando += apuestas[i]
+    
+    return apuestas
 
-    while True:
-        apuesta = int(input(f"¿Cuánto quieres apostar? Tienes ${dinero}: "))
-        if 0 < apuesta <= dinero:
-            break
-        else:
-            print("Apuesta inválida. Debe ser mayor que 0 y no superar tu dinero disponible.")
-    return apuesta
-
-def procesar_respuesta(eleccion, pregunta_dict, dinero, apuesta):
+def procesar_respuesta(pregunta_dict, dinero, apuestas):
     """
-    Procesa la respuesta del usuario a una pregunta, actualizando el dinero según si la respuesta es correcta o incorrecta.
+    Procesa las respuestas del usuario, y devuelve el nuevo dinero del usuario.
     Args:
-        eleccion (int): Índice (1-based) de la opción elegida por el usuario.
-        pregunta_dict (dict): Diccionario con la información de la pregunta, que debe contener las claves "opciones" (lista de opciones) y "correcta" (respuesta correcta).
-        dinero (int): Cantidad actual de dinero del usuario antes de la apuesta.
-        apuesta (int): Cantidad de dinero apostada en la pregunta actual.
+        dinero (int): Cantidad actual de dinero del usuario antes de la/s apuesta/s.
+        apuestas (int): Cantidad de dinero apostado por opciones.
     Returns:
-        int: Cantidad actualizada de dinero después de procesar la respuesta.
+        int: Cantidad actualizada de dinero después de procesar las apuestas.
     """
-    opciones = pregunta_dict["opciones"]
     correcta = pregunta_dict["correcta"]
-    dinero -= apuesta
+    dinero = apuestas[correcta]
 
-    if opciones[eleccion - 1] == correcta:
-        dinero += apuesta
-        dinero += apuesta
-        print(f"¡Correcto! Recuperas tu apuesta de ${apuesta}.")
-    else:
-        print(f"Incorrecto. La respuesta correcta era: {correcta}")
-        print(f"Perdiste tu apuesta de ${apuesta}.")
-    print(f"Te quedan ${dinero}.\n")
     return dinero
 
 def gameplay():
-    dinero = 500
-    preguntas = nivel_1
-    print("¡Bienvenido al juego del millon copiado de Susana Gimenez")
-    print(f"Empiezas con ${dinero}.\n")
+    dinero = 1000000
+    nivel = 1
+    
+    print("\nComenzemos!\n ")
+    print(f"Tomá! Este $1.000.000 es tuyo!\n")
 
-    for clave in preguntas:
-        pregunta = preguntas[clave]
-        print(f"Dinero disponible: ${dinero}")
-        eleccion = mostrar_pregunta(pregunta)
-        apuesta = solicitar_apuesta(dinero)
-        dinero = procesar_respuesta(eleccion, pregunta, dinero, apuesta)
+    for i in  range(len(preguntas)):
+        print(f'[Dinero disponible: ${dinero}]\n')
+        print(f"[Pregunta {nivel:}]\n")
+        print("(!) Recuerde que lo que no apuesta, lo pierde. (!)\n")
+        
+        # simple print de preguntas y opciones.
+        mostrar_pregunta_y_opciones(preguntas[i])
+        # pregunta por cada opción.
+        apuestas = solicitar_apuestas(dinero)
+        # la opción ganadora es el nuevo dinero.
+        dinero = procesar_respuesta(preguntas[i], dinero, apuestas)
+        # avanza de nivel
+        nivel += 1
+        
         if dinero <= 0:
-            print("¡Te has quedado sin dinero! Fin del juego.")
+            print("\n¡Te has quedado sin dinero! Fin del juego.")
             break
 
-    print(f"Juego terminado. Terminaste con ${dinero}.")
+    print(f"\nJuego terminado. Usted terminó con ${dinero}.\n")

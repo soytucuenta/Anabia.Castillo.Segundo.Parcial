@@ -1,130 +1,120 @@
-nivel_1 = {
-    "pregunta_1":{
+preguntas = [
+    {
         "pregunta": "¿Qué elemento químico tiene el símbolo 'O'?",
         "opciones": [
-        "Osmio", 
-        "Oro", 
-        "Oxígeno", 
-        "Oganesón"
-        ],
-        "correcta": "Oxígeno"
+        "Osmio",
+        "Oro",
+        "Oxígeno",
+        "Oganesón"],
+        "correcta": 2
     },
-    "pregunta_2":{
+    {
         "pregunta": "¿Qué planeta es conocido como 'el planeta rojo'?",
         "opciones": [
-        "Venus", 
+        "Venus",
         "Júpiter", 
-        "Marte", 
-        "Saturno"],
-        "correcta": "Marte"
+        "Saturno",
+        "Marte"],
+        "correcta": 3
     },
-    "pregunta_3":{
+    {
         "pregunta": "¿Cuál es el río más largo del mundo?",
         "opciones": [ 
-        "Nilo", 
-        "Misisipi", 
+        "Nilo",
+        "Misisipi",
         "Yangtsé",
-        "Amazonas"], 
-        "correcta": "Amazonas"
+        "Amazonas"],
+        "correcta": 3
     },
-    "pregunta_4":{
+    {
         "pregunta": "¿Quién pintó 'La Mona Lisa'?",
         "opciones": [
         "Pablo Picasso", 
         "Leonardo da Vinci", 
         "Vincent van Gogh", 
         "Salvador Dalí"],
-        "correcta": "Leonardo da Vinci"
+        "correcta": 1
     },
-    "pregunta_5":{
+    {
         "pregunta": "¿En qué año llegó el hombre a la luna?",
         "opciones": [
         "1969",
         "1955", 
         "1975", 
-        "1989"
-        ],
-        "correcta": "1969"
+        "1989"],
+        "correcta": 0
     },
-    "pregunta_6":{
+    {
         "pregunta": "¿Qué imperio fue gobernado por Julio César?",
         "opciones": [
-        "Imperio británico"
-        "Imperio mongol", 
-        "Imperio romano", 
-        "Imperio otomano", 
-        ],
-        "correcta": "Imperio romano"
+        "Imperio Británico",
+        "Imperio Romano", 
+        "Imperio Mongol", 
+        "Imperio Otomano"],
+        "correcta": 1
     },
-    "pregunta_7":{
+    {
         "pregunta": "¿En qué obra literaria aparece el personaje 'Jay Gatsby'?",
         "opciones": [
-        "Moby Dick"
+        "Moby Dick",
         "Matar a un ruiseñor", 
-        "El gran Gatsby", 
-        "1984", 
-        ],
-        "correcta": "El gran Gatsby"
+        "1984",
+        "El gran Gatsby"], 
+        "correcta": 3
     },
-    "pregunta_8":{
+    {
         "pregunta": "¿Qué artista musical es conocido como 'El Rey del Pop'?",
         "opciones": [ 
         "Freddie Mercury", 
-        "Madonna"
+        "Madonna",
         "Michael Jackson", 
-        "Elvis Presley", 
-        ], 
-        "correcta": "Michael Jackson"
+        "Elvis Presley"], 
+        "correcta": 2
     },
-    "pregunta_9":{
-        "pregunta": "¿Cuál es el metal más abundante en la corteza terrestre?",
-        "opciones": [
-        "Oro"
-        "Hierro", 
-        "Aluminio", 
-        "Cobre", 
-        ],
-        "correcta": "Aluminio"
-    },
-     "pregunta_10":{
-        "pregunta": "¿Qué poeta escribió 'El cuervo'?",
-        "opciones": [
-        "William Shakespeare", 
-        "Pablo Neruda", 
-        "Edgar Allan Poe", 
-        "Mario Benedetti"
-        ],
-        "correcta": "Edgar Allan Poe"
-    },
-    "pregunta_11":{
-        "pregunta": "¿En qué país se originó el sushi?",
-        "opciones": [
-        "Tailandia", 
-        "China", 
-        "Japón", 
-        "Corea del Sur", 
-        ],
-        "correcta": "Japón"
-    },
-    "pregunta_12":{
-        "pregunta": "¿Qué filósofo dijo 'Pienso, luego existo'?",
-        "opciones": [ 
-        "Friedrich Nietzsche"
-        "Platón", 
-        "Aristóteles", 
-        "René Descartes", 
-        ], 
-        "correcta": "René Descartes"
-    },
-    "pregunta_13":{
-        "pregunta": "¿En qué año se disolvió la Unión Soviética?",
-        "opciones": [
-        "1975"
-        "1989", 
-        "1991", 
-        "1993", 
-        ],
-        "correcta": "1991"
-    },
-}
+    # {
+    #     "pregunta": "¿Cuál es el metal más abundante en la corteza terrestre?",
+    #     "opciones": [
+    #     "Oro",
+    #     "Hierro", 
+    #     "Aluminio", 
+    #     "Cobre"],
+    #     "correcta": 2
+    # },
+    # {
+    #     "pregunta": "¿Qué poeta escribió 'El cuervo'?",
+    #     "opciones": [
+    #     "William Shakespeare", 
+    #     "Pablo Neruda", 
+    #     "Edgar Allan Poe", 
+    #     "Mario Benedetti"],
+    #     "correcta": 2
+    # },
+    # {
+    #     "pregunta": "¿En qué país se originó el sushi?",
+    #     "opciones": [
+    #     "Japón", 
+    #     "Tailandia", 
+    #     "China", 
+    #     "Corea del Sur"],
+    #     "correcta": 0
+    # },
+    # {
+    #     "pregunta": "¿Qué filósofo dijo 'Pienso, luego existo'?",
+    #     "opciones": [ 
+    #     "Friedrich Nietzsche",
+    #     "Platón", 
+    #     "Aristóteles", 
+    #     "René Descartes"], 
+    #     "correcta": 3
+    # },
+    # {
+    #     "pregunta": "¿En qué año se disolvió la Unión Soviética?",
+    #     "opciones": [
+    #     "1975",
+    #     "1991", 
+    #     "1989", 
+    #     "1993"],
+    #     "correcta": 1
+    # }
+]
 
