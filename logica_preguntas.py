@@ -1,21 +1,13 @@
 from preguntas import *
 import time
-def mostrar_pregunta_y_opciones(pregunta_dict,tiempo_limite, nivel):
+def mostrar_pregunta_y_opciones(pregunta_dict,tiempo_limite):
     """
     Muestra una pregunta y sus opciones por consola.
     Args:
         pregunta_dict (dict): Un diccionario que contiene la pregunta bajo la clave "pregunta" y una lista de opciones bajo la clave "opciones".
     """
     print(f"Llena cada pregunta en menos de {tiempo_limite} o perdes todo")
-    if nivel == 1 :
-        continuar = input("Comenzar? s/n ")
-        while continuar != "s" and continuar != "n":
-            continuar = input("Comenzar? s/n ")
-    else:
-        continuar = input("Siguiente pregunta? s/n ")
-        while continuar != "s" and continuar != "n":
-            continuar = input("siguiente pregunta? s/n ")
-    #aprovechando el contador de nivel y que no le vengan todas las preguntas de golpe y le mate el tiempo
+    input("Ingrese cualquier cosa para continuar: ")
     print(pregunta_dict["pregunta"])
     print("")
     opciones = pregunta_dict["opciones"]
@@ -109,5 +101,3 @@ def gameplay(dinero,tiempo_limite):
         print("\n¡Felicidades! ¡Ústed salvó al millón!\n")
     else:
         print(f"\nJuego terminado. Se va con ${dinero}.\n")
-
-        
