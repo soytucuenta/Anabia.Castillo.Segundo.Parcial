@@ -1,19 +1,28 @@
 from preguntas import *
-
-def mostrar_pregunta_y_opciones(pregunta_dict):
+import time
+def mostrar_pregunta_y_opciones(pregunta_dict,tiempo_limite, nivel):
     """
     Muestra una pregunta y sus opciones por consola.
     Args:
         pregunta_dict (dict): Un diccionario que contiene la pregunta bajo la clave "pregunta" y una lista de opciones bajo la clave "opciones".
     """
-
+    print(f"Llena cada pregunta en menos de {tiempo_limite} o perdes todo")
+    if nivel == 1 :
+        continuar = input("Comenzar? s/n ")
+        while continuar != "s" and continuar != "n":
+            continuar = input("Comenzar? s/n ")
+    else:
+        continuar = input("Siguiente pregunta? s/n ")
+        while continuar != "s" and continuar != "n":
+            continuar = input("siguiente pregunta? s/n ")
+    #aprovechando el contador de nivel y que no le vengan todas las preguntas de golpe y le mate el tiempo
     print(pregunta_dict["pregunta"])
     print("")
     opciones = pregunta_dict["opciones"]
     for i in range(len(opciones)):
         print(f"{i+1}. {opciones[i]}")
 
-def solicitar_apuestas(dinero):
+def solicitar_apuestas(dinero,tiempo_limite):
     """
     Solicita al usuario que ingrese una cantidad de dinero para apostar por cada opción, validando que las apuestas no supere el dinero disponible.
     Parámetros:
@@ -21,16 +30,32 @@ def solicitar_apuestas(dinero):
     Retorna:
         (list): La cantidad/es apostada/s por el usuario.
     """
+    flag_tiempo = False
     apuestas = [0, 0, 0, 0]
     apostando = 0
     print("")
     for i in range(len(apuestas)):
+        # NOTA IMPORTANTE SOBRE TIME E INPUTIMEOUT, no se si estaria permitido importar inputimeout 
+        # Limita cada input a un tiempo determinado algo asi:
+        # from inputimeout import inputimeout, TimeoutOccurred
+        # respuesta = inputimeout(prompt='Escribe algo en 5 segundos: ', timeout=5)
+        # el problema que veo es que es para usar excepciones y no le va a gustar a german
+        # como parche temporal hice esto con el time que si se pasa del limite perdes el juego entero
+        tiempo_inicial = time.time() # inicio temporizador
         apuestas[i] = int(input(f"¿Cuánto apuesta por la opción {i+1}?: "))
         while apostando + apuestas[i] > dinero:
             print(f"\nLo siento, no cuenta con dinero suficiente. Usted tiene ${dinero - apostando}.")
-            apuestas[i] = int(input(f"¿Cuánto apuesta por la opción {i+1}?: "))
+            apuestas[i] = int(input(f"¿Cuánto apuesta por la opción {i+1}?: "))    
         apostando += apuestas[i]
-    
+        #tiempo
+        tiempo_final = time.time()
+        tiempo_transcurrido = tiempo_final - tiempo_inicial
+        if tiempo_transcurrido > tiempo_limite:
+            print("\n Excediste el tiempo limite para responder, perdes todo ")    
+            flag_tiempo = True
+        #tiempo
+    if flag_tiempo:
+        apuestas = [0, 0, 0, 0]
     return apuestas
 
 def procesar_respuesta(pregunta_dict, dinero, apuestas):
@@ -52,11 +77,11 @@ def procesar_respuesta(pregunta_dict, dinero, apuestas):
 
     return dinero
 
-def gameplay():
+def gameplay(dinero,tiempo_limite):
     """
     Gameplay general del juego Salve al millón.
     """
-    dinero = 1000000
+    
     nivel = 1
     
     print("\nComenzemos!\n ")
@@ -68,9 +93,9 @@ def gameplay():
         print("(!) Recuerde que lo que no apuesta, lo pierde. (!)\n")
         
         # simple print de preguntas y opciones.
-        mostrar_pregunta_y_opciones(preguntas[i])
+        mostrar_pregunta_y_opciones(preguntas[i],tiempo_limite,nivel)
         # pregunta por cada opción.
-        apuestas = solicitar_apuestas(dinero)
+        apuestas = solicitar_apuestas(dinero,tiempo_limite)
         # la opción ganadora es el nuevo dinero.
         dinero = procesar_respuesta(preguntas[i], dinero, apuestas)
         # avanza de nivel

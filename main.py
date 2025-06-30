@@ -7,7 +7,7 @@ opcion_menu = int(input(menu))
 while opcion_menu != 3:
     match opcion_menu:
         case 1:
-            gameplay()
+            gameplay(dinero=1000000,tiempo_limite=60)
         case 2:
             print(instrucciones)
 
