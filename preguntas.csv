@@ -27,7 +27,6 @@ id,pregunta,opciones,indice_correcto,dificultad,categoría
 26,"¿En qué deporte olímpico los atletas compiten en las pruebas de jabalina, disco y martillo?","Natación - Atletismo - Gimnasia - Ciclismo",1,"media","deportes"
 27,"¿Qué órgano humano produce la insulina?","Hígado - Páncreas - Riñón - Estómago",1,"media","química"
 28,"¿Qué vitamina se obtiene principalmente de la luz solar?","Vitamina A - Vitamina C - Vitamina D - Vitamina K",2,"media","química"
-
 29,"¿Qué matemático del siglo XX resolvió el séptimo problema de Hilbert relacionado con números trascendentales?","Kurt Gödel - David Hilbert - Aleksandr Gelfond - Emmy Noether",2,"difícil","matemáticas"
 30,"¿Cuál es el nombre del manuscrito medieval, escrito en un idioma indescifrable, que ha desconcertado a criptógrafos durante décadas?","Manuscrito de Voynich - Códice Gigas - Manuscrito de Beale - Libro de Kells",0,"difícil","historia"
 31,"¿Qué elemento químico fue el primero en ser creado artificialmente?","Neptunio - Tecnecio - Prometio - Curio",1,"difícil","química"
