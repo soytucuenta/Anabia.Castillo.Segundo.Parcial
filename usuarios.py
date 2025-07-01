@@ -1,4 +1,5 @@
 import copy
+
 usuarios = [
     {"nombre": "Juan", "edad": 30, "profesion": "Ingeniero", "participaciones": 3, "ganancias": 1200},
     {"nombre": "Maria", "edad": 25, "profesion": "Disenadora", "participaciones": 2, "ganancias": 850},
@@ -11,9 +12,8 @@ usuarios = [
     {"nombre": "Diego", "edad": 38, "profesion": "Chef", "participaciones": 2, "ganancias": 750}
 ]
 
-
-
 usuario_default = {"nombre": "default","edad": 18, "profesion": "Desocupado", "dificultad": 7, "participaciones": 0, "ganancias":0}
+
 def mostrar_datos_usuario(usuario:dict,mensaje:str):
     """
     Muestra los datos de un diccionario de usuario con un mensaje personalizado.
@@ -28,7 +28,6 @@ def mostrar_datos_usuario(usuario:dict,mensaje:str):
     for dato in usuario:
         print(f"{dato}: {usuario[dato]}")
 
-
 def buscar_usuario(nombre, lista_usuarios, bienvenida=False):
     usuario = "default"
     for usuario_busqueda in lista_usuarios:
@@ -37,8 +36,6 @@ def buscar_usuario(nombre, lista_usuarios, bienvenida=False):
             if bienvenida:
                 print(f"Bienvenido {usuario['nombre']}")
     return usuario
-
-
 
 def copiar_usuario_por_nombre(nombre_a_buscar:str, usuarios:list)-> dict:
     """
@@ -55,6 +52,7 @@ def copiar_usuario_por_nombre(nombre_a_buscar:str, usuarios:list)-> dict:
         if usuario["nombre"].lower() == nombre_a_buscar.lower():
             datos_usuario= copy.deepcopy(usuario)  
     return datos_usuario
+
 def cargar_nuevo_usuario_consola(datos_usuario,seleccion_de_usuario):
     """
     Solicita al usuario que ingrese los datos de un nuevo usuario a través de la consola y los almacena en el diccionario proporcionado.
@@ -74,6 +72,7 @@ def cargar_nuevo_usuario_consola(datos_usuario,seleccion_de_usuario):
     datos_usuario["profesion"] = input("Ingrese su profesion ")
     datos_usuario["participaciones"] = 0
     datos_usuario["ganancias"] = 0
+    
 def seleccion_usuario(lista_usuarios:list)-> dict:
     """
     Permite al usuario seleccionar un usuario de una lista por nombre. Si el usuario no existe, solicita crear uno nuevo.
