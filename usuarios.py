@@ -1,18 +1,18 @@
 import copy
 
-usuarios = [
-    {"nombre": "Juan", "edad": 30, "profesion": "Ingeniero", "participaciones": 3, "ganancias": 1200},
-    {"nombre": "Maria", "edad": 25, "profesion": "Disenadora", "participaciones": 2, "ganancias": 850},
-    {"nombre": "Luis", "edad": 40, "profesion": "Contador", "participaciones": 5, "ganancias": 2100},
-    {"nombre": "Ana", "edad": 35, "profesion": "Doctora", "participaciones": 6, "ganancias": 3400},
-    {"nombre": "Pedro", "edad": 28, "profesion": "Abogado", "participaciones": 1, "ganancias": 300},
-    {"nombre": "Lucia", "edad": 32, "profesion": "Arquitecta", "participaciones": 4, "ganancias": 1600},
-    {"nombre": "Carlos", "edad": 45, "profesion": "Profesor", "participaciones": 3, "ganancias": 1300},
-    {"nombre": "Sofia", "edad": 22, "profesion": "Estudiante", "participaciones": 1, "ganancias": 150},
-    {"nombre": "Diego", "edad": 38, "profesion": "Chef", "participaciones": 2, "ganancias": 750}
-]
+# usuarios = [
+#     {"nombre": "Juan", "edad": 30, "profesion": "Ingeniero", "participaciones": 3, "ganancias": 1200},
+#     {"nombre": "Maria", "edad": 25, "profesion": "Disenadora", "participaciones": 2, "ganancias": 850},
+#     {"nombre": "Luis", "edad": 40, "profesion": "Contador", "participaciones": 5, "ganancias": 2100},
+#     {"nombre": "Ana", "edad": 35, "profesion": "Doctora", "participaciones": 6, "ganancias": 3400},
+#     {"nombre": "Pedro", "edad": 28, "profesion": "Abogado", "participaciones": 1, "ganancias": 300},
+#     {"nombre": "Lucia", "edad": 32, "profesion": "Arquitecta", "participaciones": 4, "ganancias": 1600},
+#     {"nombre": "Carlos", "edad": 45, "profesion": "Profesor", "participaciones": 3, "ganancias": 1300},
+#     {"nombre": "Sofia", "edad": 22, "profesion": "Estudiante", "participaciones": 1, "ganancias": 150},
+#     {"nombre": "Diego", "edad": 38, "profesion": "Chef", "participaciones": 2, "ganancias": 750}
+# ]
 
-usuario_default = {"nombre": "default","edad": 18, "profesion": "Desocupado", "dificultad": 7, "participaciones": 0, "ganancias":0}
+# usuario_default = {"nombre": "default","edad": 18, "profesion": "Desocupado", "dificultad": 7, "participaciones": 0, "ganancias":0}
 
 def mostrar_datos_usuario(usuario:dict,mensaje:str):
     """
@@ -86,6 +86,6 @@ def seleccion_usuario(lista_usuarios:list)-> dict:
     datos_usuario = copiar_usuario_por_nombre(seleccion_de_usuario,lista_usuarios)
     if datos_usuario["nombre"] == None:
         cargar_nuevo_usuario_consola(datos_usuario,seleccion_de_usuario)
-        usuarios.append(datos_usuario)
+        lista_usuarios.append(datos_usuario)
     return datos_usuario
     
