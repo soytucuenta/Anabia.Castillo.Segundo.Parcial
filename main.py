@@ -2,19 +2,25 @@ from prints import *
 from preguntas import *
 from logica_preguntas import *
 from usuarios import *
-
-trampa = True #pasa por parametro a gameplay y despues a la de mostrar pregunta y dice el numero de opcion de la correcta
-seleccion_de_usuario = input("ingrese usuario ")
-datos_usuario = copiar_usuario_por_nombre(seleccion_de_usuario,usuarios)
-print(datos_usuario)
+# Trampa
+cheats = True #pasa por parametro a gameplay y despues a la de mostrar pregunta y dice el numero de opcion de la correcta
+#
+info_usuario = seleccion_usuario(usuarios)
 opcion_menu = int(input(menu))
 
-while opcion_menu != 3:
+while opcion_menu != 6:
     match opcion_menu:
         case 1:
-            gameplay(dinero=1000000,tiempo_limite=60)
+            gameplay(1000000, 60, cheats)
         case 2:
             print(instrucciones)
+        case 3:
+            mostrar_datos_usuario(info_usuario, "\nMostrando informacion del usuario actual: \n")
+        case 4:
+            for usuario in usuarios:
+                mostrar_datos_usuario(usuario, "\nMostrando informacion de todos los usuarios: \n")
+        case 5:#configuraciones
+            pass
 
     # volver a preguntar por el menu
     opcion_menu = int(input(menu))
