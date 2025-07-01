@@ -1,5 +1,6 @@
 from preguntas import *
 import time
+
 def mostrar_pregunta_y_opciones(pregunta_dict:dict,tiempo_limite:int,cheats:bool):
     """
     Muestra una pregunta y sus opciones por consola.
