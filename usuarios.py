@@ -1,5 +1,5 @@
 import copy
-
+from config import *
 # usuarios = [
 #     {"nombre": "Juan", "edad": 30, "profesion": "Ingeniero", "participaciones": 3, "ganancias": 1200},
 #     {"nombre": "Maria", "edad": 25, "profesion": "Disenadora", "participaciones": 2, "ganancias": 850},
@@ -47,7 +47,7 @@ def copiar_usuario_por_nombre(nombre_a_buscar:str, usuarios:list)-> dict:
         dict: Un diccionario con los datos del usuario encontrado. Si no se encuentra, retorna un diccionario con valores por defecto.
     """
 
-    datos_usuario = {"nombre": None, "edad": 18, "profesion": None, "participaciones": 0, "ganancias": 0}
+    datos_usuario = {"nombre": None, "edad": 18, "profesion": None, "participaciones": 0, "ganancias": 0, "dificultad": 'media'}
     for usuario in usuarios:
         if usuario["nombre"].lower() == nombre_a_buscar.lower():
             datos_usuario= copy.deepcopy(usuario)  
@@ -61,6 +61,7 @@ def cargar_nuevo_usuario_consola(datos_usuario,seleccion_de_usuario):
         seleccion_de_usuario (str): Nombre del usuario que se está registrando.
     El usuario debe ingresar su edad (debe ser mayor a 18 y menor o igual a 100) y su profesión. 
     Inicializa los campos 'participaciones' y 'ganancias' en 0.
+    Dificultad se establece por defecto en 'media'.
     """
 
     print(f"{seleccion_de_usuario} es nuevo, ingrese datos a continuacion ")
@@ -72,6 +73,7 @@ def cargar_nuevo_usuario_consola(datos_usuario,seleccion_de_usuario):
     datos_usuario["profesion"] = input("Ingrese su profesion ")
     datos_usuario["participaciones"] = 0
     datos_usuario["ganancias"] = 0
+    datos_usuario["dificultad"] = 'media'
     
 def seleccion_usuario(lista_usuarios:list)-> dict:
     """

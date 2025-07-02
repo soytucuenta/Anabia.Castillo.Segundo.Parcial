@@ -98,3 +98,5 @@ def gameplay(dinero:int,tiempo_limite:int,cheats:bool):
         print("\n¡Felicidades! ¡Ústed salvó al millón!\n")
     else:
         print(f"\nJuego terminado. Se va con ${dinero}.\n")
+
+    return dinero
