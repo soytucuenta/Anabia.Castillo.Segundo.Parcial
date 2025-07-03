@@ -32,6 +32,7 @@ while opcion_menu != 6:
 
     # volver a preguntar por el menu
     opcion_menu = int(input(menu))
+    
 print(info_usuario)
 print(usuarios)
 #guardado de datos de usuarios

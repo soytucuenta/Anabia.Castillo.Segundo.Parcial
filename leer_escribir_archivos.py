@@ -1,5 +1,6 @@
 import re
 from usuarios import *
+
 def escribir_csv_usuarios(lista_dic_usuarios, archivo):
     """
     Escribe una lista de diccionarios de usuarios en un archivo CSV.
@@ -55,8 +56,6 @@ def cargar_usuarios(path: str) ->list:
         dato ['dificultad'] = lectura[5]
         lista.append(dato)
     return lista
-
-
 
 
 #test

@@ -23,19 +23,26 @@ def operar_en_clave_especifica(lista_diccionarios: list,nombre: str, diccionario
     for elemento in lista_diccionarios:
         if elemento[nombre].lower() == diccionario_individual[nombre].lower():
             elemento[clave_cambiante] = diccionario_individual[clave_cambiante]
+            
 def incrementar_clave_especifica(diccionario_usuario:dict, clave:str):
     diccionario_usuario[clave] += 1
+
 def sumar_en_clave(diccionario:dict, clave:str, valor:int):
     diccionario[clave] += valor
+
 def restar_en_clave(diccionario:dict, clave:str, valor:int):
     diccionario[clave] -= valor
+
 def multiplicar_en_clave(diccionario:dict, clave:str, valor:int):
     diccionario[clave] *= valor
+
 def dividir_en_clave(diccionario:dict, clave:str, valor:int):
     if valor != 0:
         diccionario[clave] /= valor
+
 def reemplazar_en_clave(diccionario:dict, clave:str, valor):
     diccionario[clave] = valor
+
 def promediar_lista(lista:list):
     for i in range(len(lista)):
         acumulador += lista[i]
