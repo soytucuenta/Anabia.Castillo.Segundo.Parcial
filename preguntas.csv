@@ -17,12 +17,12 @@ id,pregunta,opciones,indice_correcto,dificultad,categoría
 16,¿En qué deporte olímpico se compite en la prueba de 'keirin'?,Atletismo|Ciclismo|Natación|Gimnasia,1,media,deportes
 17,¿Qué jugador de fútbol ha ganado más Balones de Oro (8)?,Lionel Messi|Cristiano Ronaldo|Pelé|Diego Maradona,0,media,deportes
 18,¿Cuál es el resultado de (7 × 4) + (15 ÷ 3)?,23|28|31|33,2,media,matemáticas
-19,Si un triángulo tiene dos ángulos de 45° cada uno, ¿qué tipo de triángulo es?,Equilátero|Isósceles|Escaleno|Rectángulo,1,media,matemáticas
-20,¿Qué número es divisible exactamente por 2, 3 y 5?,15|20|30|45,2,media,matemáticas
+19,""Si un triángulo tiene dos ángulos de 45° cada uno ¿qué tipo de triángulo es?"",Equilátero|Isósceles|Escaleno|Rectángulo,1,media,matemáticas
+20,¿Qué número es divisible exactamente por 2 - 3 - 5?,15|20|30|45,2,media,matemáticas
 21,¿Cuál es el área de un rectángulo que mide 8 cm de largo y 5 cm de ancho?,13 cm²|26 cm²|35 cm²|40 cm²,3,media,matemáticas
-22,Si x + 7 = 15, ¿cuál es el valor de x?,5|7|8|22,2,media,matemáticas
+22,Si x + 7 = 15 ¿cuál es el valor de x?,5|7|8|22,2,media,matemáticas
 23,¿Qué gas necesitamos para respirar?,Dióxido de carbono|Oxígeno|Nitrógeno|Helio,1,fácil,ciencia
-24,¿Qué filósofo dijo 'Pienso, luego existo'?,Friedrich Nietzsche|Platón|Aristóteles|René Descartes,3,fácil,historia
+24,¿Qué filósofo dijo 'Pienso luego existo'?,Friedrich Nietzsche|Platón|Aristóteles|René Descartes,3,fácil,historia
 25,¿En qué año se disolvió la Unión Soviética?,1975|1991|1989|1993,1,fácil,historia
 26,¿Qué fenómeno óptico crea el arcoíris?,Reflexión|Refracción|Difracción|Dispersión,3,media,ciencia
 27,¿Qué guerra comenzó en 1914?,Guerra Fría|Guerra de Vietnam|Primera Guerra Mundial|Guerra de Corea,2,media,historia
@@ -39,11 +39,11 @@ id,pregunta,opciones,indice_correcto,dificultad,categoría
 38,¿Qué famoso científico formuló las leyes del movimiento?,Albert Einstein|Isaac Newton|Galileo Galilei|Stephen Hawking,1,media,ciencia
 39,¿Qué película ganó el Óscar a Mejor Película en 2020?,Parásitos|1917|Joker|Nomadland,0,media,arte
 40,¿Qué lengua NO es de origen romance?,Francés|Rumano|Alemán|Español,2,media,historia
-41,¿En qué deporte olímpico los atletas compiten en las pruebas de jabalina, disco y martillo?,Natación|Atletismo|Gimnasia|Ciclismo,1,media,deportes
+41,¿En qué deporte olímpico los atletas compiten en las pruebas de jabalina disco y martillo?,Natación|Atletismo|Gimnasia|Ciclismo,1,media,deportes
 42,¿Qué órgano humano produce la insulina?,Hígado|Páncreas|Riñón|Estómago,1,media,ciencia
 43,¿Qué vitamina se obtiene principalmente de la luz solar?,Vitamina A|Vitamina C|Vitamina D|Vitamina K,2,media,ciencia
 44,¿Qué matemático del siglo XX resolvió el séptimo problema de Hilbert relacionado con números trascendentales?,Kurt Gödel|David Hilbert|Aleksandr Gelfond|Emmy Noether,2,difícil,matemáticas
-45,¿Cuál es el nombre del manuscrito medieval, escrito en un idioma indescifrable, que ha desconcertado a criptógrafos durante décadas?,Manuscrito de Voynich|Códice Gigas|Manuscrito de Beale|Libro de Kells,0,difícil,historia
+45,¿Cuál es el nombre del manuscrito medieval escrito en un idioma indescifrable que ha desconcertado a criptógrafos durante décadas?,Manuscrito de Voynich|Códice Gigas|Manuscrito de Beale|Libro de Kells,0,difícil,historia
 46,¿Qué elemento químico fue el primero en ser creado artificialmente?,Neptunio|Tecnecio|Prometio|Curio,1,difícil,ciencia
 47,¿Qué filósofo presocrático propuso que todo estaba compuesto por 'semillas' o 'nous' como principio organizador?,Parménides|Anaxágoras|Empédocles|Demócrito,1,difícil,historia
 48,¿Qué lengua extinta fue descifrada gracias a la piedra de Rosetta?,Cuneiforme sumerio|Akkadio|Egipcio jeroglífico|Lineal A,2,difícil,historia
