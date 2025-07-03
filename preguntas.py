@@ -1,4 +1,3 @@
-# HACER LÓGICA PARA ABRIR CSV Y CREAR LISTA DE DICCIONARIOS COMO ESTA ->
 preguntas = []
 
 with open ("preguntas.csv", "r") as archivo:

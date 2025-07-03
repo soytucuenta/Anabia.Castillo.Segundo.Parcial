@@ -1,18 +1,21 @@
 import copy
 from config import *
-# usuarios = [
-#     {"nombre": "Juan", "edad": 30, "profesion": "Ingeniero", "participaciones": 3, "ganancias": 1200},
-#     {"nombre": "Maria", "edad": 25, "profesion": "Disenadora", "participaciones": 2, "ganancias": 850},
-#     {"nombre": "Luis", "edad": 40, "profesion": "Contador", "participaciones": 5, "ganancias": 2100},
-#     {"nombre": "Ana", "edad": 35, "profesion": "Doctora", "participaciones": 6, "ganancias": 3400},
-#     {"nombre": "Pedro", "edad": 28, "profesion": "Abogado", "participaciones": 1, "ganancias": 300},
-#     {"nombre": "Lucia", "edad": 32, "profesion": "Arquitecta", "participaciones": 4, "ganancias": 1600},
-#     {"nombre": "Carlos", "edad": 45, "profesion": "Profesor", "participaciones": 3, "ganancias": 1300},
-#     {"nombre": "Sofia", "edad": 22, "profesion": "Estudiante", "participaciones": 1, "ganancias": 150},
-#     {"nombre": "Diego", "edad": 38, "profesion": "Chef", "participaciones": 2, "ganancias": 750}
-# ]
 
-# usuario_default = {"nombre": "default","edad": 18, "profesion": "Desocupado", "dificultad": 7, "participaciones": 0, "ganancias":0}
+usuarios = []
+
+with open ("usuarios.csv", "r") as archivo:
+    for linea in archivo:
+        registro = linea.strip().split(",")
+        if registro[0][0] != "i":
+            lista = {}
+            lista["id"] = int(registro[0])
+            lista["nombre"] = registro[1]
+            lista["edad"] = int(registro[2])
+            lista["profesion"] = registro[3]
+            lista["participaciones"] = int(registro[4])
+            lista["ganancias"] = int(registro[5])
+            lista["dificultad"] = registro[6]
+            usuarios.append(lista)
 
 def mostrar_datos_usuario(usuario:dict,mensaje:str):
     """
