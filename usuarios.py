@@ -3,7 +3,7 @@ from config import *
 
 usuarios = []
 
-with open ("usuarios.csv", "r") as archivo:
+with open ("csv/usuarios.csv", "r") as archivo:
     for linea in archivo:
         registro = linea.strip().split(",")
         if registro[0][0] != "i":

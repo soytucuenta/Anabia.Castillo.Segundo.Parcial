@@ -1,6 +1,6 @@
 preguntas = []
 
-with open ("preguntas.csv", "r") as archivo:
+with open ("csv/preguntas.csv", "r") as archivo:
     for linea in archivo:
         registro = linea.strip().split(",")
         if registro[0][0] != "i":
