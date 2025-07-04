@@ -50,3 +50,152 @@ id,pregunta,opciones,indice_correcto,dificultad,categoría
 49,¿Qué país ganó el primer Mundial de Fútbol en 1930?,Brasil|Italia|Uruguay|Argentina,2,difícil,deportes
 50,¿Qué atleta ostenta el récord olímpico de más medallas de oro (23) en natación?,Mark Spitz|Ian Thorpe|Michael Phelps|Ryan Lochte,2,difícil,deportes
 51,¿Qué líquido es conocido como 'el solvente universal'?,Aceite|Alcohol|Agua|Vinagre,2,media,ciencia
+52,¿Qué gas representa la mayor parte de la atmósfera terrestre?,Oxígeno,Nitrógeno,CO₂,Argón,1,media,ciencia
+53,¿Qué obra literaria comienza con la frase 'Llamadme Ismael'?,Ulises,Moby Dick,El viejo y el mar,La isla del tesoro,1,difícil,arte
+54,¿Qué país tiene más Patrimonios de la Humanidad según la UNESCO?,España,China,Italia,Francia,2,difícil,historia
+55,¿Cuál es el número primo más bajo?,1,2,3,0,1,fácil,ciencia
+56,¿Qué científico desarrolló la teoría del electromagnetismo?,Faraday,Newton,Einstein,Tesla,0,difícil,ciencia
+57,¿Cuál es la capital más alta del mundo?,Quito,La Paz,Lhasa,Bogotá,1,difícil,geografía
+58,¿Qué autor escribió 'Cien años de soledad'?,Pablo Neruda,Julio Cortázar,Gabriel García Márquez,Mario Vargas Llosa,2,media,arte
+59,¿Qué continente no tiene desiertos?,Europa,Oceanía,América,Todos tienen,0,difícil,geografía
+60,¿Qué proteína transporta el oxígeno en la sangre?,Mioglobina,Colágeno,Insulina,Hemoglobina,3,media,ciencia
+61,¿Quién pintó 'El jardín de las delicias'?,Van Eyck,El Bosco,Rubens,Brueghel,1,difícil,arte
+62,¿En qué país nació el filósofo Immanuel Kant?,Francia,Rusia,Alemania,Austria,2,difícil,historia
+63,¿Qué estructura celular produce energía?,Mitocondria,Ribosoma,Cloroplasto,Lisosoma,0,media,ciencia
+64,¿Qué guerra se considera la más sangrienta de la historia?,Primera Guerra Mundial,Guerra Civil China,Segunda Guerra Mundial,Guerra de los Treinta Años,2,difícil,historia
+65,¿Qué planeta tiene el día más largo?,Mercurio,Venus,Marte,Júpiter,1,difícil,ciencia
+66,¿Qué filósofo escribió 'El ser y el tiempo'?,Sartre,Heidegger,Nietzsche,Descartes,1,difícil,arte
+67,¿Qué país fue el primero en darle el voto a las mujeres?,EE.UU.,Nueva Zelanda,Finlandia,Suiza,1,difícil,historia
+68,¿Cuál es el metal más abundante en la corteza terrestre?,Hierro,Aluminio,Cobre,Oro,1,media,ciencia
+69,¿Qué escritor es autor de 'Ficciones'?,Borges,Benedetti,Sábato,Octavio Paz,0,media,arte
+70,¿Qué civilización construyó las líneas de Nazca?,Moche,Inca,Nazca,Paracas,2,difícil,historia
+71,¿Qué órgano del cuerpo humano se regenera completamente?,Corazón,Piel,Hígado,Pulmón,2,difícil,ciencia
+72,¿Cuál es el país más pequeño del mundo por superficie?,Mónaco,San Marino,Liechtenstein,El Vaticano,3,difícil,geografía
+73,¿Qué científico propuso la teoría heliocéntrica?,Galileo Galilei,Isaac Newton,Nicolás Copérnico,Johannes Kepler,2,media,ciencia
+74,¿En qué año comenzó la Segunda Guerra Mundial?,1914,1939,1945,1929,1,media,historia
+75,¿Qué instrumento mide la presión atmosférica?,Termómetro,Barómetro,Higrómetro,Anemómetro,1,media,ciencia
+76,¿Quién escribió 'Don Quijote de la Mancha'?,Miguel de Cervantes,Gabriel García Márquez,Lope de Vega,Federico García Lorca,0,fácil,arte
+77,¿Cuál es el océano más grande del mundo?,Atlántico,Índico,Ártico,Pacífico,3,fácil,geografía
+78,¿Qué país es conocido como la tierra del sol naciente?,China,Corea del Sur,India,Japón,3,fácil,historia
+79,¿Qué número romano representa el 50?,L,X,V,C,0,media,historia
+80,¿Cuál es el hueso más largo del cuerpo humano?,Fémur,Húmero,Tibia,Radio,0,media,ciencia
+81,¿Qué deporte utiliza una raqueta y un volante?,Tenis,Bádminton,Squash,Tenis de mesa,1,media,deportes
+82,¿Quién fue el primer hombre en el espacio?,Neil Armstrong,Yuri Gagarin,Buzz Aldrin,John Glenn,1,media,historia
+83,¿Qué país tiene la mayor población del mundo?,Estados Unidos,India,China,Rusia,2,media,geografía
+84,¿Cuál es la capital de Australia?,Sídney,Melbourne,Canberra,Brisbane,2,media,geografía
+85,¿Qué órgano filtra la sangre en el cuerpo humano?,Corazón,Pulmón,Riñón,Hígado,2,media,ciencia
+86,¿Quién compuso la Novena Sinfonía?,Mozart,Bach,Beethoven,Chopin,2,media,arte
+87,¿Qué planeta es el más cercano al Sol?,Venus,Marte,Saturno,Mercurio,3,fácil,ciencia
+88,¿En qué continente se encuentra el desierto del Sahara?,Asia,África,Oceanía,América,1,fácil,geografía
+89,¿Qué inventor es conocido por la bombilla eléctrica?,Nikola Tesla,Thomas Edison,Alexander Graham Bell,James Watt,1,media,ciencia
+90,¿Cuál es el idioma más hablado del mundo como lengua materna?,Inglés,Español,Chino mandarín,Árabe,2,media,historia
+91,¿Qué país es conocido por la Torre Eiffel?,Italia|Francia|España|Alemania,1,fácil,historia
+92,¿Cuál es el animal terrestre más rápido del mundo?,León|Tigre|Guepardo|Lobo,2,media,ciencia
+93,¿Qué científico desarrolló la teoría de la relatividad?,Isaac Newton|Albert Einstein|Stephen Hawking|Marie Curie,1,fácil,ciencia
+94,¿En qué continente se encuentra el río Amazonas?,África|Asia|América del Sur|Europa,2,fácil,geografía
+95,¿Quién escribió 'Romeo y Julieta'?,Miguel de Cervantes|William Shakespeare|Gabriel García Márquez|Dante Alighieri,1,fácil,arte
+96,¿Cuál es el metal líquido a temperatura ambiente?,Mercurio|Plomo|Oro|Hierro,0,media,ciencia
+97,¿Qué país organizó los Juegos Olímpicos de 2016?,China|Brasil|Reino Unido|Rusia,1,media,deportes
+98,¿Cuál es el satélite natural de la Tierra?,Marte|Venus|Luna|Júpiter,2,fácil,ciencia
+99,¿Qué instrumento se utiliza para observar estrellas?,Microscopio|Telescopio|Estetoscopio|Barómetro,1,media,ciencia
+100,¿En qué país se encuentra la Gran Muralla?,Japón|China|Corea del Sur|India,1,fácil,historia
+101,¿Qué país es famoso por la Torre de Pisa?,Italia|Francia|España|Grecia,0,fácil,historia
+102,¿Cuál es el animal más grande del mundo?,Elefante|Ballena azul|Jirafa|Rinoceronte,1,fácil,ciencia
+103,¿Qué instrumento tiene teclas blancas y negras?,Violín|Piano|Guitarra|Flauta,1,fácil,arte
+104,¿En qué continente está Egipto?,Asia|África|Europa|Oceanía,1,fácil,geografía
+105,¿Quién pintó 'La noche estrellada'?,Picasso|Van Gogh|Monet|Dalí,1,fácil,arte
+106,¿Cuál es el planeta más grande del sistema solar?,Marte|Júpiter|Saturno|Neptuno,1,fácil,ciencia
+107,¿Qué país es conocido por el tango?,Brasil|Argentina|Chile|Uruguay,1,fácil,arte
+108,¿Cuál es el océano que baña las costas de Perú?,Atlántico|Pacífico|Índico|Ártico,1,fácil,geografía
+109,¿Quién escribió 'La Odisea'?,Homero|Virgilio|Sófocles|Platón,0,media,arte
+110,¿Qué gas es esencial para la respiración humana?,Oxígeno|Nitrógeno|Helio|Hidrógeno,0,fácil,ciencia
+111,¿Cuál es la capital de Japón?,Pekín|Tokio|Seúl|Bangkok,1,fácil,geografía
+112,¿Qué deporte se juega con una pelota y un bate?,Fútbol|Béisbol|Baloncesto|Tenis,1,fácil,deportes
+113,¿Quién fue el primer presidente de Estados Unidos?,Abraham Lincoln|George Washington|Thomas Jefferson|John Adams,1,media,historia
+114,¿Cuál es el símbolo químico del oro?,Ag|Au|Fe|Pb,1,media,ciencia
+115,¿Qué país tiene forma de bota?,España|Italia|Portugal|Grecia,1,fácil,geografía
+116,¿Cuál es el río más caudaloso del mundo?,Nilo|Amazonas|Yangtsé|Danubio,1,media,ciencia
+117,¿Qué escritor argentino es famoso por 'El Aleph'?,Borges|Cortázar|Sabato|Bioy Casares,0,media,arte
+118,¿En qué país se encuentra la Torre Eiffel?,Italia|Francia|España|Alemania,1,fácil,historia
+119,¿Cuál es el animal nacional de Australia?,Canguro|Koala|Emú|Dingo,0,media,ciencia
+120,¿Qué deporte se practica en Wimbledon?,Tenis|Golf|Fútbol|Críquet,0,media,deportes
+121,¿Quién escribió 'Crimen y castigo'?,Tolstói|Dostoievski|Pushkin|Chejov,1,media,arte
+122,¿Cuál es la moneda oficial de Japón?,Yen|Won|Dólar|Euro,0,media,historia
+123,¿Qué país tiene la mayor extensión territorial?,Estados Unidos|China|Canadá|Rusia,3,media,geografía
+124,¿Cuál es el desierto más grande del mundo?,Sahara|Gobi|Antártida|Kalahari,2,difícil,geografía
+125,¿Qué científico descubrió la penicilina?,Pasteur|Fleming|Curie|Newton,1,media,ciencia
+126,¿En qué año llegó Cristóbal Colón a América?,1492|1500|1519|1485,0,media,historia
+127,¿Cuál es el idioma oficial de Brasil?,Español|Portugués|Francés|Inglés,1,fácil,historia
+128,¿Qué planeta es conocido por sus anillos?,Marte|Júpiter|Saturno|Urano,2,fácil,ciencia
+129,¿Quién compuso 'Las cuatro estaciones'?,Mozart|Vivaldi|Bach|Beethoven,1,media,arte
+130,¿Cuál es la capital de Canadá?,Toronto|Vancouver|Ottawa|Montreal,2,media,geografía
+131,¿Qué país es famoso por la Torre de Londres?,Francia|Italia|Reino Unido|Alemania,2,media,historia
+132,¿Cuál es el metal más ligero?,Hierro|Aluminio|Litio|Cobre,2,media,ciencia
+133,¿Qué escritor chileno ganó el Nobel de Literatura en 1945?,Gabriela Mistral|Pablo Neruda|Isabel Allende|Violeta Parra,0,media,arte
+134,¿En qué continente está el monte Kilimanjaro?,Asia|África|Europa|Oceanía,1,media,geografía
+135,¿Qué país tiene la mayor cantidad de islas?,Noruega|Suecia|Indonesia|Finlandia,2,difícil,geografía
+136,¿Quién fue el primer emperador romano?,Nerón|Augusto|Julio César|Trajano,1,media,historia
+137,¿Cuál es el órgano más grande del cuerpo humano?,Corazón|Piel|Hígado|Pulmón,1,media,ciencia
+138,¿Qué país es conocido por el Taj Mahal?,India|Pakistán|Nepal|Bangladesh,0,media,historia
+139,¿Cuál es el lago más grande del mundo?,Lago Superior|Lago Victoria|Mar Caspio|Lago Baikal,2,media,geografía
+140,¿Quién escribió 'El Principito'?,Saint-Exupéry|Verne|Hugo|Balzac,0,media,arte
+141,¿Qué país inventó el papel?,Egipto|China|Grecia|India,1,media,historia
+142,¿Cuál es el hueso más pequeño del cuerpo humano?,Martillo|Estribo|Yunque|Radio,1,difícil,ciencia
+143,¿Qué país es conocido por la samba?,Argentina|Brasil|Colombia|México,1,fácil,arte
+144,¿Cuál es la capital de Egipto?,El Cairo|Alejandría|Luxor|Giza,0,media,geografía
+145,¿Quién pintó 'El grito'?,Munch|Monet|Dalí|Picasso,0,media,arte
+146,¿Qué país tiene la mayor producción de café?,Colombia|Brasil|Etiopía|Vietnam,1,media,historia
+147,¿Cuál es el animal más rápido en el agua?,Delfín|Atún|Pez vela|Tiburón,2,difícil,ciencia
+148,¿Qué escritor español escribió 'La casa de Bernarda Alba'?,Lorca|Cervantes|Unamuno|Quevedo,0,media,arte
+149,¿En qué país se encuentra el Machu Picchu?,Chile|Perú|Bolivia|Ecuador,1,fácil,historia
+150,¿Cuál es el volcán más alto del mundo?,Etna|Kilimanjaro|Ojos del Salado|Fuji,2,difícil,geografía
+151,¿Qué científico propuso la teoría de la evolución?,Darwin|Lamarck|Wallace|Mendel,0,media,ciencia
+152,¿Cuál es el país más poblado de África?,Nigeria|Egipto|Sudáfrica|Etiopía,0,media,geografía
+153,¿Quién escribió 'Rayuela'?,Borges|Cortázar|Sabato|Bioy Casares,1,media,arte
+154,¿Qué país es famoso por el Big Ben?,Francia|Reino Unido|Italia|Alemania,1,media,historia
+155,¿Cuál es el continente más pequeño?,Oceanía|Europa|África|Antártida,0,media,geografía
+156,¿Qué órgano humano bombea la sangre?,Pulmón|Corazón|Hígado|Riñón,1,fácil,ciencia
+157,¿Quién fue el primer hombre en pisar la Luna?,Neil Armstrong|Buzz Aldrin|Yuri Gagarin|John Glenn,0,fácil,historia
+158,¿Cuál es el país más grande de Sudamérica?,Argentina|Brasil|Colombia|Perú,1,media,geografía
+159,¿Qué escritor ruso escribió 'Ana Karenina'?,Dostoievski|Tolstói|Pushkin|Chejov,1,media,arte
+160,¿Cuál es el desierto más seco del mundo?,Sahara|Atacama|Gobi|Kalahari,1,difícil,geografía
+161,¿Qué país es conocido por el sushi?,China|Japón|Corea|Vietnam,1,fácil,arte
+162,¿Cuál es el río más largo de Europa?,Danubio|Volga|Rin|Loira,1,media,geografía
+163,¿Quién pintó 'Las Meninas'?,Velázquez|Goya|Murillo|Zurbarán,0,media,arte
+164,¿Qué país tiene la mayor reserva de petróleo?,Arabia Saudita|Venezuela|Irak|Rusia,1,difícil,historia
+165,¿Cuál es el animal más venenoso del mundo?,Serpiente marina|Rana dardo|Medusa Irukandji|Araña bananera,2,difícil,ciencia
+166,¿Qué escritor colombiano ganó el Nobel de Literatura en 1982?,García Márquez|Vargas Llosa|Benedetti|Allende,0,media,arte
+167,¿Cuál es la capital de Turquía?,Estambul|Ankara|Esmirna|Antalya,1,media,geografía
+168,¿Qué país es famoso por la Torre CN?,Estados Unidos|Canadá|Australia|Reino Unido,1,media,historia
+169,¿Cuál es el animal nacional de China?,Dragón|Panda|Tigre|Grulla,1,media,ciencia
+170,¿Quién escribió 'Pedro Páramo'?,Rulfo|Fuentes|Paz|Revueltas,0,media,arte
+171,¿Cuál es el lago más profundo del mundo?,Baikal|Titicaca|Superior|Victoria,0,difícil,geografía
+172,¿Qué país es conocido por el Coliseo?,Grecia|Italia|Francia|España,1,fácil,historia
+173,¿Cuál es el órgano encargado de la digestión?,Estómago|Hígado|Riñón|Corazón,0,media,ciencia
+174,¿Quién fue el primer papa latinoamericano?,Juan Pablo II|Francisco|Benedicto XVI|Pío XII,1,media,historia
+175,¿Cuál es el país más pequeño de América?,Barbados|San Cristóbal y Nieves|Granada|Santa Lucía,1,difícil,geografía
+176,¿Qué escritor francés escribió 'Los Miserables'?,Balzac|Hugo|Zola|Flaubert,1,media,arte
+177,¿Cuál es el animal más grande de la tierra?,Elefante|Ballena azul|Rinoceronte|Hipopótamo,1,fácil,ciencia
+178,¿Qué país es famoso por el Kremlin?,Rusia|Ucrania|Polonia|Bielorrusia,0,media,historia
+179,¿Cuál es la capital de Marruecos?,Casablanca|Rabat|Marrakech|Fez,1,media,geografía
+180,¿Qué científico descubrió la gravedad?,Newton|Einstein|Galileo|Copérnico,0,fácil,ciencia
+181,¿Quién escribió 'La metamorfosis'?,Kafka|Goethe|Hesse|Mann,0,media,arte
+182,¿Cuál es el país más grande de Oceanía?,Australia|Nueva Zelanda|Fiyi|Papúa Nueva Guinea,0,media,geografía
+183,¿Qué país es conocido por la Torre de Hércules?,España|Portugal|Francia|Italia,0,difícil,historia
+184,¿Cuál es el animal nacional de Estados Unidos?,Águila calva|Bisonte|Oso|Puma,0,media,ciencia
+185,¿Quién pintó 'La persistencia de la memoria'?,Dalí|Picasso|Miró|Goya,0,media,arte
+186,¿Cuál es la capital de Suecia?,Estocolmo|Oslo|Copenhague|Helsinki,0,media,geografía
+187,¿Qué país es famoso por el Canal de Suez?,Egipto|Sudán|Libia|Israel,0,media,historia
+188,¿Cuál es el animal más longevo?,Tortuga|Elefante|Ballena|Loro,0,media,ciencia
+189,¿Quién escribió 'El amor en los tiempos del cólera'?,García Márquez|Allende|Vargas Llosa|Benedetti,0,media,arte
+190,¿Cuál es el país más grande de África?,Sudán|Argelia|Nigeria|Egipto,1,media,geografía
+191,¿Qué país es conocido por el Partenón?,Italia|Grecia|Turquía|Egipto,1,media,historia
+192,¿Cuál es el animal nacional de México?,Águila real|Jaguar|Lobo|Serpiente,0,media,ciencia
+193,¿Quién pintó 'La última cena'?,Da Vinci|Miguel Ángel|Rafael|Botticelli,0,media,arte
+194,¿Cuál es la capital de Noruega?,Oslo|Estocolmo|Copenhague|Helsinki,0,media,geografía
+195,¿Qué país es famoso por el Taj Mahal?,India|Pakistán|Nepal|Bangladesh,0,media,historia
+196,¿Cuál es el animal más alto del mundo?,Jirafa|Elefante|Camello|Rinoceronte,0,media,ciencia
+197,¿Quién escribió 'Don Juan Tenorio'?,Zorrilla|Lorca|Cervantes|Quevedo,0,media,arte
+198,¿Cuál es el país más grande de Asia?,China|India|Rusia|Kazajistán,2,media,geografía
+199,¿Qué país es conocido por el Cristo Redentor?,Argentina|Brasil|Chile|Perú,1,media,historia
+200,¿Cuál es el animal nacional de Australia?,Canguro|Koala|Emú|Dingo,0,media,ciencia
