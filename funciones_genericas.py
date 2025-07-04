@@ -1,4 +1,7 @@
-def operar_en_clave_especifica(lista_diccionarios: list,nombre: str, diccionario_individual: dict, operacion, clave_cambiante: str, dato_entrante: int | float | str | list = None):
+def operar_en_clave_especifica(lista_diccionarios: list,
+    nombre: str, diccionario_individual: dict,
+    operacion, clave_cambiante: str, 
+    dato_entrante: int | float | str | list = None):
     """
     Realiza una operación sobre una clave específica de un diccionario dado y actualiza la clave correspondiente en una lista de diccionarios.
 

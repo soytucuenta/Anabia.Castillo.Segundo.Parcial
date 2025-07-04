@@ -1,6 +1,52 @@
 import re
 from usuarios import *
 
+def cargar_usuarios(path: str) ->list:
+    """ Devuelve la lista de usuarios.
+    Args:
+        path (str): Ruta al archivo csv.
+    Returns:
+        list: Lista con usuarios como diccionarios.
+    """
+    usuarios = []
+    with open (path, "r") as archivo:
+        for linea in archivo:
+            registro = linea.strip().split(",")
+            if registro[0][0] != "i":
+                lista = {}
+                lista["id"] = int(registro[0])
+                lista["nombre"] = registro[1]
+                lista["edad"] = int(registro[2])
+                lista["profesion"] = registro[3]
+                lista["participaciones"] = int(registro[4])
+                lista["ganancias"] = int(registro[5])
+                lista["dificultad"] = registro[6]
+                usuarios.append(lista)
+    return usuarios
+
+def cargar_preguntas(path: str) ->list:
+    """ Devuelve la lista de preguntas.
+    Args:
+        path (str): Ruta al archivo csv.
+    Returns:
+        list: Lista con las preguntas como diccionarios.
+    """
+    preguntas = []
+    with open (path, "r") as archivo:
+        for linea in archivo:
+            registro = linea.strip().split(",")
+            if registro[0][0] != "i":
+                lista = {}
+                lista["id"] = int(registro[0])
+                lista["pregunta"] = registro[1]
+                lista["opciones"] = registro[2].split("|")
+                lista["correcta"] = int(registro[3])
+                lista["dificultad"] = registro[4]
+                lista["categoría"] = registro[5]
+                preguntas.append(lista)
+    return preguntas
+
+
 def escribir_csv_usuarios(lista_dic_usuarios, archivo):
     """
     Escribe una lista de diccionarios de usuarios en un archivo CSV.
@@ -24,42 +70,3 @@ def escribir_csv_usuarios(lista_dic_usuarios, archivo):
                                 i['ganancias'],
                                 i['dificultad'])
             archivo.write(f'{mensaje}\n')
-
-
-def cargar_usuarios(path: str) ->list:
-    """
-    Carga una lista de usuarios desde un archivo de texto.
-    El archivo debe tener líneas con los siguientes campos separados por comas:
-    nombre,edad,profesion,participaciones,ganancias
-    Args:
-        path (str): Ruta al archivo de texto que contiene los datos de los usuarios.
-    Returns:
-        list: Una lista de diccionarios, cada uno representando un usuario con las claves:
-            - 'nombre' (str)
-            - 'edad' (str)
-            - 'profesion' (str)
-            - 'participaciones' (int)
-            - 'ganancias' (int)
-    """
-
-    lista =[]
-    archivo = open(path, 'r', encoding ='UTF8')
-    #archivo.readline()#lectura fantasma para saltar linea y leer el edad int bien
-    for linea in archivo:
-        lectura = re.split(',|\n', linea)
-        dato = { }
-        dato ['nombre'] = lectura[0]
-        dato ['edad'] = lectura[1]
-        dato ['profesion'] = lectura[2]
-        dato ['participaciones'] = int(lectura[3])
-        dato ['ganancias'] = int(lectura[4])
-        dato ['dificultad'] = lectura[5]
-        lista.append(dato)
-    return lista
-
-
-#test
-#escribir_csv_usuarios(usuarios, 'usuarios.csv')
-#lista_usuarios = cargar_usuarios('usuarios.csv')
-#for usuario in lista_usuarios:
-#    mostrar_datos_usuario(usuario, "\nMostrando informacion de los usuarios cargados desde el CSV: \n")

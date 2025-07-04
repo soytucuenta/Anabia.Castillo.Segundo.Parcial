@@ -2,8 +2,8 @@
     "nombre": "Salve al millón",
     "autores": ["Brandon Castillo", "Fransisco Anabia"],
     "tiempo": {
-        "facil" : "40",
-        "medio" : "30",
+        "facil" : "30",
+        "medio" : "20",
         "dificl": "10"
     },
     "categorías": ["matemática", "historia", "ciencia", "arte", "deportes"],

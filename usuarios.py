@@ -1,22 +1,6 @@
 import copy
 from config import *
 
-usuarios = []
-
-with open ("csv/usuarios.csv", "r") as archivo:
-    for linea in archivo:
-        registro = linea.strip().split(",")
-        if registro[0][0] != "i":
-            lista = {}
-            lista["id"] = int(registro[0])
-            lista["nombre"] = registro[1]
-            lista["edad"] = int(registro[2])
-            lista["profesion"] = registro[3]
-            lista["participaciones"] = int(registro[4])
-            lista["ganancias"] = int(registro[5])
-            lista["dificultad"] = registro[6]
-            usuarios.append(lista)
-
 def mostrar_datos_usuario(usuario:dict,mensaje:str):
     """
     Muestra los datos de un diccionario de usuario con un mensaje personalizado.

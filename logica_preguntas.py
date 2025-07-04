@@ -1,7 +1,6 @@
-from preguntas import *
 import time
 
-def mostrar_pregunta_y_opciones(pregunta_dict:dict,tiempo_limite:int,cheats:bool):
+def mostrar_pregunta_y_opciones(pregunta_dict:dict,tiempo_limite:int):
     """
     Muestra una pregunta y sus opciones por consola.
     Args:
@@ -11,8 +10,7 @@ def mostrar_pregunta_y_opciones(pregunta_dict:dict,tiempo_limite:int,cheats:bool
     input("Ingrese cualquier cosa para continuar: ")
     print(pregunta_dict["pregunta"])
     print("")
-    if cheats == True:
-        print(f"APAGA LOS HACKS!!\n¡La respuesta correcta es la opción número {pregunta_dict['correcta'] + 1}!")
+   
     opciones = pregunta_dict["opciones"]
     for i in range(len(opciones)):
         print(f"{i+1}. {opciones[i]}")
@@ -66,7 +64,7 @@ def procesar_respuesta(pregunta_dict:dict, dinero:int, apuestas:list) -> int:
 
     return dinero
 
-def gameplay(dinero:int,tiempo_limite:int,cheats:bool):
+def gameplay(dinero:int,tiempo_limite:int):
     """
     Gameplay general del juego Salve al millón.
     """
