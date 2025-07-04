@@ -1,14 +1,15 @@
 import re
 from usuarios import *
+#usar try except para manejar errores de lectura/escritura de archivos
 
-def escribir_csv_usuarios(lista_dic_usuarios, archivo):
+def escribir_csv_usuarios(lista_dic_usuarios, archivo='csv/usuarios.csv'):
     """
     Escribe una lista de diccionarios de usuarios en un archivo CSV.
-    Cada diccionario de la lista debe contener las claves: 'nombre', 'edad', 'profesion', 'participaciones' y 'ganancias'.
-    Los valores de cada usuario se escribirán en una línea del archivo, separados por comas.
+    Cada diccionario debe contener las siguientes claves: 'nombre', 'edad', 'profesion', 'participaciones', 'ganancias' y 'dificultad'.
+    La función escribe los datos de cada usuario como una línea separada por comas en el archivo CSV especificado.
     Args:
-        lista_dic_usuarios (list): Lista de diccionarios con los datos de los usuarios.
-        archivo (str): Ruta del archivo donde se escribirá el CSV.
+        lista_dic_usuarios (list of dict): Lista de diccionarios de usuarios a escribir en el archivo CSV.
+        archivo (str, opcional): Ruta al archivo CSV. Por defecto es 'csv/usuarios.csv'.
     Returns:
         None
     """
@@ -26,7 +27,7 @@ def escribir_csv_usuarios(lista_dic_usuarios, archivo):
             archivo.write(f'{mensaje}\n')
 
 
-def cargar_usuarios(path: str) ->list:
+def cargar_usuarios(path:str="csv/usuarios.csv") ->list:
     """
     Carga una lista de usuarios desde un archivo de texto.
     El archivo debe tener líneas con los siguientes campos separados por comas:
@@ -44,22 +45,23 @@ def cargar_usuarios(path: str) ->list:
 
     lista =[]
     archivo = open(path, 'r', encoding ='UTF8')
-    #archivo.readline()#lectura fantasma para saltar linea y leer el edad int bien
+    archivo.readline()#lectura fantasma para saltar linea y leer el edad int bien
     for linea in archivo:
         lectura = re.split(',|\n', linea)
         dato = { }
-        dato ['nombre'] = lectura[0]
-        dato ['edad'] = lectura[1]
-        dato ['profesion'] = lectura[2]
-        dato ['participaciones'] = int(lectura[3])
-        dato ['ganancias'] = int(lectura[4])
-        dato ['dificultad'] = lectura[5]
+        dato ['id'] = int(lectura[0])
+        dato ['nombre'] = lectura[1]
+        dato ['edad'] = lectura[2]
+        dato ['profesion'] = lectura[3]
+        dato ['participaciones'] = int(lectura[4])
+        dato ['ganancias'] = int(lectura[5])
+        dato ['dificultad'] = lectura[6]
         lista.append(dato)
     return lista
 
 
 #test
 #escribir_csv_usuarios(usuarios, 'usuarios.csv')
-#lista_usuarios = cargar_usuarios('usuarios.csv')
-#for usuario in lista_usuarios:
-#    mostrar_datos_usuario(usuario, "\nMostrando informacion de los usuarios cargados desde el CSV: \n")
+lista_usuarios = cargar_usuarios()
+for usuario in lista_usuarios:
+    mostrar_datos_usuario(usuario, "\nMostrando informacion de los usuarios cargados desde el CSV: \n")

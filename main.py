@@ -4,13 +4,13 @@ from logica_preguntas import *
 from usuarios import *
 from leer_escribir_archivos import *
 from funciones_genericas import *
-
+# meter tuplas o sets
 # Trampa
 cheats = True #pasa por parametro a gameplay y despues a la de mostrar pregunta y dice el numero de opcion de la correcta
 #
 #inicializacion de datos
-# usuarios = cargar_usuarios('usuarios.csv') #carga los usuarios desde el CSV
-# info_usuario = seleccion_usuario(usuarios)
+usuarios = cargar_usuarios() #carga los usuarios desde el CSV
+info_usuario = seleccion_usuario(usuarios)
 opcion_menu = int(input(menu))
 
 while opcion_menu != 6:
@@ -37,7 +37,7 @@ while opcion_menu != 6:
 print(info_usuario)
 print(usuarios)
 #guardado de datos de usuarios
-escribir_csv_usuarios(usuarios, 'usuarios.csv')
+escribir_csv_usuarios(usuarios)
 print("guardando puntajes... \n")
 
 
