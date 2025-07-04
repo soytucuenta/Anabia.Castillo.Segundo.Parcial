@@ -74,9 +74,7 @@ def mezclar_lista_diccionarios_cortando(lista:list, cantidad:int):
     
     return mezclada[:cantidad]
 
-preguntas_leidas = cargar_preguntas("csv/preguntas.csv")
+#preguntas_leidas = cargar_preguntas("csv/preguntas.csv")
 #preguntas = obtener_preguntas_filtrando(preguntas_leidas, 5, dificultad='media', categoria='ciencia')
 #print(obtener_preguntas_filtrando(preguntas, 2, dificultad='media', categoria='ciencia'))
 
-for pregunta in preguntas_leidas:
-    print(f"ID: {pregunta['id']}, Pregunta: {pregunta['pregunta']}, Opciones: {pregunta['opciones']}, Correcta: {pregunta['correcta']}, Dificultad: {pregunta['dificultad']}, Categoría: {pregunta['categoría']}")

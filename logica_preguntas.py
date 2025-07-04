@@ -1,6 +1,24 @@
 
 import time
 
+def limitar_tiempo(dificultad:str) -> int:
+    """
+    Limita el tiempo de respuesta según la dificultad.
+    Args:
+        dificultad (str): Dificultad del juego ('facil', 'media', 'dificil').
+    Returns:
+        int: Tiempo límite en segundos.
+    """
+    if dificultad == 'facil':
+        tiempo = 90
+    elif dificultad == 'media':
+        tiempo = 60
+    elif dificultad == 'dificil':
+        tiempo = 30
+    else:
+        tiempo = 60
+    return tiempo
+
 def mostrar_pregunta_y_opciones(pregunta_dict:dict,tiempo_limite:int,cheats:bool):
     """
     Muestra una pregunta y sus opciones por consola.
