@@ -22,3 +22,30 @@ instrucciones = (
 
     "Creado por Fransico Anabia y Brandon Castillo. 2025.\n"
 )
+
+mensaje_dificultad = (
+    "\n### Seleccione la dificultad del juego ###\n\n"
+    "1. Fácil\n"
+    "2. Media\n"
+    "3. Difícil\n"
+    "4. Volver al menú principal\n\n"
+    "Ingrese una opción: "
+)
+mensaje_configuraciones = (
+    "\n### Configuraciones ###\n\n"
+    "1. Cambiar Dificultad\n"
+    "2. Cambiar Categoría\n"
+    "3. Volver al menú principal\n\n"
+    "Ingrese una opción: "
+)
+mensaje_categoria = (
+    "\n### Seleccione la categoría del juego ###\n\n"
+    "1. Ciencia\n"
+    "2. Arte\n"
+    "3. Historia\n"
+    "4. Matematicas\n"
+    "5. Deportes\n"
+    "6. Geografia\n"
+    "7. Volver al menú principal\n\n"
+    "Ingrese una opción: "
+)

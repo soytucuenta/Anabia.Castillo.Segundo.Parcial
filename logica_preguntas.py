@@ -1,4 +1,4 @@
-from preguntas import *
+
 import time
 
 def mostrar_pregunta_y_opciones(pregunta_dict:dict,tiempo_limite:int,cheats:bool):
@@ -66,7 +66,7 @@ def procesar_respuesta(pregunta_dict:dict, dinero:int, apuestas:list) -> int:
 
     return dinero
 
-def gameplay(dinero:int,tiempo_limite:int,cheats:bool):
+def gameplay(dinero:int,tiempo_limite:int,cheats:bool,preguntas:list):
     """
     Gameplay general del juego Salve al millón.
     """
@@ -90,7 +90,7 @@ def gameplay(dinero:int,tiempo_limite:int,cheats:bool):
         # avanza de nivel
         nivel += 1
         
-        if dinero <= 0:
+        if dinero <= 0: #Aca el minijuego si te quedas sin dinero?
             print("\n¡Te has quedado sin dinero! Fin del juego.")
             break
 
