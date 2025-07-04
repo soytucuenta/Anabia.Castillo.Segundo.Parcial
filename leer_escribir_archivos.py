@@ -62,6 +62,6 @@ def cargar_usuarios(path:str="csv/usuarios.csv") ->list:
 
 #test
 #escribir_csv_usuarios(usuarios, 'usuarios.csv')
-lista_usuarios = cargar_usuarios()
-for usuario in lista_usuarios:
-    mostrar_datos_usuario(usuario, "\nMostrando informacion de los usuarios cargados desde el CSV: \n")
+# lista_usuarios = cargar_usuarios()
+# for usuario in lista_usuarios:
+#     mostrar_datos_usuario(usuario, "\nMostrando informacion de los usuarios cargados desde el CSV: \n")

@@ -16,7 +16,7 @@ id,pregunta,opciones,indice_correcto,dificultad,categoría
 15,¿Qué país ganó el primer Campeonato Mundial de Baloncesto FIBA en 1950?,Estados Unidos|Argentina|Unión Soviética|Brasil,1,media,deportes
 16,¿En qué deporte olímpico se compite en la prueba de 'keirin'?,Atletismo|Ciclismo|Natación|Gimnasia,1,media,deportes
 17,¿Qué jugador de fútbol ha ganado más Balones de Oro (8)?,Lionel Messi|Cristiano Ronaldo|Pelé|Diego Maradona,0,media,deportes
-18,¿Cuál es el resultado de (7 × 4) + (15 ÷ 3)?,23|28|31|33,2,media,matemáticas
+18,¿Cuál es el resultado de (7 * 4) + (15 ÷ 3)?,23|28|31|33,2,media,matemáticas
 19,""Si un triángulo tiene dos ángulos de 45° cada uno ¿qué tipo de triángulo es?"",Equilátero|Isósceles|Escaleno|Rectángulo,1,media,matemáticas
 20,¿Qué número es divisible exactamente por 2 - 3 - 5?,15|20|30|45,2,media,matemáticas
 21,¿Cuál es el área de un rectángulo que mide 8 cm de largo y 5 cm de ancho?,13 cm²|26 cm²|35 cm²|40 cm²,3,media,matemáticas
@@ -50,45 +50,45 @@ id,pregunta,opciones,indice_correcto,dificultad,categoría
 49,¿Qué país ganó el primer Mundial de Fútbol en 1930?,Brasil|Italia|Uruguay|Argentina,2,difícil,deportes
 50,¿Qué atleta ostenta el récord olímpico de más medallas de oro (23) en natación?,Mark Spitz|Ian Thorpe|Michael Phelps|Ryan Lochte,2,difícil,deportes
 51,¿Qué líquido es conocido como 'el solvente universal'?,Aceite|Alcohol|Agua|Vinagre,2,media,ciencia
-52,¿Qué gas representa la mayor parte de la atmósfera terrestre?,Oxígeno,Nitrógeno,CO₂,Argón,1,media,ciencia
-53,¿Qué obra literaria comienza con la frase 'Llamadme Ismael'?,Ulises,Moby Dick,El viejo y el mar,La isla del tesoro,1,difícil,arte
-54,¿Qué país tiene más Patrimonios de la Humanidad según la UNESCO?,España,China,Italia,Francia,2,difícil,historia
-55,¿Cuál es el número primo más bajo?,1,2,3,0,1,fácil,ciencia
-56,¿Qué científico desarrolló la teoría del electromagnetismo?,Faraday,Newton,Einstein,Tesla,0,difícil,ciencia
-57,¿Cuál es la capital más alta del mundo?,Quito,La Paz,Lhasa,Bogotá,1,difícil,geografía
-58,¿Qué autor escribió 'Cien años de soledad'?,Pablo Neruda,Julio Cortázar,Gabriel García Márquez,Mario Vargas Llosa,2,media,arte
-59,¿Qué continente no tiene desiertos?,Europa,Oceanía,América,Todos tienen,0,difícil,geografía
-60,¿Qué proteína transporta el oxígeno en la sangre?,Mioglobina,Colágeno,Insulina,Hemoglobina,3,media,ciencia
-61,¿Quién pintó 'El jardín de las delicias'?,Van Eyck,El Bosco,Rubens,Brueghel,1,difícil,arte
-62,¿En qué país nació el filósofo Immanuel Kant?,Francia,Rusia,Alemania,Austria,2,difícil,historia
-63,¿Qué estructura celular produce energía?,Mitocondria,Ribosoma,Cloroplasto,Lisosoma,0,media,ciencia
-64,¿Qué guerra se considera la más sangrienta de la historia?,Primera Guerra Mundial,Guerra Civil China,Segunda Guerra Mundial,Guerra de los Treinta Años,2,difícil,historia
-65,¿Qué planeta tiene el día más largo?,Mercurio,Venus,Marte,Júpiter,1,difícil,ciencia
-66,¿Qué filósofo escribió 'El ser y el tiempo'?,Sartre,Heidegger,Nietzsche,Descartes,1,difícil,arte
-67,¿Qué país fue el primero en darle el voto a las mujeres?,EE.UU.,Nueva Zelanda,Finlandia,Suiza,1,difícil,historia
-68,¿Cuál es el metal más abundante en la corteza terrestre?,Hierro,Aluminio,Cobre,Oro,1,media,ciencia
-69,¿Qué escritor es autor de 'Ficciones'?,Borges,Benedetti,Sábato,Octavio Paz,0,media,arte
-70,¿Qué civilización construyó las líneas de Nazca?,Moche,Inca,Nazca,Paracas,2,difícil,historia
-71,¿Qué órgano del cuerpo humano se regenera completamente?,Corazón,Piel,Hígado,Pulmón,2,difícil,ciencia
-72,¿Cuál es el país más pequeño del mundo por superficie?,Mónaco,San Marino,Liechtenstein,El Vaticano,3,difícil,geografía
-73,¿Qué científico propuso la teoría heliocéntrica?,Galileo Galilei,Isaac Newton,Nicolás Copérnico,Johannes Kepler,2,media,ciencia
-74,¿En qué año comenzó la Segunda Guerra Mundial?,1914,1939,1945,1929,1,media,historia
-75,¿Qué instrumento mide la presión atmosférica?,Termómetro,Barómetro,Higrómetro,Anemómetro,1,media,ciencia
-76,¿Quién escribió 'Don Quijote de la Mancha'?,Miguel de Cervantes,Gabriel García Márquez,Lope de Vega,Federico García Lorca,0,fácil,arte
-77,¿Cuál es el océano más grande del mundo?,Atlántico,Índico,Ártico,Pacífico,3,fácil,geografía
-78,¿Qué país es conocido como la tierra del sol naciente?,China,Corea del Sur,India,Japón,3,fácil,historia
-79,¿Qué número romano representa el 50?,L,X,V,C,0,media,historia
-80,¿Cuál es el hueso más largo del cuerpo humano?,Fémur,Húmero,Tibia,Radio,0,media,ciencia
-81,¿Qué deporte utiliza una raqueta y un volante?,Tenis,Bádminton,Squash,Tenis de mesa,1,media,deportes
-82,¿Quién fue el primer hombre en el espacio?,Neil Armstrong,Yuri Gagarin,Buzz Aldrin,John Glenn,1,media,historia
-83,¿Qué país tiene la mayor población del mundo?,Estados Unidos,India,China,Rusia,2,media,geografía
-84,¿Cuál es la capital de Australia?,Sídney,Melbourne,Canberra,Brisbane,2,media,geografía
-85,¿Qué órgano filtra la sangre en el cuerpo humano?,Corazón,Pulmón,Riñón,Hígado,2,media,ciencia
-86,¿Quién compuso la Novena Sinfonía?,Mozart,Bach,Beethoven,Chopin,2,media,arte
-87,¿Qué planeta es el más cercano al Sol?,Venus,Marte,Saturno,Mercurio,3,fácil,ciencia
-88,¿En qué continente se encuentra el desierto del Sahara?,Asia,África,Oceanía,América,1,fácil,geografía
-89,¿Qué inventor es conocido por la bombilla eléctrica?,Nikola Tesla,Thomas Edison,Alexander Graham Bell,James Watt,1,media,ciencia
-90,¿Cuál es el idioma más hablado del mundo como lengua materna?,Inglés,Español,Chino mandarín,Árabe,2,media,historia
+52,¿Qué gas representa la mayor parte de la atmósfera terrestre?,Oxígeno|Nitrógeno|CO₂|Argón,1,media,ciencia
+53,¿Qué obra literaria comienza con la frase 'Llamadme Ismael'?,Ulises|Moby Dick|El viejo y el mar|La isla del tesoro,1,difícil,arte
+54,¿Qué país tiene más Patrimonios de la Humanidad según la UNESCO?,España|China|Italia|Francia,2,difícil,historia
+55,¿Cuál es el número primo más bajo?,1|2|3|0,1,fácil,ciencia
+56,¿Qué científico desarrolló la teoría del electromagnetismo?,Faraday|Newton|Einstein|Tesla,0,difícil,ciencia
+57,¿Cuál es la capital más alta del mundo?,Quito|La Paz|Lhasa|Bogotá,1,difícil,geografía
+58,¿Qué autor escribió 'Cien años de soledad'?,Pablo Neruda|Julio Cortázar|Gabriel García Márquez|Mario Vargas Llosa,2,media,arte
+59,¿Qué continente no tiene desiertos?,Europa|Oceanía|América|Todos tienen,0,difícil,geografía
+60,¿Qué proteína transporta el oxígeno en la sangre?,Mioglobina|Colágeno|Insulina|Hemoglobina,3,media,ciencia
+61,¿Quién pintó 'El jardín de las delicias'?,Van Eyck|El Bosco|Rubens|Brueghel,1,difícil,arte
+62,¿En qué país nació el filósofo Immanuel Kant?,Francia|Rusia|Alemania|Austria,2,difícil,historia
+63,¿Qué estructura celular produce energía?,Mitocondria|Ribosoma|Cloroplasto|Lisosoma,0,media,ciencia
+64,¿Qué guerra se considera la más sangrienta de la historia?,Primera Guerra Mundial|Guerra Civil China|Segunda Guerra Mundial|Guerra de los Treinta Años,2,difícil,historia
+65,¿Qué planeta tiene el día más largo?,Mercurio|Venus|Marte|Júpiter,1,difícil,ciencia
+66,¿Qué filósofo escribió 'El ser y el tiempo'?,Sartre|Heidegger|Nietzsche|Descartes,1,difícil,arte
+67,¿Qué país fue el primero en darle el voto a las mujeres?,EE.UU.|Nueva Zelanda|Finlandia|Suiza,1,difícil,historia
+68,¿Cuál es el metal más abundante en la corteza terrestre?,Hierro|Aluminio|Cobre|Oro,1,media,ciencia
+69,¿Qué escritor es autor de 'Ficciones'?,Borges|Benedetti|Sábato|Octavio Paz,0,media,arte
+70,¿Qué civilización construyó las líneas de Nazca?,Moche|Inca|Nazca|Paracas,2,difícil,historia
+71,¿Qué órgano del cuerpo humano se regenera completamente?,Corazón|Piel|Hígado|Pulmón,2,difícil,ciencia
+72,¿Cuál es el país más pequeño del mundo por superficie?,Mónaco|San Marino|Liechtenstein|El Vaticano,3,difícil,geografía
+73,¿Qué científico propuso la teoría heliocéntrica?,Galileo Galilei|Isaac Newton|Nicolás Copérnico|Johannes Kepler,2,media,ciencia
+74,¿En qué año comenzó la Segunda Guerra Mundial?,1914|1939|1945|1929,1,media,historia
+75,¿Qué instrumento mide la presión atmosférica?,Termómetro|Barómetro|Higrómetro|Anemómetro,1,media,ciencia
+76,¿Quién escribió 'Don Quijote de la Mancha'?,Miguel de Cervantes|Gabriel García Márquez|Lope de Vega|Federico García Lorca,0,fácil,arte
+77,¿Cuál es el océano más grande del mundo?,Atlántico|Índico|Ártico|Pacífico,3,fácil,geografía
+78,¿Qué país es conocido como la tierra del sol naciente?,China|Corea del Sur|India|Japón,3,fácil,historia
+79,¿Qué número romano representa el 50?,L|X|V|C,0,media,historia
+80,¿Cuál es el hueso más largo del cuerpo humano?,Fémur|Húmero|Tibia|Radio,0,media,ciencia
+81,¿Qué deporte utiliza una raqueta y un volante?,Tenis|Bádminton|Squash|Tenis de mesa,1,media,deportes
+82,¿Quién fue el primer hombre en el espacio?,Neil Armstrong|Yuri Gagarin|Buzz Aldrin|John Glenn,1,media,historia
+83,¿Qué país tiene la mayor población del mundo?,Estados Unidos|India|China|Rusia,2,media,geografía
+84,¿Cuál es la capital de Australia?,Sídney|Melbourne|Canberra|Brisbane,2,media,geografía
+85,¿Qué órgano filtra la sangre en el cuerpo humano?,Corazón|Pulmón|Riñón|Hígado,2,media,ciencia
+86,¿Quién compuso la Novena Sinfonía?,Mozart|Bach|Beethoven|Chopin,2,media,arte
+87,¿Qué planeta es el más cercano al Sol?,Venus|Marte|Saturno|Mercurio,3,fácil,ciencia
+88,¿En qué continente se encuentra el desierto del Sahara?,Asia|África|Oceanía|América,1,fácil,geografía
+89,¿Qué inventor es conocido por la bombilla eléctrica?,Nikola Tesla|Thomas Edison|Alexander Graham Bell|James Watt,1,media,ciencia
+90,¿Cuál es el idioma más hablado del mundo como lengua materna?,Inglés|Español|Chino mandarín|Árabe,2,media,historia
 91,¿Qué país es conocido por la Torre Eiffel?,Italia|Francia|España|Alemania,1,fácil,historia
 92,¿Cuál es el animal terrestre más rápido del mundo?,León|Tigre|Guepardo|Lobo,2,media,ciencia
 93,¿Qué científico desarrolló la teoría de la relatividad?,Isaac Newton|Albert Einstein|Stephen Hawking|Marie Curie,1,fácil,ciencia
