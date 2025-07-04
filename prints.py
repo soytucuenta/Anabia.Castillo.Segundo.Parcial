@@ -5,17 +5,18 @@ menu = (
     "3. Información del Usuario\n"
     "4. Informacion de todos los usuarios\n"
     "5. Configuracion\n"
-    "6. Salir (Guardando resultados)\n\n"
+    "6. Guardar y Salir\n\n"
     "Ingrese una opción: "
 )
 
 instrucciones = (
     "\n### Instrucciones ###\n\n"
-    "Al inicio del juego se le darán $1.000.000 en paquetes de $20.000.\n"
-    "Se le darán 6 preguntas y por cada pregunta de 2 a 4 opciones.\n"
-    "Usted tendra que depositar los paquetes en la opción que crea correcta.\n"
-    "Puede elejir más de una, pero no puede elegir todas.\n"
-    "Si acierta, pasa a la siguiente ronda.\n"
+    "Al inicio del juego se le darán $1.000.000.\n"
+    "Luego 8 preguntas de diferentes categorías, que usted eliga.\n"
+    "Por cada pregunta tendrá 4 opciones en la cual usted\n"
+    "tendra que decidir cuanto apostar en cada opción.\n"
+    "De acuerdo al nivel de dificultad tendrá entre 10 a 30 segundos para decidir.\n"
+    "Lo que haya apostado bien seguirá para la siguiente ronda\n"
     "Si no, pierde el dinero.\n\n"
     "¡Salve al Millón!\n"
 

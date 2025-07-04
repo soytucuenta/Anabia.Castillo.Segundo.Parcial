@@ -4,6 +4,7 @@ from logica_preguntas import *
 from usuarios import *
 from leer_escribir_archivos import *
 from funciones_genericas import *
+
 # Trampa
 cheats = True #pasa por parametro a gameplay y despues a la de mostrar pregunta y dice el numero de opcion de la correcta
 #
