@@ -27,7 +27,7 @@
 
 
 ## ⏳ Número de Rondas
-- El juego consta generalmente de **7 a 8 preguntas** para llegar al final.
+- El juego consta de **5 a 12 preguntas** para llegar al final.
 
 
 
