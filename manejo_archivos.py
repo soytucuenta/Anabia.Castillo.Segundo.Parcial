@@ -1,13 +1,13 @@
 import re
-from usuarios import *
+import json
+from manejo_usuarios import *
 
-def cargar_usuarios(path: str) ->list:
-    """ Devuelve la lista de usuarios.
-    Args:
-        path (str): Ruta al archivo csv.
-    Returns:
-        list: Lista con usuarios como diccionarios.
-    """
+def cargar_config_json(path: str):
+    with open(path, "r") as archivo: 
+        config = json.load(archivo)
+        return config
+
+def cargar_usuarios_csv(path: str) ->list:
     usuarios = []
     with open (path, "r") as archivo:
         for linea in archivo:
@@ -18,19 +18,12 @@ def cargar_usuarios(path: str) ->list:
                 lista["nombre"] = registro[1]
                 lista["edad"] = int(registro[2])
                 lista["profesion"] = registro[3]
-                lista["participaciones"] = int(registro[4])
                 lista["ganancias"] = int(registro[5])
                 lista["dificultad"] = registro[6]
                 usuarios.append(lista)
     return usuarios
 
-def cargar_preguntas(path: str) ->list:
-    """ Devuelve la lista de preguntas.
-    Args:
-        path (str): Ruta al archivo csv.
-    Returns:
-        list: Lista con las preguntas como diccionarios.
-    """
+def cargar_preguntas_csv(path: str) ->list:
     preguntas = []
     with open (path, "r") as archivo:
         for linea in archivo:
@@ -46,19 +39,7 @@ def cargar_preguntas(path: str) ->list:
                 preguntas.append(lista)
     return preguntas
 
-
 def escribir_csv_usuarios(lista_dic_usuarios, archivo):
-    """
-    Escribe una lista de diccionarios de usuarios en un archivo CSV.
-    Cada diccionario de la lista debe contener las claves: 'nombre', 'edad', 'profesion', 'participaciones' y 'ganancias'.
-    Los valores de cada usuario se escribirán en una línea del archivo, separados por comas.
-    Args:
-        lista_dic_usuarios (list): Lista de diccionarios con los datos de los usuarios.
-        archivo (str): Ruta del archivo donde se escribirá el CSV.
-    Returns:
-        None
-    """
-
     with open(archivo,'w',encoding ='utf8') as archivo:
         delimitador = ','
         for i in lista_dic_usuarios:

@@ -2,10 +2,8 @@ menu = (
     "\n#### ¡Bienvenido al juego del millón copiado de Susana Gimenez! ####\n\n"
     "1. Inciar Juego\n"
     "2. Instrucciones\n"
-    "3. Información del Usuario\n"
-    "4. Informacion de todos los usuarios\n"
-    "5. Configuracion\n"
-    "6. Guardar y Salir\n\n"
+    "3. Leaderboard\n"
+    "4. Salir\n\n"
     "Ingrese una opción: "
 )
 
@@ -14,9 +12,9 @@ instrucciones = (
     "Al inicio del juego se le darán $1.000.000.\n"
     "Luego 8 preguntas de diferentes categorías, que usted eliga.\n"
     "Por cada pregunta tendrá 4 opciones en la cual usted\n"
-    "tendra que decidir cuanto apostar en cada opción.\n"
+    "tendrá que decidir cuanto apostar en cada opción.\n"
     "De acuerdo al nivel de dificultad tendrá entre 10 a 30 segundos para decidir.\n"
-    "Lo que haya apostado bien seguirá para la siguiente ronda\n"
+    "Lo que haya apostado bien, lo mantendrá para la siguiente ronda.\n"
     "Si no, pierde el dinero.\n\n"
     "¡Salve al Millón!\n"
 

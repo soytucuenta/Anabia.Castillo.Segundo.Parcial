@@ -1,7 +1,7 @@
 {
     "nombre": "Salve al millón",
     "autores": ["Brandon Castillo", "Fransisco Anabia"],
-    "tiempo": {
+    "dificultad": {
         "facil" : "30",
         "medio" : "20",
         "dificl": "10"
@@ -11,5 +11,13 @@
         "facil" : "15",
         "medio" : "15",
         "dificil" : "15"
+    },
+    "neurodivergencia": {
+        "dificultad": "facil",
+        "tiempo": "40"
+    },
+    "daltonismo":{
+        "colores_letras": "rojo",
+        "colores_fondos": "azul"
     }
 }
