@@ -1,23 +1,6 @@
 
 import time
 
-def limitar_tiempo(dificultad:str) -> int:
-    """
-    Limita el tiempo de respuesta según la dificultad.
-    Args:
-        dificultad (str): Dificultad del juego ('facil', 'media', 'dificil').
-    Returns:
-        int: Tiempo límite en segundos.
-    """
-    if dificultad == 'facil':
-        tiempo = 90
-    elif dificultad == 'media':
-        tiempo = 60
-    elif dificultad == 'dificil':
-        tiempo = 30
-    else:
-        tiempo = 60
-    return tiempo
 
 def mostrar_pregunta_y_opciones(pregunta_dict:dict,tiempo_limite:int,cheats:bool):
     """
@@ -49,10 +32,10 @@ def solicitar_apuestas(dinero:int,tiempo_limite:int)-> list:
     print("")
     for i in range(len(apuestas)):
         tiempo_inicial = time.time() # inicio temporizador
-        apuestas[i] = int(input(f"¿Cuánto apuesta por la opción {i+1}?: "))
+        apuestas[i] = int(input(f"¿Cuántos fajos por la opción {i+1}?: "))
         while apostando + apuestas[i] > dinero:
-            print(f"\nLo siento, no cuenta con dinero suficiente. Usted tiene ${dinero - apostando}.")
-            apuestas[i] = int(input(f"¿Cuánto apuesta por la opción {i+1}?: "))    
+            print(f"\nLo siento, no cuenta con fajos suficientes. Usted tiene {dinero - apostando} fajos.")
+            apuestas[i] = int(input(f"¿Cuántos fajos por la opción {i+1}?: "))    
         apostando += apuestas[i]
         #tiempo
         tiempo_final = time.time()
@@ -80,7 +63,7 @@ def procesar_respuesta(pregunta_dict:dict, dinero:int, apuestas:list) -> int:
     print(f"\n¡Y la respuesta correcta era {pregunta_dict["opciones"][correcta]}!")
     print(f"¡La opción número {correcta+1}!")
     print(f"¡Espero que haya apostado bien!")
-    print("Su dinero es...")
+    print("Te quedan...")
 
     return dinero
 
@@ -92,10 +75,10 @@ def gameplay(dinero:int,tiempo_limite:int,cheats:bool,preguntas:list):
     nivel = 1
     
     print("\nComenzemos!\n ")
-    print(f"Tomá! Este $1.000.000 es tuyo!\n")
+    print(f"Tomá! Este ${dinero*50000} es tuyo!\n")
 
     for i in  range(len(preguntas)):
-        print(f'[Dinero disponible: ${dinero}]\n')
+        print(f'[Fajos disponibles: {dinero}]\n')
         print(f"[Pregunta {nivel:}]\n")
         print("(!) Recuerde que lo que no apuesta, lo pierde. (!)\n")
         
@@ -112,9 +95,9 @@ def gameplay(dinero:int,tiempo_limite:int,cheats:bool,preguntas:list):
             print("\n¡Te has quedado sin dinero! Fin del juego.")
             break
 
-    if dinero == 1000000:
+    if dinero == 20:
         print("\n¡Felicidades! ¡Ústed salvó al millón!\n")
     else:
-        print(f"\nJuego terminado. Se va con ${dinero}.\n")
+        print(f"\nJuego terminado. Se va con ${dinero*50000}.\n")
 
     return dinero

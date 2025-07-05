@@ -22,7 +22,6 @@ instrucciones = (
 
     "Creado por Fransico Anabia y Brandon Castillo. 2025.\n"
 )
-
 mensaje_dificultad = (
     "\n### Seleccione la dificultad del juego ###\n\n"
     "1. Fácil\n"
@@ -51,3 +50,4 @@ mensaje_categoria = (
     "8. Volver al menú anterior\n\n"
     "Ingrese una opción: "
 )
+mensajes_config = [mensaje_configuraciones, mensaje_dificultad, mensaje_categoria]

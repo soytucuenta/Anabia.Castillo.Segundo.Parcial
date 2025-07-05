@@ -1,14 +1,7 @@
 import re
 import json
-#from usuarios import *
 from funciones_genericas import mostrar_diccionario_individual
-from config import *
-configuracion_default = {
-    "dificultad": "media",
-    "categoria": None,
-    "neurodivergente": False,
-    "recuperatorio": False
-}
+
 #usar try except para manejar errores de lectura/escritura de archivos
 """-----------------------CONFIGURACION-----------------------"""
 
@@ -16,7 +9,7 @@ def escribir_configuracion(configuracion:dict, archivo:str='config.json'):
     with open(archivo, 'w', encoding='utf8') as archivo:
         json.dump(configuracion, archivo, indent=4)
 
-#configuracion = escribir_configuracion(configuracion_default)
+
 def cargar_configuracion(configuracion_default:dict,archivo:str='config.json') -> dict:
     """
     Carga la configuracion desde un archivo JSON.
