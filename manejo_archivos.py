@@ -39,15 +39,4 @@ def cargar_usuarios_csv(path: str) ->list:
                 usuarios.append(lista)
     return usuarios
 
-def escribir_usuarios_csv(lista_dic_usuarios, archivo):
-    with open(archivo,'w', encoding ='utf8') as archivo:
-        delimitador = ','
-        for i in lista_dic_usuarios:
-            mensaje = '{0},{1},{2},{3},{4},{5}'
-            mensaje = mensaje.format(i['nombre'],
-                                i['edad'],
-                                i['profesion'],
-                                i['participaciones'],
-                                i['ganancias'],
-                                i['dificultad'])
-            archivo.write(f'{mensaje}\n')
+# def escribir_usuario_csv(usuario_dic, path):

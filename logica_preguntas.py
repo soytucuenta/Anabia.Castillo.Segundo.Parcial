@@ -35,6 +35,7 @@ def solicitar_apuestas(dinero:int, tiempo_limite:int)-> list:
         # input("¿Está listo? Presione una tecla para continuar!\n")
         # tiempo_inicial = time.time() # inicio temporizador
         apuestas[i] = int(input(f"¿Cuánto apuesta por la opción {i+1}?: "))
+
         while apostando + apuestas[i] > dinero:
             print(f"\nLo siento, no cuenta con dinero suficiente. Usted tiene ${dinero - apostando}.")
             apuestas[i] = int(input(f"¿Cuánto apuesta por la opción {i+1}?: "))    
@@ -100,6 +101,7 @@ def gameplay():
         preg_filtradas = filtrar_lista_diccionarios(preg_filtradas, "dificultad", nivel_dificultad)
         pregunta_random = lista_random(preg_filtradas)
         print("")
+        
         # simple print de preguntas y opciones.
         mostrar_pregunta_y_opciones(pregunta_random)
         # apuesta por cada opción y tiempo límite
@@ -119,4 +121,4 @@ def gameplay():
     else:
         print(f"Juego terminado. Se va con ${dinero}.\n")
 
-    # guardar_usuario(dinero, nivel_dificultad) 
+    guardar_usuario(dinero, nivel_dificultad) 
