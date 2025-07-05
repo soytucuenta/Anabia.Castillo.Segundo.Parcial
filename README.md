@@ -24,12 +24,12 @@
   - ❌ Las trampillas de respuestas incorrectas se **abren** y el dinero cae y se pierde.
   - ✅ El dinero sobre la respuesta correcta **permanece** y **se conserva para la siguiente ronda**.
 
----
+
 
 ## ⏳ Número de Rondas
 - El juego consta generalmente de **7 a 8 preguntas** para llegar al final.
 
----
+
 
 🎯 *¡El objetivo es llegar al final con la mayor cantidad de dinero posible!*
 
