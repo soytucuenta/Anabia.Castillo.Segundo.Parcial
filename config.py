@@ -1,22 +1,11 @@
+from leer_escribir_archivos import *
 configuracion_default = {
     "dificultad": "media",
-    "tiempo": 60,
-    "dinero_inicial": 1000000,
-    "neurodivergencia": False,
-    "categoria": "todas",
+    "categoria": None,
+    "neurodivergente": False,
+    "recuperatorio": False
 }
 
-dificultades = {
-    "facil": {
-        "pool_preguntas": "facil"
-    },
-    "media": {
-        "pool_preguntas": "media"
-    },
-    "dificil": {
-        "pool_preguntas": "dificil"
-    }
-}
 
 
 
@@ -43,24 +32,30 @@ def seleccion_categoria(mensaje_menu: str):
     ]
     categoria = None
     seleccion = int(input(mensaje_menu))
-    while seleccion != 7:
+    while seleccion != 7 and categoria == None:
         match seleccion:
             case 1:
                 categoria = lista_categorias[0]
+                break
             case 2:
                 categoria= lista_categorias[1]
+                break
             case 3:
                 categoria = lista_categorias[2]
+                break
             case 4:
                 categoria = lista_categorias[3]
+                break
             case 5:
                 categoria = lista_categorias[4]
+                break
             case 6:
                 categoria = lista_categorias[5]
-            case _:
-                print("Opción no válida.")
-                categoria = None
-        seleccion = int(input(mensaje_menu))
-
+                break
+            case 7:
+                break
+        if categoria == None:
+            seleccion = int(input(mensaje_menu))
+    print(f"\nCategoría seleccionada: {categoria}")
     return categoria
 

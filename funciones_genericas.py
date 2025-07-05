@@ -48,3 +48,9 @@ def promediar_lista(lista:list):
         acumulador += lista[i]
     promedio = acumulador / len(lista)
     return promedio
+
+def mostrar_diccionario_individual(diccionario:dict,mensaje:str=None):
+    if type(mensaje) == str:
+        print(mensaje)
+    for dato in diccionario:
+        print(f"{dato}: {diccionario[dato]}")

@@ -1,35 +1,24 @@
 import copy
-from config import *
+# Replace the following line with explicit imports of only what you need from config.py, for example:
+# from config import USUARIOS, OTRA_CONSTANTE
 
-usuarios = []
 
-with open ("csv/usuarios.csv", "r") as archivo:
-    for linea in archivo:
-        registro = linea.strip().split(",")
-        if registro[0][0] != "i":
-            lista = {}
-            lista["id"] = int(registro[0])
-            lista["nombre"] = registro[1]
-            lista["edad"] = int(registro[2])
-            lista["profesion"] = registro[3]
-            lista["participaciones"] = int(registro[4])
-            lista["ganancias"] = int(registro[5])
-            lista["dificultad"] = registro[6]
-            usuarios.append(lista)
 
-def mostrar_datos_usuario(usuario:dict,mensaje:str):
-    """
-    Muestra los datos de un diccionario de usuario con un mensaje personalizado.
-    Args:
-        usuario (dict): Un diccionario que contiene los datos del usuario, donde las claves son los campos y los valores la información correspondiente.
-        mensaje (str): Un mensaje para mostrar antes de listar los datos del usuario.
-    Returns:
-        None
-    """
+# with open ("csv/usuarios.csv", "r") as archivo:
+#     for linea in archivo:
+#         registro = linea.strip().split(",")
+#         if registro[0][0] != "i":
+#             lista = {}
+#             lista["id"] = int(registro[0])
+#             lista["nombre"] = registro[1]
+#             lista["edad"] = int(registro[2])
+#             lista["profesion"] = registro[3]
+#             lista["participaciones"] = int(registro[4])
+#             lista["ganancias"] = int(registro[5])
+#             lista["dificultad"] = registro[6]
+#             usuarios.append(lista)
 
-    print(mensaje)
-    for dato in usuario:
-        print(f"{dato}: {usuario[dato]}")
+
 
 def buscar_usuario(nombre, lista_usuarios, bienvenida=False):
     usuario = "default"

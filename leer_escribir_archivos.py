@@ -1,6 +1,49 @@
 import re
-from usuarios import *
+import json
+#from usuarios import *
+from funciones_genericas import mostrar_diccionario_individual
+from config import *
+configuracion_default = {
+    "dificultad": "media",
+    "categoria": None,
+    "neurodivergente": False,
+    "recuperatorio": False
+}
 #usar try except para manejar errores de lectura/escritura de archivos
+"""-----------------------CONFIGURACION-----------------------"""
+
+def escribir_configuracion(configuracion:dict, archivo:str='config.json'):
+    with open(archivo, 'w', encoding='utf8') as archivo:
+        json.dump(configuracion, archivo, indent=4)
+
+#configuracion = escribir_configuracion(configuracion_default)
+def cargar_configuracion(configuracion_default:dict,archivo:str='config.json') -> dict:
+    """
+    Carga la configuracion desde un archivo JSON.
+    Si el archivo no existe, devuelve la configuracion por defecto.
+    Args:
+        configuracion_default (dict): Configuracion por defecto a usar si no se encuentra el archivo.
+        archivo (str): Ruta al archivo JSON que contiene la configuracion.
+    Returns:
+        dict: La configuracion cargada desde el archivo o la configuracion por defecto.
+    """
+    bandera = False
+    configuracion = {}
+    try:
+        with open(archivo, 'r', encoding='utf8') as archivo:
+            configuracion =  json.load(archivo)
+    except FileNotFoundError:
+        configuracion = configuracion_default
+        bandera = True
+    if len(configuracion) != len(configuracion_default):#ver que no falten claves
+        configuracion = configuracion_default
+        bandera = True
+    if bandera:
+        print(f"Archivo de configuracion no encontrado o incompleto, se usara la configuracion por defecto: {configuracion_default}")
+    return configuracion
+
+"""-----------------------CSV USUARIOS-----------------------"""
+
 
 def escribir_csv_usuarios(lista_dic_usuarios, archivo='csv/usuarios.csv'):
     """
@@ -16,9 +59,11 @@ def escribir_csv_usuarios(lista_dic_usuarios, archivo='csv/usuarios.csv'):
 
     with open(archivo,'w',encoding ='utf8') as archivo:
         delimitador = ','
+        archivo.readline
         for i in lista_dic_usuarios:
-            mensaje = '{0},{1},{2},{3},{4},{5}'
-            mensaje = mensaje.format(i['nombre'],
+            mensaje = '{0},{1},{2},{3},{4},{5},{6}'
+            mensaje = mensaje.format(i['id'] ,
+                                i['nombre'],
                                 i['edad'],
                                 i['profesion'],
                                 i['participaciones'],
@@ -61,7 +106,10 @@ def cargar_usuarios(path:str="csv/usuarios.csv") ->list:
 
 
 #test
-#escribir_csv_usuarios(usuarios, 'usuarios.csv')
+usuarios = cargar_usuarios()
+escribir_csv_usuarios(usuarios, 'csv/usuarios.csv')
+
+
 # lista_usuarios = cargar_usuarios()
-# for usuario in lista_usuarios:
-#     mostrar_datos_usuario(usuario, "\nMostrando informacion de los usuarios cargados desde el CSV: \n")
+for usuario in usuarios:
+    mostrar_diccionario_individual(usuario, "\nMostrando informacion de los usuarios cargados desde el CSV: \n")

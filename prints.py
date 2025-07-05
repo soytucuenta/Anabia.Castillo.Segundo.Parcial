@@ -28,7 +28,7 @@ mensaje_dificultad = (
     "1. Fácil\n"
     "2. Media\n"
     "3. Difícil\n"
-    "4. Volver al menú principal\n\n"
+    "4. Volver al menú panterior\n\n"
     "Ingrese una opción: "
 )
 mensaje_configuraciones = (
@@ -46,6 +46,6 @@ mensaje_categoria = (
     "4. Matematicas\n"
     "5. Deportes\n"
     "6. Geografia\n"
-    "7. Volver al menú principal\n\n"
+    "7. Volver al menú anterior\n\n"
     "Ingrese una opción: "
 )
