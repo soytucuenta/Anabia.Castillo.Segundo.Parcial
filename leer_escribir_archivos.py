@@ -96,13 +96,3 @@ def cargar_usuarios(path:str="csv/usuarios.csv") ->list:
             dato['dificultad'] = lectura[6]
             lista.append(dato)
     return lista
-
-
-#test
-# test_usuarios = cargar_usuarios()
-# escribir_csv_usuarios(test_usuarios, 'csv/usuarios.csv')
-
-
-# # lista_usuarios = cargar_usuarios()
-# for usuario in test_usuarios:
-#     mostrar_diccionario_individual(usuario, "\nMostrando informacion de los usuarios cargados desde el CSV: \n")

@@ -1,6 +1,4 @@
-
 import time
-
 
 def mostrar_pregunta_y_opciones(pregunta_dict:dict,tiempo_limite:int,cheats:bool):
     """

@@ -37,7 +37,7 @@ while opcion_menu != 6:
             for usuario in usuarios:
                 mostrar_diccionario_individual(usuario, "\nMostrando informacion de todos los usuarios: \n")
         case 5:#configuracion del juego
-            config = configurar_juego(config, mensajes_config)
+            configurar_juego(config, mensajes_config)
     # volver a preguntar por el menu
     opcion_menu = int(input(menu))
     

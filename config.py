@@ -1,11 +1,14 @@
 from leer_escribir_archivos import *
 from preguntas import obtener_preguntas_filtrando
+
 configuracion_default = {
     "dificultad": "media",
     "categoria": None,
     "neurodivergente": False,
     "recuperatorio": False
 }
+
+
 def limitar_tiempo(dificultad:str) -> int:
     """
     Limita el tiempo de respuesta según la dificultad.
@@ -18,10 +21,8 @@ def limitar_tiempo(dificultad:str) -> int:
         tiempo = 90
     elif dificultad == 'media':
         tiempo = 60
-    elif dificultad == 'dificil':
-        tiempo = 30
     else:
-        tiempo = 60
+        tiempo = 30
     return tiempo
 
 
@@ -52,6 +53,8 @@ def preparar_partida(config:dict, todas_las_preguntas:list) -> tuple:
         preguntas_filtradas = obtener_preguntas_filtrando(todas_las_preguntas, cantidad_preguntas, dificultad=config['dificultad'], categoria=config['categoria'])
     tupla_salida = (tiempo_limite, preguntas_filtradas)
     return tupla_salida
+
+
 def determinar_cantidad_preguntas(config:dict) -> int:
     """
     Determina la cantidad de preguntas a realizar en función de la configuración del juego.
