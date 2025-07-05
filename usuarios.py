@@ -57,6 +57,7 @@ def cargar_nuevo_usuario_consola(datos_usuario,seleccion_de_usuario):
     """
 
     print(f"{seleccion_de_usuario} es nuevo, ingrese datos a continuacion ")
+    datos_usuario ["id"] = len(datos_usuario) + 1 
     datos_usuario["nombre"] = seleccion_de_usuario
     datos_usuario["edad"] = int(input("ingrese la edad "))
     while datos_usuario["edad"] < 18 or datos_usuario["edad"] > 100:

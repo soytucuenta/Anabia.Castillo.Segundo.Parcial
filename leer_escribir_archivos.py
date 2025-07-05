@@ -59,7 +59,7 @@ def escribir_csv_usuarios(lista_dic_usuarios, archivo='csv/usuarios.csv'):
 
     with open(archivo,'w',encoding ='utf8') as archivo:
         delimitador = ','
-        archivo.readline
+        archivo.write('id,nombre,edad,profesion,participaciones,ganancias,dificultad\n')
         for i in lista_dic_usuarios:
             mensaje = '{0},{1},{2},{3},{4},{5},{6}'
             mensaje = mensaje.format(i['id'] ,
@@ -89,27 +89,27 @@ def cargar_usuarios(path:str="csv/usuarios.csv") ->list:
     """
 
     lista =[]
-    archivo = open(path, 'r', encoding ='UTF8')
-    archivo.readline()#lectura fantasma para saltar linea y leer el edad int bien
-    for linea in archivo:
-        lectura = re.split(',|\n', linea)
-        dato = { }
-        dato ['id'] = int(lectura[0])
-        dato ['nombre'] = lectura[1]
-        dato ['edad'] = lectura[2]
-        dato ['profesion'] = lectura[3]
-        dato ['participaciones'] = int(lectura[4])
-        dato ['ganancias'] = int(lectura[5])
-        dato ['dificultad'] = lectura[6]
-        lista.append(dato)
+    with open(path, 'r', encoding='UTF8') as archivo:
+        archivo.readline()
+        for linea in archivo:
+            lectura = re.split(',|\n', linea)
+            dato = {}
+            dato['id'] = int(lectura[0])
+            dato['nombre'] = lectura[1]
+            dato['edad'] = int(lectura[2])
+            dato['profesion'] = lectura[3]
+            dato['participaciones'] = int(lectura[4])
+            dato['ganancias'] = int(lectura[5])
+            dato['dificultad'] = lectura[6]
+            lista.append(dato)
     return lista
 
 
 #test
-usuarios = cargar_usuarios()
-escribir_csv_usuarios(usuarios, 'csv/usuarios.csv')
+# test_usuarios = cargar_usuarios()
+# escribir_csv_usuarios(test_usuarios, 'csv/usuarios.csv')
 
 
-# lista_usuarios = cargar_usuarios()
-for usuario in usuarios:
-    mostrar_diccionario_individual(usuario, "\nMostrando informacion de los usuarios cargados desde el CSV: \n")
+# # lista_usuarios = cargar_usuarios()
+# for usuario in test_usuarios:
+#     mostrar_diccionario_individual(usuario, "\nMostrando informacion de los usuarios cargados desde el CSV: \n")
