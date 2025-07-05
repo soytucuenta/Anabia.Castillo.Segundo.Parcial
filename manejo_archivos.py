@@ -27,7 +27,7 @@ def cargar_preguntas_csv(path: str) ->list:
     preguntas = []
     with open (path, "r") as archivo:
         for linea in archivo:
-            registro = linea.strip().split(",")
+            registro = linea.strip().split(";")
             if registro[0][0] != "i":
                 lista = {}
                 lista["id"] = int(registro[0])

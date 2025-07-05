@@ -1,4 +1,5 @@
 import time
+import random
 from manejo_archivos import *
 from manejo_usuarios import *
 
@@ -102,15 +103,14 @@ def gameplay():
     for i in  range(len(preguntas)):
         print(f'[Dinero disponible: ${dinero}]\n')
         print(f"[Pregunta {nivel:}]\n")
-
         print("Eliga una de las categorías: ")
-        print("#---------------------------------------------------------#")
-        print(f"#1. Matemática{' ':>5}| 2. Ciencia{' ':>5}| 3. Deportes{' ':>9}|")
-        print(f"#4. Artes{' ':>10}| 5. Historia{' ':>26}|")
-        print(f"#---------------------------------------------------------#")
+        print(f"1. Matemática{' ':>5}2. Ciencia{' ':>5}3. Deportes{' ':>9}")
+        print(f"4. Artes{' ':>10}5. Historia{' ':>26}")
         categoría = input("Seleccione: ")
 
         
+        
+        numero_aleatorio = random.randint(0,)
 
         # simple print de preguntas y opciones.
         mostrar_pregunta_y_opciones(preguntas[i])
