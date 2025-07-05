@@ -1,7 +1,6 @@
 from prints import *
 from logica_preguntas import *
-from manejo_archivos import *
-from manejo_usuarios import *
+from logica_usuarios import *
 
 opcion_menu = int(input(menu))
 
@@ -12,7 +11,7 @@ while opcion_menu != 4:
         case 2:
             print(instrucciones)
         case 3:
-            print("Leaderboard")
+            leaderboard()
             
     # volver a preguntar por el menu
     opcion_menu = int(input(menu))

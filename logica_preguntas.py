@@ -3,6 +3,7 @@ import random
 from prints import *
 from manejo_archivos import *
 from manejo_usuarios import *
+from funciones_reutilizables import *
 
 def mostrar_pregunta_y_opciones(pregunta_dict):
     """
@@ -11,7 +12,6 @@ def mostrar_pregunta_y_opciones(pregunta_dict):
         pregunta_dict (dict): Un diccionario que contiene la pregunta bajo la clave "pregunta" y una lista de opciones bajo la clave "opciones".
     """
     print(pregunta_dict["pregunta"])
-    print("")
     opciones = pregunta_dict["opciones"]
     for i in range(len(opciones)):
         print(f"{i+1}. {opciones[i]}")
@@ -48,7 +48,7 @@ def solicitar_apuestas(dinero:int, tiempo_limite:int)-> list:
     
     return apuestas
 
-def procesar_respuesta(pregunta_dict:dict, apuestas:list) -> int:
+def procesar_respuestas(pregunta_dict:dict, apuestas:list) -> int:
     """
     Procesa las respuestas del usuario, y devuelve el nuevo dinero.
     Args:
@@ -93,31 +93,19 @@ def gameplay():
         print("Eliga una de las siguientes categorías:")
         print(f"1. Matemática{' ':>4}2. Ciencia{' ':>5}3. Deportes{' ':>9}")
         print(f"4. Arte{' ':>10}5. Historia{' ':>26}")
-        categoría = input("Seleccione: ")
+        categoria = input("Seleccione: ")
+        nombre_categoria = reglas["categorías"][categoria]
 
-        # filtra por categoría
-        preguntas_filtradas = []
-        for pregunta in preguntas:
-            if pregunta["categoría"] == reglas["categorías"][categoría]:
-                preguntas_filtradas.append(pregunta)
-
-        # filtra por dificultad
-        preguntas_filtradas_2 = []
-        for pregunta in preguntas_filtradas:
-            if pregunta["dificultad"] == nivel_dificultad:
-                preguntas_filtradas_2.append(pregunta)
-
-        # elije una random
-        indice_random = random.randint(0, len(preguntas_filtradas_2) - 1)
-        pregunta_random = preguntas_filtradas_2[indice_random]
-
+        preg_filtradas = filtrar_lista_diccionarios(preguntas, "categoría", nombre_categoria)
+        preg_filtradas = filtrar_lista_diccionarios(preg_filtradas, "dificultad", nivel_dificultad)
+        pregunta_random = lista_random(preg_filtradas)
         print("")
         # simple print de preguntas y opciones.
         mostrar_pregunta_y_opciones(pregunta_random)
         # apuesta por cada opción y tiempo límite
         apuestas = solicitar_apuestas(dinero, tiempo_dificultad)
         # la opción ganadora es el nuevo dinero.
-        dinero = procesar_respuesta(pregunta_random, apuestas)
+        dinero = procesar_respuestas(pregunta_random, apuestas)
         
         nivel += 1
         
@@ -131,4 +119,4 @@ def gameplay():
     else:
         print(f"Juego terminado. Se va con ${dinero}.\n")
 
-    guardar_usuario(dinero, nivel_dificultad)
+    # guardar_usuario(dinero, nivel_dificultad) 
