@@ -9,7 +9,8 @@ configuracion_default = {
 
 
 
-def seleccion_dificultad(mensaje_menu:str):
+def seleccion_dificultad(mensaje_menu:str, valor_actual: str):
+    control = valor_actual
     seleccion = int(input(mensaje_menu))
     while seleccion != 4:
         match seleccion:
@@ -19,9 +20,15 @@ def seleccion_dificultad(mensaje_menu:str):
                 dificultad = 'media'
             case 3:
                 dificultad = 'difícil'
+            case 4:
+                dificultad = None
+                break
         seleccion = int(input(mensaje_menu))
+    if dificultad == None:
+        dificultad = control
     return dificultad
-def seleccion_categoria(mensaje_menu: str):
+def seleccion_categoria(mensaje_menu: str, valor_actual: str):
+    control = valor_actual
     lista_categorias = [ #esto puede entrar por una lectura de lista de preguntas
         "ciencia",
         "arte",
@@ -32,7 +39,7 @@ def seleccion_categoria(mensaje_menu: str):
     ]
     categoria = None
     seleccion = int(input(mensaje_menu))
-    while seleccion != 7 and categoria == None:
+    while seleccion != 8:
         match seleccion:
             case 1:
                 categoria = lista_categorias[0]
@@ -53,9 +60,12 @@ def seleccion_categoria(mensaje_menu: str):
                 categoria = lista_categorias[5]
                 break
             case 7:
+                categoria = None
                 break
-        if categoria == None:
-            seleccion = int(input(mensaje_menu))
-    print(f"\nCategoría seleccionada: {categoria}")
+        
+        seleccion = int(input(mensaje_menu))
+    if valor_actual == None and categoria == None:
+        categoria = valor_actual
+
     return categoria
 
