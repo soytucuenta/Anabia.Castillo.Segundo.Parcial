@@ -2,16 +2,31 @@
     "nombre": "Salve al millón",
     "autores": ["Brandon Castillo", "Fransisco Anabia"],
     "dificultad": {
-        "facil" : "30",
-        "medio" : "20",
-        "dificl": "10"
+        "1": {
+            "nombre": "fácil",
+            "tiempo": "35"
+        },
+        "2": {
+            "nombre": "media",
+            "tiempo": "25"
+        },
+        "3": {
+            "nombre": "difícil",
+            "tiempo": "15"
+        }
     },
-    "categorías": ["matemática", "historia", "ciencia", "arte", "deportes"],
-    "preguntas": {
-        "facil" : "15",
-        "medio" : "15",
-        "dificil" : "15"
+    "categorías": {
+        "1": "matemática",
+        "2": "ciencia",
+        "3": "deportes",
+        "4": "arte",
+        "5": "historia"
     },
+    "preguntas": [
+        {"1": ["fácil", "30"]},
+        {"2": ["medio", "20"]},
+        {"3": ["dificíl", "10"]}
+    ],
     "neurodivergencia": {
         "dificultad": "facil",
         "tiempo": "40"

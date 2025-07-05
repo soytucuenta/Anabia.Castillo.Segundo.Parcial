@@ -20,3 +20,18 @@ instrucciones = (
 
     "Creado por Fransico Anabia y Brandon Castillo. 2025.\n"
 )
+
+menu_categoría = (
+    "##Eliga una de las categorías ##\n"
+    "1. Matemática\n"
+    "2. Ciencia\n"
+    "3. Deportes\n"
+    "4. Arte\n"
+    "5. Historia\n"
+    "Seleccione: "
+)
+
+disclaimer = ("\nDISCLAIMER: Este juego fue desarrollado teniendo en cuenta\n"
+    "a personas con capacidades diferentes, por eso hay una serie de preguntas\n"
+    "que debemos realizarle para personalizar la experiencia de juego."
+)

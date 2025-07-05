@@ -1,5 +1,6 @@
 import time
 import random
+from prints import *
 from manejo_archivos import *
 from manejo_usuarios import *
 
@@ -59,65 +60,64 @@ def procesar_respuesta(pregunta_dict:dict, apuestas:list) -> int:
     correcta = pregunta_dict["correcta"]
     dinero = apuestas[correcta]
 
-    print(f"\n¡Y la respuesta correcta era {pregunta_dict["opciones"][correcta]}!")
+    print("\n-------------------------------------------------")
+    print(f"¡Y la respuesta correcta era {pregunta_dict["opciones"][correcta]}!")
     print(f"¡La opción número {correcta+1}!")
-    print(f"¡Espero que haya apostado bien!\n")
+    print(f"¡Espero que haya apostado bien!")
+    print("-------------------------------------------------\n")
 
     return dinero
 
 def gameplay():
+    """ Gameplay general del juego Salve al millón.
     """
-    Gameplay general del juego Salve al millón.
-    """
-
-    print("\nDISCLAIMER: Este juego fue desarrollado teniendo en cuenta\n"
-        "a personas con capacidades diferentes, por eso hay una serie de preguntas\n"
-        "que debemos hacerle para personalizar más su experiencia."
-    )
-
-    daltonico = int(input("\nEs usted daltonico?\n1. Si\n2. No\n\nSeleccione una opción: "))
-    neurodivergente =  int(input("\nEs usted neurodivergente?\n1. Si\n2. No\n\nSeleccione una opción: "))
-
-    nivel_dificultad =  int(input("\nElija un nivel de dificultad\n1. Fácil\n2. Medio\n3. Difícil\n\nSeleccione una opción: "))
-    
-    match nivel_dificultad:
-        case 1:
-            dificultad = "facil"
-            tiempo_limite = 30
-        case 2:
-            dificultad = "medio"
-            tiempo_limite = 20
-        case 3:
-            dificultad = "dificil"
-            tiempo_limite = 10
-
     nivel = 1
     dinero = 1000000
-    preguntas = cargar_preguntas_csv("csv/preguntas-test.csv")
-    config = cargar_config_json("config.json")
-    
+    reglas = cargar_config_json("config.json")
+    preguntas = cargar_preguntas_csv("csv/preguntas.csv")
+
+    print(disclaimer)
+    daltonico = int(input("\nEs usted daltonico?\n1. Si\n2. No\n\nSeleccione una opción: "))
+    neurodivergente =  int(input("\nEs usted neurodivergente?\n1. Si\n2. No\n\nSeleccione una opción: "))
+    dificultad =  input("\nElija un nivel de dificultad\n1. Fácil\n2. Medio\n3. Difícil\n\nSeleccione una opción: ")
+    nivel_dificultad = reglas["dificultad"][dificultad]["nombre"]
+    tiempo_dificultad = reglas["dificultad"][dificultad]["tiempo"]
+
     print("\nComenzemos!\n ")
     print(f"Tomá! Este $1.000.000 es tuyo!\n")
     print("(!) Recuerde que lo que no apuesta, lo pierde. (!)\n")
 
-    for i in  range(len(preguntas)):
+    while nivel <= 8:
         print(f'[Dinero disponible: ${dinero}]\n')
         print(f"[Pregunta {nivel:}]\n")
-        print("Eliga una de las categorías: ")
-        print(f"1. Matemática{' ':>5}2. Ciencia{' ':>5}3. Deportes{' ':>9}")
-        print(f"4. Artes{' ':>10}5. Historia{' ':>26}")
+        print("Eliga una de las siguientes categorías:")
+        print(f"1. Matemática{' ':>4}2. Ciencia{' ':>5}3. Deportes{' ':>9}")
+        print(f"4. Arte{' ':>10}5. Historia{' ':>26}")
         categoría = input("Seleccione: ")
 
-        
-        
-        numero_aleatorio = random.randint(0,)
+        # filtra por categoría
+        preguntas_filtradas = []
+        for pregunta in preguntas:
+            if pregunta["categoría"] == reglas["categorías"][categoría]:
+                preguntas_filtradas.append(pregunta)
 
+        # filtra por dificultad
+        preguntas_filtradas_2 = []
+        for pregunta in preguntas_filtradas:
+            if pregunta["dificultad"] == nivel_dificultad:
+                preguntas_filtradas_2.append(pregunta)
+
+        # elije una random
+        indice_random = random.randint(0, len(preguntas_filtradas_2) - 1)
+        pregunta_random = preguntas_filtradas_2[indice_random]
+
+        print("")
         # simple print de preguntas y opciones.
-        mostrar_pregunta_y_opciones(preguntas[i])
+        mostrar_pregunta_y_opciones(pregunta_random)
         # apuesta por cada opción y tiempo límite
-        apuestas = solicitar_apuestas(dinero, tiempo_limite)
+        apuestas = solicitar_apuestas(dinero, tiempo_dificultad)
         # la opción ganadora es el nuevo dinero.
-        dinero = procesar_respuesta(preguntas[i], apuestas)
+        dinero = procesar_respuesta(pregunta_random, apuestas)
         
         nivel += 1
         
@@ -131,4 +131,4 @@ def gameplay():
     else:
         print(f"Juego terminado. Se va con ${dinero}.\n")
 
-    guardar_usuario(dinero, dificultad)
+    guardar_usuario(dinero, nivel_dificultad)
