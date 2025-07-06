@@ -1,4 +1,5 @@
 import copy
+from funciones_genericas import *
 def inicializar_usuario_actual(lista_dicc_usuarios)-> dict:
 
     datos_usuario = {"id": 0,"nombre": None, "ganancias": 0 , "participaciones": 0,"mejor racha": 0, "ranking": 0}
@@ -13,8 +14,60 @@ def inicializar_usuario_actual(lista_dicc_usuarios)-> dict:
 def finalizar_sesion(usuario_actual:dict, lista_dicc_usuarios:list):
     lista_dicc_usuarios.append(usuario_actual)
     return lista_dicc_usuarios
+def ordenar_ranking(lista_dicc_usuarios:list):
+    """
+    Ordena la lista de usuarios por ganancias y asigna un ranking.
+    Args:
+        lista_dicc_usuarios (list): Lista de diccionarios de usuarios.
+    Returns:
+        list: Lista de usuarios ordenada por ganancias y con ranking asignado.
+    """
+    matriz_ranking = crear_matriz_ranking_ids(lista_dicc_usuarios)
+    matriz_ranking = ordenar_matriz_burbujeo(matriz_ranking, 1)
+    for i in range(len(matriz_ranking)):
+        matriz_ranking[i][2] = i + 1
+    lista_dicc_usuarios = cargar_matriz_en_diccionario(matriz_ranking, lista_dicc_usuarios)
+    return lista_dicc_usuarios
+def cargar_matriz_en_diccionario(matriz:list, lista_dicc_usuarios:list):
+    lista_temporal = []
+    for i in range(len(matriz)):
+        fila = {}
+        fila['id'] = matriz[i][0]
+        fila['ganancias'] = matriz[i][1]
+        fila['ranking'] = matriz[i][2]
+        lista_temporal.append(fila)
+    for i in range(len(lista_dicc_usuarios)):
+        for j in range(len(lista_temporal)):
+            if lista_dicc_usuarios[i]['id'] == lista_temporal[j]['id']:
+                lista_dicc_usuarios[i]['ganancias'] = lista_temporal[j]['ganancias']
+                lista_dicc_usuarios[i]['ranking'] = lista_temporal[j]['ranking']
+    return lista_dicc_usuarios
+        
 
+def crear_matriz_ranking_ids(lista_dicc_usuarios:list):    
+    matriz_ranking = []
+    for i in range(len(lista_dicc_usuarios)):
+        fila = []
+        fila.append(lista_dicc_usuarios[i]['id'])
+        fila.append(lista_dicc_usuarios[i]['ganancias'])
+        fila.append(lista_dicc_usuarios[i]['ranking'])
+        matriz_ranking.append(fila)
+    return matriz_ranking
 
+def leer_matriz_columna(matriz:list, columna:int)-> list:
+    columna_leida = []
+    for i in range(len(matriz)):
+        columna_leida += (matriz[i][columna])
+    return columna_leida
+
+def ordenar_matriz_burbujeo(matriz:list, columna:int)-> list:
+    for i in range(len(matriz)):
+        for j in range(0,len(matriz) - i  - 1):
+            if matriz[j][columna] < matriz[j + 1][columna]:
+                aux = matriz[j]
+                matriz[j] = matriz[j + 1]
+                matriz[j + 1] = aux
+    return matriz
 
 def buscar_usuario(id_usuario, lista_usuarios):#deprecated
 

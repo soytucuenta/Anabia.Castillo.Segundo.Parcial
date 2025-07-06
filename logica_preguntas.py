@@ -1,4 +1,32 @@
 import time
+from funciones_genericas import *
+from usuarios import *
+from config import *
+def jugar_consola(lista_usuarios:list, configuracion:dict, preguntas:list, cheats:bool):
+    info_usuario = inicializar_usuario_actual(lista_usuarios)
+    lista_rachas = [0]
+    racha = 0
+    continuar = True
+    while continuar == True:
+        #consulta configuracion
+        configuraciones_partida = preparar_partida(configuracion, preguntas)
+        incrementar_clave_especifica(info_usuario, 'participaciones')
+        #iniciar juego
+        #fajos = gameplay(20, configuraciones_partida[0], cheats, configuraciones_partida[1])
+        dinero =  50000
+        if dinero > 0:
+            racha  += 1
+            sumar_en_clave(info_usuario, 'ganancias', dinero)
+        else:
+            lista_rachas.append(racha)
+            racha = 0
+        preguntar = input("¿Desea continuar? (s/n): ").lower()
+        if preguntar != "s":
+            continuar = False            
+    if len(lista_rachas) > 0:
+        info_usuario['mejor racha'] = buscar_maximo_lista(lista_rachas)
+    sincronizar_diccionario(info_usuario,lista_usuarios, 'id')
+
 
 def mostrar_pregunta_y_opciones(pregunta_dict:dict,tiempo_limite:int,cheats:bool):
     """

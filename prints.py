@@ -3,7 +3,7 @@ menu = (
     "\n#### ¡Bienvenido al juego del millón copiado de Susana Gimenez! ####\n\n"
     "1. Inciar Juego\n"
     "2. Instrucciones\n"
-    "3. Información del Usuario\n"
+    "3. Estadisticas\n"
     "4. Informacion de todos los usuarios\n"
     "5. Configuracion\n"
     "6. Guardar y Salir\n\n"

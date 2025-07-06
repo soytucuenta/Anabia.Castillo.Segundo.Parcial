@@ -11,46 +11,26 @@ cheats = True #pasa por parametro a gameplay y despues a la de mostrar pregunta 
 #
 #inicializacion de datos
 todas_las_preguntas = cargar_preguntas() #carga las preguntas desde el CSV
-#prueba_usuarios = cargar_usuarios('csv/usuarios.csv') #carga los usuarios desde el CSV
-#print(prueba_usuarios)
 usuarios = cargar_usuarios('csv/usuarios.csv') #carga los usuarios desde el CSV
-info_usuario = inicializar_usuario_actual(usuarios) #carga los usuarios desde el CSV
 
-print(f"nombre - {info_usuario['nombre']}")
-print(f"id - {info_usuario['id']}")
-print(f"ganancias - {info_usuario['ganancias']}")
-print(f"participaciones - {info_usuario['participaciones']}")
-print(f"mejor racha - {info_usuario['mejor racha']}")
-print(f"ranking - {info_usuario['ranking']}")
-
-config = cargar_configuracion(configuracion_default) #carga la configuracion desde el JSON
+config = cargar_configuracion(configuracion_default,'config.json') #carga la configuracion desde el JSON
 #menu principal
 opcion_menu = int(input(menu))
 while opcion_menu != 6:
     match opcion_menu:
         case 1:
-            #consulta configuracion
-            configuraciones_partida = preparar_partida(config, todas_las_preguntas)
-            #contador participaciones
-            operar_en_clave_especifica(usuarios, 'nombre', info_usuario, incrementar_clave_especifica, 'participaciones')
-            #iniciar juego
-            fajos = gameplay(20, configuraciones_partida[0], cheats, configuraciones_partida[1])
-            #suma ganancias
-            dinero = fajos * 50000
-            operar_en_clave_especifica(usuarios, 'nombre', info_usuario, sumar_en_clave, 'ganancias',dato_entrante=dinero)
+            jugar_consola(usuarios, config, todas_las_preguntas, cheats)
+            ordenar_ranking(usuarios) 
         case 2:
             print(instrucciones)
         case 3:
-            mostrar_diccionario_individual(info_usuario, "\nMostrando informacion del usuario actual: \n")
+            pass #stats aca
         case 4:#muestra el listado de usuarios
-            for usuario in usuarios:
-                mostrar_diccionario_individual(usuario, "\nMostrando informacion de todos los usuarios: \n")
+            mostrar_lista_diccionarios(usuarios, "Usuarios registrados:")
         case 5:#configuracion del juego
             configurar_juego(config, mensajes_config)
     # volver a preguntar por el menu
     opcion_menu = int(input(menu))
-    
-#guardado de datos de usuarios
 escribir_csv_usuarios(usuarios)
 print("guardando puntajes... \n")
 escribir_configuracion(config)
