@@ -78,7 +78,6 @@ def gameplay():
     dinero = 1000000
     reglas = cargar_config_json("config.json")
     preguntas = tuple(cargar_preguntas_csv("csv/preguntas.csv"))
-    tiempo_inicial = time.time()
 
     print(disclaimer)
     daltonico = int(input("\nEs usted daltonico?\n1. Si\n2. No\n\nSeleccione una opción: "))
@@ -90,6 +89,7 @@ def gameplay():
     print("\nComenzemos!\n ")
     print(f"Tomá! Este $1.000.000 es tuyo!\n")
     print("(!) Recuerde que lo que no apuesta, lo pierde. (!)\n")
+    tiempo_inicial = time.time()
     while nivel <= 8:
         print(f'[Dinero disponible: ${dinero}]\n')
         print(f"[Pregunta {nivel:}]\n")
@@ -121,18 +121,18 @@ def gameplay():
                     nivel -= 1
 
         if dinero <= 0:
-            print("¡Te has quedado sin dinero!")
+            print("\n¡Te has quedado sin dinero!")
             break
 
         nivel += 1
+
+    tiempo_final = time.time()
+    tiempo_de_partida = round(tiempo_final - tiempo_inicial)
 
     if dinero == 1000000:
         print("¡Felicidades! ¡Ústed salvó al millón!\n")
         print("¡Se va con $1.000.000!\n")
     else:
         print(f"Juego terminado. Se va con ${dinero}.\n")
-
-    tiempo_final = time.time()
-    tiempo_de_partida = round(tiempo_final - tiempo_inicial)
 
     registrar_usuario(dinero, nivel_dificultad, tiempo_de_partida)
