@@ -35,3 +35,9 @@ disclaimer = ("\nDISCLAIMER: Este juego fue desarrollado teniendo en cuenta\n"
     "a personas con capacidades diferentes, por eso hay una serie de preguntas\n"
     "que debemos realizarle para personalizar la experiencia de juego."
 )
+
+bienvenida_minijuego = ("\n### ¡Bienvenido al minijuego! ###\n"
+    "Este minijuego te dara una opción para que puedas seguir jugando,\n"
+    "y regresar con el dinero que tenías antes\n"
+    "Estas listo? ¡Vamos!\n"
+)

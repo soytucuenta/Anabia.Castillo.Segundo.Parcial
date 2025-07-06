@@ -3,6 +3,7 @@ import random
 from prints import *
 from manejo_archivos import *
 from logica_usuarios import *
+from logica_minijuego import *
 from funciones_reutilizables import *
 
 def mostrar_pregunta_y_opciones(pregunta_dict:dict):
@@ -26,28 +27,28 @@ def solicitar_apuestas(dinero:int, tiempo_limite:int)-> list:
     Returns:
         (list): La cantidad/es apostada/s por el usuario.
     """
-    # flag_tiempo = False
+    flag_tiempo = False
     apuestas = [0, 0, 0, 0]
     apostando = 0
     print("")
 
+    tiempo_inicial = time.time() # inicio temporizador
     for i in range(len(apuestas)):
-        # print(f"Tiene {tiempo_limite} segundos para contestar cada pregunta!.")
-        # input("¿Está listo? Presione una tecla para continuar!\n")
-        # tiempo_inicial = time.time() # inicio temporizador
         apuestas[i] = int(input(f"¿Cuánto apuesta por la opción {i+1}?: "))
-
+       
         while apostando + apuestas[i] > dinero:
             print(f"\nLo siento, no cuenta con dinero suficiente. Usted tiene ${dinero - apostando}.")
             apuestas[i] = int(input(f"¿Cuánto apuesta por la opción {i+1}?: "))    
         apostando += apuestas[i]
-
-        # tiempo_transcurrido = time.time() - tiempo_inicial
         
-        # if tiempo_transcurrido > tiempo_limite:
-        #     print("\nSe acabó el tiempo!.")    
-        #     flag_tiempo = True
-    
+        tiempo_final = time.time()
+        tiempo_transcurrido = tiempo_final - tiempo_inicial
+        if tiempo_transcurrido > tiempo_limite:
+            print("\n¡Se pasó el tiempo!.")
+            print("La apuesta anterior fue descartada.")
+            apuestas[i] = 0
+            break
+
     return apuestas
 
 def procesar_respuestas(pregunta_dict:dict, apuestas:list) -> int:
@@ -83,18 +84,18 @@ def gameplay():
     neurodivergente =  int(input("\nEs usted neurodivergente?\n1. Si\n2. No\n\nSeleccione una opción: "))
     dificultad =  input("\nElija un nivel de dificultad\n1. Fácil\n2. Medio\n3. Difícil\n\nSeleccione una opción: ")
     nivel_dificultad = reglas["dificultad"][dificultad]["nombre"]
-    tiempo_dificultad = reglas["dificultad"][dificultad]["tiempo"]
+    tiempo_dificultad = int(reglas["dificultad"][dificultad]["tiempo"])
 
     print("\nComenzemos!\n ")
     print(f"Tomá! Este $1.000.000 es tuyo!\n")
     print("(!) Recuerde que lo que no apuesta, lo pierde. (!)\n")
-
     while nivel <= 8:
         print(f'[Dinero disponible: ${dinero}]\n')
         print(f"[Pregunta {nivel:}]\n")
-        print("Eliga una de las siguientes categorías:")
+        print("Elija una de las siguientes categorías:")
+        print(f"Tiene {tiempo_dificultad} segundos para salvar el millón. ¿Está listo?\n")
         print(f"1. Matemática{' ':>4}2. Ciencia{' ':>5}3. Deportes{' ':>9}")
-        print(f"4. Arte{' ':>10}5. Historia{' ':>26}")
+        print(f"4. Arte{' ':>10}5. Historia{' ':>26}\n")
         categoria = input("Seleccione: ")
         nombre_categoria = reglas["categorías"][categoria]
 
@@ -106,15 +107,23 @@ def gameplay():
         # simple print de preguntas y opciones.
         mostrar_pregunta_y_opciones(pregunta_random)
         # apuesta por cada opción y tiempo límite
+        dinero_antes_apostar = dinero
         apuestas = solicitar_apuestas(dinero, tiempo_dificultad)
         # la opción ganadora es el nuevo dinero.
         dinero = procesar_respuestas(pregunta_random, apuestas)
         
-        nivel += 1
-        
+        if dinero == 0:
+            changui = int(input("¿Desea tener una oportunidad más?\n1. Si\n2. No\nSeleccione una opción: "))
+            if changui == 1:
+                if minijuego():
+                    dinero = dinero_antes_apostar
+                    nivel -= 1
+
         if dinero <= 0:
             print("¡Te has quedado sin dinero!")
             break
+
+        nivel += 1
 
     if dinero == 1000000:
         print("¡Felicidades! ¡Ústed salvó al millón!\n")
