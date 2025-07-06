@@ -4,49 +4,36 @@ from funciones_reutilizables import *
 def registrar_usuario(dinero:int, dificultad:str):
     """ Guardar datos de usuario que recién jugó.
     Args:
-        dinero (int): Dinero con el que se va.
+        dinero (int): Dinero que ganó el usuario.
         dificultad (str): Dificultad en la que jugó.
     """
     usuario = {}
-    usuario["usuario"] = input("Ingrese el nombre usuario: ")
+    usuario["usuario"] = input("Ingrese el nombre de usuario: ")
     usuario["ganancia"] = dinero
     usuario["dificultad"] = dificultad
 
     guardar_usuario_csv(usuario, "csv/usuarios.csv")
 
 def leaderboard():
-    """ Muestra la tabla de posiciones de todos los jugadores.
-    Returns:
-        _type_: Solo printea la tabla.
+    """ Leaderboard general del juego Salve al millón.
     """
+    print("\n### LEADERBOARD ###\n")
+
+    # Carga usuarios
     usuarios = cargar_usuarios_csv("csv/usuarios.csv")
 
-    def ordernar_usuarios(lista):
-        for i in range(len(lista) - 1):
-            for j in range(i + 1, len(lista)):
-                if lista[i]["ganancia"] < lista[j]["ganancia"]:
-                    aux = lista[i]
-                    lista[i] = lista[j]
-                    lista[j] = aux
-        return lista
+    # Ordernar lista
+    ordernar_lista_diccionarios(usuarios, "ganancia")
 
-    usuarios_ordenados = ordernar_usuarios(usuarios)
+    # Filtra lista
+    usuarios_facil = filtrar_lista_diccionarios(usuarios, "dificultad", "fácil")
+    usuarios_media = filtrar_lista_diccionarios(usuarios, "dificultad", "media")
+    usuarios_dificil = filtrar_lista_diccionarios(usuarios, "dificultad", "difícil")
 
-    usuarios_facil = filtrar_lista_diccionarios(usuarios_ordenados, "dificultad", "fácil")
-    usuarios_media = filtrar_lista_diccionarios(usuarios_ordenados, "dificultad", "media")
-    usuarios_dificil = filtrar_lista_diccionarios(usuarios_ordenados, "dificultad", "difícil")
-
-    print("\n### LEADERBOARD ###\n")
+    # Muestra lista
     print("---Difícil---")
-    for usuario in usuarios_dificil:
-        mostrar_datos_usuario(usuario)
-    print("")
-
+    mostrar_lista_diccionarios(usuarios_dificil)
     print("---Media---")
-    for usuario in usuarios_media:
-        mostrar_datos_usuario(usuario)
-    print("")
-
+    mostrar_lista_diccionarios(usuarios_media)
     print("---Fácil---")
-    for usuario in usuarios_facil:
-        mostrar_datos_usuario(usuario)
+    mostrar_lista_diccionarios(usuarios_facil)

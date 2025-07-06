@@ -28,11 +28,34 @@ def lista_random(lista:list):
 
     return elemento_random
 
-def mostrar_datos_usuario(usuario:dict):
-    """
-    Muestra los datos de un diccionario de usuario.
+def swap(lista:list, i:int, j:int):
+    """ Swapea dos elementos de una lista entre sí.
     Args:
-        usuario (dict): Un diccionario que contiene los datos del usuario a mostrar.
-    Returns: 
+        lista (list): Lista a swapear.
+        i (int): Posición del elemento uno.
+        j (int): Posición del elemento dos.
     """
-    print(f"{usuario["usuario"]} ${usuario["ganancia"]}")
+    aux = lista[i]
+    lista[i] = lista[j]
+    lista[j] = aux
+
+def ordernar_lista_diccionarios(lista:list, propiedad:str):
+    """ Ordena elementos de una lista de diccionarios de acuerdo a una propiedad.
+    Args:
+        lista (list): Lista de diccionarios.
+        propiedad (str): Propiedad por la que se ordena.
+    """
+    for i in range(len(lista) - 1):
+        for j in range(i + 1, len(lista)):
+            if lista[i][propiedad] < lista[j][propiedad]:
+                swap(lista,i,j)  
+
+def mostrar_lista_diccionarios(lista:list,):
+    """ Muestra valores de una lista de diccionarios.
+    Args:
+        lista (list): Lista.
+    """
+    for elemento in lista:
+        for propiedad in elemento:
+            print(f"{elemento[propiedad]}")
+        print("")

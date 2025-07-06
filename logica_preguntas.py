@@ -5,7 +5,7 @@ from manejo_archivos import *
 from logica_usuarios import *
 from funciones_reutilizables import *
 
-def mostrar_pregunta_y_opciones(pregunta_dict):
+def mostrar_pregunta_y_opciones(pregunta_dict:dict):
     """
     Muestra una pregunta y sus opciones por consola.
     Args:
