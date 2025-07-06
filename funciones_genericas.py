@@ -1,3 +1,4 @@
+import copy
 def operar_en_clave_especifica(lista_diccionarios: list,nombre: str, diccionario_individual: dict, operacion, clave_cambiante: str, dato_entrante: int | float | str | list = None):
     """
     Realiza una operación sobre una clave específica de un diccionario dado y actualiza la clave correspondiente en una lista de diccionarios.
@@ -54,3 +55,26 @@ def mostrar_diccionario_individual(diccionario:dict,mensaje:str=None):
         print(mensaje)
     for dato in diccionario:
         print(f"{dato}: {diccionario[dato]}")
+
+"""---------------------DEPRECATED---------------------"""
+def listar_claves_lista_dicc(lista_diccionarios, termino_busqueda):
+    busqueda = []
+    for diccionario in lista_diccionarios:
+        for clave in diccionario:
+            if clave.lower() == termino_busqueda.lower():
+                busqueda.append(diccionario[termino_busqueda])
+                break
+
+    resultado = eliminar_strings_duplicados(busqueda)
+    return resultado
+def eliminar_strings_duplicados(lista:list):
+    lista_auxiliar = []
+    for i in range(len(lista)):
+        encontrado = False
+        string_actual = lista[i]
+        for j in range(len(lista)):
+            if string_actual == lista[j] and encontrado == False:
+                lista_auxiliar.append(string_actual)
+                encontrado = True
+                break
+    return set(lista_auxiliar)

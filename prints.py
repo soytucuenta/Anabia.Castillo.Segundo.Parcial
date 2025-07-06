@@ -1,3 +1,4 @@
+
 menu = (
     "\n#### ¡Bienvenido al juego del millón copiado de Susana Gimenez! ####\n\n"
     "1. Inciar Juego\n"
@@ -50,4 +51,7 @@ mensaje_categoria = (
     "8. Volver al menú anterior\n\n"
     "Ingrese una opción: "
 )
+
+
 mensajes_config = [mensaje_configuraciones, mensaje_dificultad, mensaje_categoria]
+

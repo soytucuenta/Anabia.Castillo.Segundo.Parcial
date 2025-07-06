@@ -41,27 +41,33 @@ def cargar_configuracion(configuracion_default:dict,archivo:str='config.json') -
 def escribir_csv_usuarios(lista_dic_usuarios, archivo='csv/usuarios.csv'):
     """
     Escribe una lista de diccionarios de usuarios en un archivo CSV.
-    Cada diccionario debe contener las siguientes claves: 'nombre', 'edad', 'profesion', 'participaciones', 'ganancias' y 'dificultad'.
-    La función escribe los datos de cada usuario como una línea separada por comas en el archivo CSV especificado.
+
+    Cada diccionario en la lista debe contener las siguientes claves:
+        - 'id': Identificador único del usuario
+        - 'nombre': Nombre del usuario
+        - 'ganancias': Ganancias del usuario
+        - 'participaciones': Cantidad de participaciones
+        - 'mejor racha': Mejor racha del usuario
+        - 'ranking': Ranking del usuario
+
     Args:
-        lista_dic_usuarios (list of dict): Lista de diccionarios de usuarios a escribir en el archivo CSV.
-        archivo (str, opcional): Ruta al archivo CSV. Por defecto es 'csv/usuarios.csv'.
-    Returns:
-        None
+        lista_dic_usuarios (list): Lista de diccionarios, cada uno representando un usuario.
+        archivo (str, opcional): Ruta al archivo CSV donde escribir. Por defecto es 'csv/usuarios.csv'.
+
+    La función sobrescribe el archivo si ya existe.
     """
 
     with open(archivo,'w',encoding ='utf8') as archivo:
         delimitador = ','
-        archivo.write('id,nombre,edad,profesion,participaciones,ganancias,dificultad\n')
+        archivo.write('id,nombre,ganancias,participaciones,mejor_racha,ranking\n')
         for i in lista_dic_usuarios:
-            mensaje = '{0},{1},{2},{3},{4},{5},{6}'
+            mensaje = '{0},{1},{2},{3},{4},{5}'
             mensaje = mensaje.format(i['id'] ,
                                 i['nombre'],
-                                i['edad'],
-                                i['profesion'],
-                                i['participaciones'],
                                 i['ganancias'],
-                                i['dificultad'])
+                                i['participaciones'],
+                                i['mejor racha'],
+                                i['ranking'])
             archivo.write(f'{mensaje}\n')
 
 
@@ -89,10 +95,13 @@ def cargar_usuarios(path:str="csv/usuarios.csv") ->list:
             dato = {}
             dato['id'] = int(lectura[0])
             dato['nombre'] = lectura[1]
-            dato['edad'] = int(lectura[2])
-            dato['profesion'] = lectura[3]
-            dato['participaciones'] = int(lectura[4])
-            dato['ganancias'] = int(lectura[5])
-            dato['dificultad'] = lectura[6]
+            dato['ganancias'] = int(lectura[2])
+            dato['participaciones'] = int(lectura[3])
+            dato['mejor racha'] = int(lectura[4])
+            dato['ranking'] = int(lectura[5])
             lista.append(dato)
     return lista
+
+
+
+"""-----------------------TESTING-----------------------"""

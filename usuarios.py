@@ -1,35 +1,26 @@
 import copy
-# Replace the following line with explicit imports of only what you need from config.py, for example:
-# from config import USUARIOS, OTRA_CONSTANTE
+def inicializar_usuarios(lista_dicc_usuarios)-> dict:
+
+    datos_usuario = {"id": 0,"nombre": None, "ganancias": 0 , "participaciones": 0,"mejor racha": 0, "ranking": 0}
+    datos_usuario["nombre"] = input("ingrese nombre de usuario: ")
+    datos_usuario ["id"] = len(lista_dicc_usuarios) + 1 
+    datos_usuario['ganancias'] = 0
+    datos_usuario["participaciones"] = 0
+    datos_usuario['mejor racha'] = 0
+    datos_usuario['ranking'] = 0
+    lista_dicc_usuarios.append(datos_usuario)
+    return datos_usuario
 
 
 
-# with open ("csv/usuarios.csv", "r") as archivo:
-#     for linea in archivo:
-#         registro = linea.strip().split(",")
-#         if registro[0][0] != "i":
-#             lista = {}
-#             lista["id"] = int(registro[0])
-#             lista["nombre"] = registro[1]
-#             lista["edad"] = int(registro[2])
-#             lista["profesion"] = registro[3]
-#             lista["participaciones"] = int(registro[4])
-#             lista["ganancias"] = int(registro[5])
-#             lista["dificultad"] = registro[6]
-#             usuarios.append(lista)
+def buscar_usuario(id_usuario, lista_usuarios):#deprecated
 
-
-
-def buscar_usuario(nombre, lista_usuarios, bienvenida=False):
-    usuario = "default"
-    for usuario_busqueda in lista_usuarios:
-        if usuario_busqueda["nombre"].lower() == nombre.lower():
-            usuario = usuario_busqueda
-            if bienvenida:
-                print(f"Bienvenido {usuario['nombre']}")
+    for usuario in lista_usuarios:
+        if usuario["id"] == id_usuario:
+            return usuario
     return usuario
 
-def copiar_usuario_por_nombre(nombre_a_buscar:str, usuarios:list)-> dict:
+def copiar_usuario_por_nombre(nombre_a_buscar:str, usuarios:list)-> dict:#deprecated
     """
     Copia los datos de un usuario cuyo nombre coincida (ignorando mayúsculas/minúsculas) con el nombre proporcionado.
     Args:
@@ -45,30 +36,7 @@ def copiar_usuario_por_nombre(nombre_a_buscar:str, usuarios:list)-> dict:
             datos_usuario= copy.deepcopy(usuario)  
     return datos_usuario
 
-def cargar_nuevo_usuario_consola(datos_usuario,seleccion_de_usuario):
-    """
-    Solicita al usuario que ingrese los datos de un nuevo usuario a través de la consola y los almacena en el diccionario proporcionado.
-    Args:
-        datos_usuario (dict): Diccionario donde se almacenarán los datos del nuevo usuario.
-        seleccion_de_usuario (str): Nombre del usuario que se está registrando.
-    El usuario debe ingresar su edad (debe ser mayor a 18 y menor o igual a 100) y su profesión. 
-    Inicializa los campos 'participaciones' y 'ganancias' en 0.
-    Dificultad se establece por defecto en 'media'.
-    """
-
-    print(f"{seleccion_de_usuario} es nuevo, ingrese datos a continuacion ")
-    datos_usuario ["id"] = len(datos_usuario) + 1 
-    datos_usuario["nombre"] = seleccion_de_usuario
-    datos_usuario["edad"] = int(input("ingrese la edad "))
-    while datos_usuario["edad"] < 18 or datos_usuario["edad"] > 100:
-        print("La edad debe ser mayor a 18")
-        datos_usuario["edad"] = int(input("ingrese la edad "))
-    datos_usuario["profesion"] = input("Ingrese su profesion ")
-    datos_usuario["participaciones"] = 0
-    datos_usuario["ganancias"] = 0
-    datos_usuario["dificultad"] = 'media'
-    
-def seleccion_usuario(lista_usuarios:list)-> dict:
+def seleccion_usuario_deprecated(lista_usuarios:list)-> dict:#deprecated
     """
     Permite al usuario seleccionar un usuario de una lista por nombre. Si el usuario no existe, solicita crear uno nuevo.
     Args:

@@ -11,10 +11,15 @@ cheats = True #pasa por parametro a gameplay y despues a la de mostrar pregunta 
 #
 #inicializacion de datos
 todas_las_preguntas = cargar_preguntas() #carga las preguntas desde el CSV
-usuarios = cargar_usuarios() #carga los usuarios desde el CSV
-info_usuario = seleccion_usuario(usuarios)
-config = cargar_configuracion(configuracion_default) #carga la configuracion desde el JSON
+#prueba_usuarios = cargar_usuarios('csv/usuarios.csv') #carga los usuarios desde el CSV
+#print(prueba_usuarios)
+lista_usuarios = cargar_usuarios('csv/usuarios.csv') #carga los usuarios desde el CSV
+usuarios = inicializar_usuarios(lista_usuarios) #carga los usuarios desde el CSV
+for usuario in usuarios:
+    print(f"Usuario cargado: {usuario['nombre']}")
+    print(f"id: {usuario['id']}")
 
+config = cargar_configuracion(configuracion_default) #carga la configuracion desde el JSON
 #menu principal
 opcion_menu = int(input(menu))
 while opcion_menu != 6:
