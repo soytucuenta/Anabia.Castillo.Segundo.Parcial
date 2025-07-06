@@ -121,4 +121,4 @@ def gameplay():
     else:
         print(f"Juego terminado. Se va con ${dinero}.\n")
 
-    guardar_usuario(dinero, nivel_dificultad) 
+    registrar_usuario(dinero, nivel_dificultad)

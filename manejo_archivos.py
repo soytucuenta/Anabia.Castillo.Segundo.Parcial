@@ -1,6 +1,4 @@
-import re
 import json
-from manejo_usuarios import *
 
 def cargar_config_json(path: str):
     try:
@@ -74,10 +72,10 @@ def cargar_usuarios_csv(path: str) ->list:
         return []
     return usuarios
 
-def escribir_usuario_csv(usuario_dic, path):
+def guardar_usuario_csv(usuario_dic, path):
     try:
         with open(path, 'a', encoding ='utf8') as archivo:
-            mensaje = '{0};{1};{2};{3};{4};{5}'
+            mensaje = '{0};{1};{2}'
             mensaje = mensaje.format(
             usuario_dic['usuario'],
             usuario_dic['ganancia'],

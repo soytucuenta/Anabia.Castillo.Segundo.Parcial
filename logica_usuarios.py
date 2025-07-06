@@ -1,7 +1,24 @@
 from manejo_archivos import *
 from funciones_reutilizables import *
 
+def registrar_usuario(dinero:int, dificultad:str):
+    """ Guardar datos de usuario que recién jugó.
+    Args:
+        dinero (int): Dinero con el que se va.
+        dificultad (str): Dificultad en la que jugó.
+    """
+    usuario = {}
+    usuario["usuario"] = input("Ingrese el nombre usuario: ")
+    usuario["ganancia"] = dinero
+    usuario["dificultad"] = dificultad
+
+    guardar_usuario_csv(usuario, "csv/usuarios.csv")
+
 def leaderboard():
+    """ Muestra la tabla de posiciones de todos los jugadores.
+    Returns:
+        _type_: Solo printea la tabla.
+    """
     usuarios = cargar_usuarios_csv("csv/usuarios.csv")
 
     def ordernar_usuarios(lista):
@@ -33,14 +50,3 @@ def leaderboard():
     print("---Fácil---")
     for usuario in usuarios_facil:
         mostrar_datos_usuario(usuario)
-
-def guardar_usuario(dinero:int, dificultad:str):
-    usuario = {}
-    usuario["id"] = 12000
-    usuario["nombre"] = input("Ingrese su nombre: ")
-    usuario["edad"] = int(input("Ingrese su edad: "))
-    usuario["profesión"] = input("Ingrese profesión: ")
-    usuario["ganancia"] = dinero
-    usuario["dificultad"] = dificultad
-
-    escribir_usuario_csv(usuario, "csv/usuarios.csv")
