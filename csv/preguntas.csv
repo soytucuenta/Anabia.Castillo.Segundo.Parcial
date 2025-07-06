@@ -1,78 +1,78 @@
-id;pregunta;opciones;indice_correcto;dificultad;categoría
-1;¿Qué elemento químico tiene el símbolo 'O'?;Osmio|Oro|Oxígeno|Oganesón;2;fácil;ciencia
-2;¿Qué planeta es conocido como 'el planeta rojo'?;Venus|Júpiter|Saturno|Marte;3;fácil;ciencia
-3;¿Cuál es el río más largo del mundo?;Nilo|Misisipi|Yangtsé|Amazonas;3;fácil;ciencia
-4;¿Quién pintó 'La Mona Lisa'?;Pablo Picasso|Leonardo da Vinci|Vincent van Gogh|Salvador Dalí;1;fácil;arte
-5;¿En qué año llegó el hombre a la luna?;1969|1955|1975|1989;0;fácil;historia
-6;¿Qué imperio fue gobernado por Julio César?;Imperio Británico|Imperio Romano|Imperio Mongol|Imperio Otomano;1;fácil;historia
-7;¿En qué obra literaria aparece el personaje 'Jay Gatsby'?;Moby Dick|Matar a un ruiseñor|1984|El gran Gatsby;3;fácil;arte
-8;¿Qué artista musical es conocido como 'El Rey del Pop'?;Freddie Mercury|Madonna|Michael Jackson|Elvis Presley;2;fácil;arte
-9;¿Qué poeta escribió 'El cuervo'?;William Shakespeare|Pablo Neruda|Edgar Allan Poe|Mario Benedetti;2;fácil;arte
-10;¿En qué país se originó el sushi?;Japón|Tailandia|China|Corea del Sur;0;fácil;historia
-11;¿Cuál es el símbolo químico del sodio?;So|Sd|Na|K;2;fácil;ciencia
-12;¿Qué gas necesitamos para respirar?;Dióxido de carbono|Oxígeno|Nitrógeno|Helio;1;fácil;ciencia
-13;¿Qué filósofo dijo 'Pienso, luego existo'?;Friedrich Nietzsche|Platón|Aristóteles|René Descartes;3;fácil;historia
-14;¿En qué año se disolvió la Unión Soviética?;1975|1991|1989|1993;1;fácil;historia
-15;¿Qué artista es conocido como 'El rey del rock and roll'?;Freddie Mercury|Elvis Presley|John Lennon|Mick Jagger;1;fácil;arte
-16;¿En qué deporte se utiliza el término 'smash'?;Bádminton|Fútbol|Natación|Ciclismo;0;fácil;deportes
-17;¿Cuántos tiempos tiene un partido de baloncesto FIBA?;2|3|4|5;2;fácil;deportes
-18;¿Qué país ganó el primer Mundial de Fútbol femenino en 1991?;Brasil|Alemania|Estados Unidos|Noruega;2;fácil;deportes
-19;¿En qué deporte se usa el implemento llamado 'paleta'?;Pádel|Tenis|Squash|Frontón;0;fácil;deportes
-20;¿Cuál es el resultado de 8 × 7?;42|49|56|63;2;fácil;matemática
-21;Si un ángulo mide 90 grados, ¿cómo se llama?;Agudo|Obtuso|Recto|Llano;2;fácil;matemática
-22;¿Cuántos centímetros hay en un metro?;10|50|100|1000;2;fácil;matemática
-23;¿Qué figura geométrica tiene todos sus lados iguales?;Rectángulo|Rombo|Triángulo|Cuadrado;3;fácil;matemática
-24;¿Qué teorema establece que "en un triángulo rectángulo, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos"?;Teorema de Pitágoras|Teorema de Tales|Teorema de Euclides|Teorema de Fermat;0;fácil;matemática
-25;¿Qué científico formuló la teoría de la relatividad?;Isaac Newton|Albert Einstein|Niels Bohr|Stephen Hawking;1;fácil;ciencia
-26;¿Qué reina europea gobernó durante la "Época Victoriana"?;Reina Isabel I|Reina Victoria|Reina María I|Reina Ana;1;fácil;historia
-27;¿Qué matemático griego es conocido como el "Padre de la Geometría"?;Arquímedes|Pitágoras|Euclides|Tales de Mileto;2;fácil;matemática
-28;¿Cuál es el mínimo común múltiplo de 6 y 8?;12|16|24|48;2;media;matemática
-29;Si un triángulo tiene lados de 5cm, 12cm y 13cm, ¿qué tipo de triángulo es?;Acutángulo|Obtusángulo|Rectángulo|Equilátero;2;media;matemática
-30;Resuelve: 3x + 5 = 20;3|4|5|6;2;media;matemática
-31;¿Cuál es el área de un círculo con radio 4cm? (π≈3.14);12.56 cm²|25.12 cm²|37.68 cm²|50.24 cm²;3;media;matemática
-32;¿Cuál es el resultado de 5! (factorial de 5)?;20|60|120|720;2;media;matemática
-33;¿En qué deporte se utiliza el término 'ace' para describir un saque no devuelto?;Bádminton|Tenis|Voleibol|Squash;1;media;deportes
-34;¿Cuántos sets se necesitan ganar para vencer en un partido de tenis masculino de Grand Slam?;2|3|4|5;1;media;deportes
-35;¿Qué país ganó el primer Campeonato Mundial de Baloncesto FIBA en 1950?;Estados Unidos|Argentina|Unión Soviética|Brasil;1;media;deportes
-36;¿En qué deporte olímpico se compite en la prueba de 'keirin'?;Atletismo|Ciclismo|Natación|Gimnasia;1;media;deportes
-37;¿Qué jugador de fútbol ha ganado más Balones de Oro (8)?;Lionel Messi|Cristiano Ronaldo|Pelé|Diego Maradona;0;media;deportes
-38;¿Cuál es el resultado de (7 × 4) + (15 ÷ 3)?;23|28|31|33;2;media;matemática
-39;Si un triángulo tiene dos ángulos de 45°, ¿qué tipo de triángulo es?;Equilátero|Isósceles|Escaleno|Rectángulo;1;media;matemática
-40;¿Qué número es divisible exactamente por 2, 3 y 5?;15|20|30|45;2;media;matemática
-41;¿Cuál es el área de un rectángulo que mide 8 cm de largo y 5 cm de ancho?;13 cm²|26 cm²|35 cm²|40 cm²;3;media;matemática
-42;Si x + 7 = 15, ¿cuál es el valor de x?;5|7|8|22;2;media;matemática
-43;¿Qué fenómeno óptico crea el arcoíris?;Reflexión|Refracción|Difracción|Dispersión;3;media;ciencia
-44;¿Qué guerra comenzó en 1914?;Guerra Fría|Guerra de Vietnam|Primera Guerra Mundial|Guerra de Corea;2;media;historia
-45;¿En qué década se lanzó el primer iPhone?;1990s|2000s|2010s|1980s;1;media;historia
-46;¿Qué pintor es famoso por sus 'Campo de trigo con cuervos'?;Vincent van Gogh|Pablo Picasso|Claude Monet|Salvador Dalí;0;media;arte
-47;¿Cuál es el valor de 'x' en la ecuación 2x + 5 = 17?;4|6|7|9;1;media;matemática
-48;¿Qué gas liberan las plantas durante la fotosíntesis?;Dióxido de carbono|Oxígeno|Nitrógeno|Metano;1;media;ciencia
-49;¿Qué país NO es parte de la península escandinava?;Suecia|Noruega|Finlandia|Dinamarca;3;media;historia
-50;¿Qué escritor creó al detective Sherlock Holmes?;Agatha Christie|Arthur Conan Doyle|Edgar Allan Poe|Charles Dickens;1;media;arte
-51;¿En qué deporte se usa el término 'hat-trick'?;Fútbol|Baloncesto|Tenis|Béisbol;0;media;deportes
-52;¿Qué ley física explica por qué los objetos caen con la misma aceleración (gravedad)?;Ley de Ohm|Ley de Newton|Ley de Boyle|Ley de Coulomb;1;media;ciencia
-53;¿Qué instrumento musical es el más característico del jazz tradicional?;Violín|Saxofón|Flauta|Arpa;1;media;arte
-54;¿Qué famoso científico formuló las leyes del movimiento?;Albert Einstein|Isaac Newton|Galileo Galilei|Stephen Hawking;1;media;ciencia
-55;¿Qué película ganó el Óscar a Mejor Película en 2020?;Parásitos|1917|Joker|Nomadland;0;media;arte
-56;¿Qué lengua NO es de origen romance?;Francés|Rumano|Alemán|Español;2;media;historia
-57;¿En qué deporte olímpico los atletas compiten en las pruebas de jabalina, disco y martillo?;Natación|Atletismo|Gimnasia|Ciclismo;1;media;deportes
-58;¿Qué órgano humano produce la insulina?;Hígado|Páncreas|Riñón|Estómago;1;media;ciencia
-59;¿Qué vitamina se obtiene principalmente de la luz solar?;Vitamina A|Vitamina C|Vitamina D|Vitamina K;2;media;ciencia
-60;¿Qué líquido es conocido como 'el solvente universal'?;Aceite|Alcohol|Agua|Vinagre;2;media;ciencia
-61;¿Qué matemático del siglo XX resolvió el séptimo problema de Hilbert, relacionado con números trascendentales?;Kurt Gödel|David Hilbert|Aleksandr Gelfond|Emmy Noether;2;difícil;matemática
-62;¿Cuál es el nombre del manuscrito medieval, escrito en un idioma indescifrable, que ha desconcertado a criptógrafos durante décadas?;Manuscrito de Voynich|Códice Gigas|Manuscrito de Beale|Libro de Kells;0;difícil;historia
-63;¿Qué elemento químico fue el primero en ser creado artificialmente?;Neptunio|Tecnecio|Prometio|Curio;1;difícil;ciencia
-64;¿Qué filósofo presocrático propuso que todo estaba compuesto por 'semillas', o 'nous', como principio organizador?;Parménides|Anaxágoras|Empédocles|Demócrito;1;difícil;historia
-65;¿Qué lengua extinta fue descifrada gracias a la piedra de Rosetta?;Cuneiforme sumerio|Akkadio|Egipcio jeroglífico|Lineal A;2;difícil;historia
-66;¿Qué país ganó el primer Mundial de Fútbol en 1930?;Brasil|Italia|Uruguay|Argentina;2;difícil;deportes
-67;¿Qué atleta ostenta el récord olímpico de más medallas de oro (23) en natación?;Mark Spitz|Ian Thorpe|Michael Phelps|Ryan Lochte;2;difícil;deportes
-68;¿Qué batalla marcó el fin de Napoleón Bonaparte en 1815?;Batalla de Waterloo|Batalla de Austerlitz|Batalla de Trafalgar|Batalla de Borodino;0;difícil;historia
-69;¿Qué conjetura matemática, demostrada por Andrew Wiles en 1994, afirma que no existen enteros positivos \(a, b, c\) que satisfagan \(a^n + b^n = c^n\) para \(n > 2\)?;Conjetura de Goldbach|Último Teorema de Fermat|Hipótesis de Riemann|Conjetura de Poincaré;1;difícil;matemática
-70;¿Qué movimiento artístico, liderado por André Breton en los años 1920, se basaba en el inconsciente y los sueños como fuentes de creación?;Cubismo|Surrealismo|Dadaísmo|Expresionismo;1;difícil;arte
-71;¿Qué artista renacentista escondió mensajes crípticos en su obra "La Última Cena", incluyendo presuntas referencias a la música mediante símbolos matemáticos?;Miguel Ángel|Leonardo da Vinci|Rafael Sanzio|Sandro Botticelli;1;difícil;arte
-72;¿Qué técnica pictórica, desarrollada por Jan van Eyck en el siglo XV, utiliza capas sucesivas de óleo mezclado con resina para lograr transparencias y brillos metálicos?;Témpera al huevo|Fresco|Esgrafiado|Glacis;3;difícil;arte
-73;¿Qué número es primo?;15|23|33|49;1;media;matemática
-74;¿Qué partícula subatómica tiene carga positiva?;Protón|Electrón|Neutrón|Fotón;0;media;ciencia
-75;¿En qué año comenzó la Revolución Francesa?;1776|1789|1799|1804;1;media;historia
-76;¿Qué elemento es el más abundante en el universo?;Hierro|Oxígeno|Hidrógeno|Carbono;2;media;ciencia
-77;¿Cuál es el valor de π (pi), redondeado a 5 decimales?;3.14159|3.14160|3.14158|3.14162;0;media;matemática
+pregunta;opciones;indice_correcto;dificultad;categoría
+¿Qué elemento químico tiene el símbolo 'O'?;Osmio|Oro|Oxígeno|Oganesón;2;fácil;ciencia
+¿Qué planeta es conocido como 'el planeta rojo'?;Venus|Júpiter|Saturno|Marte;3;fácil;ciencia
+¿Cuál es el río más largo del mundo?;Nilo|Misisipi|Yangtsé|Amazonas;3;fácil;ciencia
+¿Quién pintó 'La Mona Lisa'?;Pablo Picasso|Leonardo da Vinci|Vincent van Gogh|Salvador Dalí;1;fácil;arte
+¿En qué año llegó el hombre a la luna?;1969|1955|1975|1989;0;fácil;historia
+¿Qué imperio fue gobernado por Julio César?;Imperio Británico|Imperio Romano|Imperio Mongol|Imperio Otomano;1;fácil;historia
+¿En qué obra literaria aparece el personaje 'Jay Gatsby'?;Moby Dick|Matar a un ruiseñor|1984|El gran Gatsby;3;fácil;arte
+¿Qué artista musical es conocido como 'El Rey del Pop'?;Freddie Mercury|Madonna|Michael Jackson|Elvis Presley;2;fácil;arte
+¿Qué poeta escribió 'El cuervo'?;William Shakespeare|Pablo Neruda|Edgar Allan Poe|Mario Benedetti;2;fácil;arte
+¿En qué país se originó el sushi?;Japón|Tailandia|China|Corea del Sur;0;fácil;historia
+¿Cuál es el símbolo químico del sodio?;So|Sd|Na|K;2;fácil;ciencia
+¿Qué gas necesitamos para respirar?;Dióxido de carbono|Oxígeno|Nitrógeno|Helio;1;fácil;ciencia
+¿Qué filósofo dijo 'Pienso, luego existo'?;Friedrich Nietzsche|Platón|Aristóteles|René Descartes;3;fácil;historia
+¿En qué año se disolvió la Unión Soviética?;1975|1991|1989|1993;1;fácil;historia
+¿Qué artista es conocido como 'El rey del rock and roll'?;Freddie Mercury|Elvis Presley|John Lennon|Mick Jagger;1;fácil;arte
+¿En qué deporte se utiliza el término 'smash'?;Bádminton|Fútbol|Natación|Ciclismo;0;fácil;deportes
+¿Cuántos tiempos tiene un partido de baloncesto FIBA?;2|3|4|5;2;fácil;deportes
+¿Qué país ganó el primer Mundial de Fútbol femenino en 1991?;Brasil|Alemania|Estados Unidos|Noruega;2;fácil;deportes
+¿En qué deporte se usa el implemento llamado 'paleta'?;Pádel|Tenis|Squash|Frontón;0;fácil;deportes
+¿Cuál es el resultado de 8 × 7?;42|49|56|63;2;fácil;matemática
+Si un ángulo mide 90 grados, ¿cómo se llama?;Agudo|Obtuso|Recto|Llano;2;fácil;matemática
+¿Cuántos centímetros hay en un metro?;10|50|100|1000;2;fácil;matemática
+¿Qué figura geométrica tiene todos sus lados iguales?;Rectángulo|Rombo|Triángulo|Cuadrado;3;fácil;matemática
+¿Qué teorema establece que "en un triángulo rectángulo, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos"?;Teorema de Pitágoras|Teorema de Tales|Teorema de Euclides|Teorema de Fermat;0;fácil;matemática
+¿Qué científico formuló la teoría de la relatividad?;Isaac Newton|Albert Einstein|Niels Bohr|Stephen Hawking;1;fácil;ciencia
+¿Qué reina europea gobernó durante la "Época Victoriana"?;Reina Isabel I|Reina Victoria|Reina María I|Reina Ana;1;fácil;historia
+¿Qué matemático griego es conocido como el "Padre de la Geometría"?;Arquímedes|Pitágoras|Euclides|Tales de Mileto;2;fácil;matemática
+¿Cuál es el mínimo común múltiplo de 6 y 8?;12|16|24|48;2;media;matemática
+Si un triángulo tiene lados de 5cm, 12cm y 13cm, ¿qué tipo de triángulo es?;Acutángulo|Obtusángulo|Rectángulo|Equilátero;2;media;matemática
+Resuelve: 3x + 5 = 20;3|4|5|6;2;media;matemática
+¿Cuál es el área de un círculo con radio 4cm? (π≈3.14);12.56 cm²|25.12 cm²|37.68 cm²|50.24 cm²;3;media;matemática
+¿Cuál es el resultado de 5! (factorial de 5)?;20|60|120|720;2;media;matemática
+¿En qué deporte se utiliza el término 'ace' para describir un saque no devuelto?;Bádminton|Tenis|Voleibol|Squash;1;media;deportes
+¿Cuántos sets se necesitan ganar para vencer en un partido de tenis masculino de Grand Slam?;2|3|4|5;1;media;deportes
+¿Qué país ganó el primer Campeonato Mundial de Baloncesto FIBA en 1950?;Estados Unidos|Argentina|Unión Soviética|Brasil;1;media;deportes
+¿En qué deporte olímpico se compite en la prueba de 'keirin'?;Atletismo|Ciclismo|Natación|Gimnasia;1;media;deportes
+¿Qué jugador de fútbol ha ganado más Balones de Oro (8)?;Lionel Messi|Cristiano Ronaldo|Pelé|Diego Maradona;0;media;deportes
+¿Cuál es el resultado de (7 × 4) + (15 ÷ 3)?;23|28|31|33;2;media;matemática
+Si un triángulo tiene dos ángulos de 45°, ¿qué tipo de triángulo es?;Equilátero|Isósceles|Escaleno|Rectángulo;1;media;matemática
+¿Qué número es divisible exactamente por 2, 3 y 5?;15|20|30|45;2;media;matemática
+¿Cuál es el área de un rectángulo que mide 8 cm de largo y 5 cm de ancho?;13 cm²|26 cm²|35 cm²|40 cm²;3;media;matemática
+Si x + 7 = 15, ¿cuál es el valor de x?;5|7|8|22;2;media;matemática
+¿Qué fenómeno óptico crea el arcoíris?;Reflexión|Refracción|Difracción|Dispersión;3;media;ciencia
+¿Qué guerra comenzó en 1914?;Guerra Fría|Guerra de Vietnam|Primera Guerra Mundial|Guerra de Corea;2;media;historia
+¿En qué década se lanzó el primer iPhone?;1990s|2000s|2010s|1980s;1;media;historia
+¿Qué pintor es famoso por sus 'Campo de trigo con cuervos'?;Vincent van Gogh|Pablo Picasso|Claude Monet|Salvador Dalí;0;media;arte
+¿Cuál es el valor de 'x' en la ecuación 2x + 5 = 17?;4|6|7|9;1;media;matemática
+¿Qué gas liberan las plantas durante la fotosíntesis?;Dióxido de carbono|Oxígeno|Nitrógeno|Metano;1;media;ciencia
+¿Qué país NO es parte de la península escandinava?;Suecia|Noruega|Finlandia|Dinamarca;3;media;historia
+¿Qué escritor creó al detective Sherlock Holmes?;Agatha Christie|Arthur Conan Doyle|Edgar Allan Poe|Charles Dickens;1;media;arte
+¿En qué deporte se usa el término 'hat-trick'?;Fútbol|Baloncesto|Tenis|Béisbol;0;media;deportes
+¿Qué ley física explica por qué los objetos caen con la misma aceleración (gravedad)?;Ley de Ohm|Ley de Newton|Ley de Boyle|Ley de Coulomb;1;media;ciencia
+¿Qué instrumento musical es el más característico del jazz tradicional?;Violín|Saxofón|Flauta|Arpa;1;media;arte
+¿Qué famoso científico formuló las leyes del movimiento?;Albert Einstein|Isaac Newton|Galileo Galilei|Stephen Hawking;1;media;ciencia
+¿Qué película ganó el Óscar a Mejor Película en 2020?;Parásitos|1917|Joker|Nomadland;0;media;arte
+¿Qué lengua NO es de origen romance?;Francés|Rumano|Alemán|Español;2;media;historia
+¿En qué deporte olímpico los atletas compiten en las pruebas de jabalina, disco y martillo?;Natación|Atletismo|Gimnasia|Ciclismo;1;media;deportes
+¿Qué órgano humano produce la insulina?;Hígado|Páncreas|Riñón|Estómago;1;media;ciencia
+¿Qué vitamina se obtiene principalmente de la luz solar?;Vitamina A|Vitamina C|Vitamina D|Vitamina K;2;media;ciencia
+¿Qué líquido es conocido como 'el solvente universal'?;Aceite|Alcohol|Agua|Vinagre;2;media;ciencia
+¿Qué matemático del siglo XX resolvió el séptimo problema de Hilbert, relacionado con números trascendentales?;Kurt Gödel|David Hilbert|Aleksandr Gelfond|Emmy Noether;2;difícil;matemática
+¿Cuál es el nombre del manuscrito medieval, escrito en un idioma indescifrable, que ha desconcertado a criptógrafos durante décadas?;Manuscrito de Voynich|Códice Gigas|Manuscrito de Beale|Libro de Kells;0;difícil;historia
+¿Qué elemento químico fue el primero en ser creado artificialmente?;Neptunio|Tecnecio|Prometio|Curio;1;difícil;ciencia
+¿Qué filósofo presocrático propuso que todo estaba compuesto por 'semillas', o 'nous', como principio organizador?;Parménides|Anaxágoras|Empédocles|Demócrito;1;difícil;historia
+¿Qué lengua extinta fue descifrada gracias a la piedra de Rosetta?;Cuneiforme sumerio|Akkadio|Egipcio jeroglífico|Lineal A;2;difícil;historia
+¿Qué país ganó el primer Mundial de Fútbol en 1930?;Brasil|Italia|Uruguay|Argentina;2;difícil;deportes
+¿Qué atleta ostenta el récord olímpico de más medallas de oro (23) en natación?;Mark Spitz|Ian Thorpe|Michael Phelps|Ryan Lochte;2;difícil;deportes
+¿Qué batalla marcó el fin de Napoleón Bonaparte en 1815?;Batalla de Waterloo|Batalla de Austerlitz|Batalla de Trafalgar|Batalla de Borodino;0;difícil;historia
+¿Qué conjetura matemática, demostrada por Andrew Wiles en 1994, afirma que no existen enteros positivos \(a, b, c\) que satisfagan \(a^n + b^n = c^n\) para \(n > 2\)?;Conjetura de Goldbach|Último Teorema de Fermat|Hipótesis de Riemann|Conjetura de Poincaré;1;difícil;matemática
+¿Qué movimiento artístico, liderado por André Breton en los años 1920, se basaba en el inconsciente y los sueños como fuentes de creación?;Cubismo|Surrealismo|Dadaísmo|Expresionismo;1;difícil;arte
+¿Qué artista renacentista escondió mensajes crípticos en su obra "La Última Cena", incluyendo presuntas referencias a la música mediante símbolos matemáticos?;Miguel Ángel|Leonardo da Vinci|Rafael Sanzio|Sandro Botticelli;1;difícil;arte
+¿Qué técnica pictórica, desarrollada por Jan van Eyck en el siglo XV, utiliza capas sucesivas de óleo mezclado con resina para lograr transparencias y brillos metálicos?;Témpera al huevo|Fresco|Esgrafiado|Glacis;3;difícil;arte
+¿Qué número es primo?;15|23|33|49;1;media;matemática
+¿Qué partícula subatómica tiene carga positiva?;Protón|Electrón|Neutrón|Fotón;0;media;ciencia
+¿En qué año comenzó la Revolución Francesa?;1776|1789|1799|1804;1;media;historia
+¿Qué elemento es el más abundante en el universo?;Hierro|Oxígeno|Hidrógeno|Carbono;2;media;ciencia
+¿Cuál es el valor de π (pi), redondeado a 5 decimales?;3.14159|3.14160|3.14158|3.14162;0;media;matemática

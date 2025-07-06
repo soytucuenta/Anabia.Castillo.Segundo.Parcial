@@ -9,9 +9,6 @@ def cargar_config_json(path: str):
             if not config:
                 print("Error: El archivo está vacío")
                 return None
-            if not (config.startswith('{') and contenido.endswith('}')):
-                print("Error: El archivo no tiene formato JSON válido")
-                return None
             return config
     except PermissionError:
         print(f"Error: No tienes permisos para leer el archivo '{path}'.")
@@ -29,14 +26,13 @@ def cargar_preguntas_csv(path: str) ->list:
         with open (path, "r", encoding ='utf8') as archivo:
             for linea in archivo:
                 registro = linea.strip().split(";")
-                if registro[0][0] != "i":
+                if registro[0][0] != "p":
                     lista = {}
-                    lista["id"] = int(registro[0])
-                    lista["pregunta"] = registro[1]
-                    lista["opciones"] = registro[2].split("|")
-                    lista["correcta"] = int(registro[3])
-                    lista["dificultad"] = registro[4]
-                    lista["categoría"] = registro[5]
+                    lista["pregunta"] = registro[0]
+                    lista["opciones"] = registro[1].split("|")
+                    lista["correcta"] = int(registro[2])
+                    lista["dificultad"] = registro[3]
+                    lista["categoría"] = registro[4]
                     preguntas.append(lista)
     except FileNotFoundError:
         print(f"Error: El archivo '{path}' no existe.")
@@ -58,14 +54,11 @@ def cargar_usuarios_csv(path: str) ->list:
         with open (path, "r", encoding ='utf8') as archivo:
             for linea in archivo:
                 registro = linea.strip().split(";")
-                if registro[0][0] != "i":
+                if registro[0][0] != "u":
                     lista = {}
-                    lista["id"] = int(registro[0])
-                    lista["nombre"] = registro[1]
-                    lista["edad"] = int(registro[2])
-                    lista["profesión"] = registro[3]
-                    lista["ganancia"] = int(registro[4])
-                    lista["dificultad"] = registro[5]
+                    lista["usuario"] = registro[0]
+                    lista["ganancia"] = int(registro[1])
+                    lista["dificultad"] = registro[2]
                     usuarios.append(lista)
     except FileNotFoundError:
         print(f"Error: El archivo '{path}' no existe.")
@@ -85,10 +78,8 @@ def escribir_usuario_csv(usuario_dic, path):
     try:
         with open(path, 'a', encoding ='utf8') as archivo:
             mensaje = '{0};{1};{2};{3};{4};{5}'
-            mensaje = mensaje.format(usuario_dic['id'],
-            usuario_dic['nombre'],
-            usuario_dic['edad'],
-            usuario_dic['profesión'],
+            mensaje = mensaje.format(
+            usuario_dic['usuario'],
             usuario_dic['ganancia'],
             usuario_dic['dificultad'])
             archivo.write(f'{mensaje}\n')
