@@ -1,28 +1,4 @@
 import copy
-from manejo_archivos import *
-
-def guardar_usuario(dinero:int, dificultad:str):
-    usuario = {}
-    usuario["id"] = 12000
-    usuario["nombre"] = input("Ingrese su nombre: ")
-    usuario["edad"] = int(input("Ingrese su edad: "))
-    usuario["profesión"] = input("Ingrese profesión: ")
-    usuario["ganancia"] = dinero
-    usuario["dificultad"] = dificultad
-
-    # escribir_usuario_csv(usuario, "csv/usuarios.csv")
-    with open("csv/usuarios.csv", 'a', encoding ='utf8') as archivo:
-        mensaje = '{0};{1};{2};{3};{4};{5}'
-        u = usuario
-        mensaje = mensaje.format(u['id'],
-        u['nombre'],
-        u['edad'],
-        u['profesión'],
-        u['ganancia'],
-        u['dificultad'])
-        archivo.write(f'{mensaje}\n')
-
-    print("Usuario guardado en base de datos!")
 
 # def mostrar_datos_usuario(usuario:dict,mensaje:str):
 #     """

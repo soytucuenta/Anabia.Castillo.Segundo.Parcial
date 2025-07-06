@@ -8,3 +8,5 @@ id;nombre;edad;profesión;ganancia;dificultad
 7;Carlos;45;Profesor;134400;difícil
 8;Sofia;22;Estudiante;15200;fácil
 9;Diego;38;Chef;751000;media
+12000;Brandon;29;Programador;0;media
+12000;Dylan;28;Programador;0;difícil

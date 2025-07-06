@@ -2,7 +2,7 @@ import time
 import random
 from prints import *
 from manejo_archivos import *
-from manejo_usuarios import *
+from logica_usuarios import *
 from funciones_reutilizables import *
 
 def mostrar_pregunta_y_opciones(pregunta_dict):

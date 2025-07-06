@@ -20,7 +20,7 @@ def leaderboard():
     usuarios_dificil = filtrar_lista_diccionarios(usuarios_ordenados, "dificultad", "difícil")
 
     print("\n### LEADERBOARD ###\n")
-    print("---Dificil---")
+    print("---Difícil---")
     for usuario in usuarios_dificil:
         mostrar_datos_usuario(usuario)
     print("")
@@ -33,3 +33,14 @@ def leaderboard():
     print("---Fácil---")
     for usuario in usuarios_facil:
         mostrar_datos_usuario(usuario)
+
+def guardar_usuario(dinero:int, dificultad:str):
+    usuario = {}
+    usuario["id"] = 12000
+    usuario["nombre"] = input("Ingrese su nombre: ")
+    usuario["edad"] = int(input("Ingrese su edad: "))
+    usuario["profesión"] = input("Ingrese profesión: ")
+    usuario["ganancia"] = dinero
+    usuario["dificultad"] = dificultad
+
+    escribir_usuario_csv(usuario, "csv/usuarios.csv")
