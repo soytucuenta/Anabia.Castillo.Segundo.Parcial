@@ -70,11 +70,12 @@ def cargar_usuarios_csv(path: str) ->list:
         with open (path, "r", encoding ='utf8') as archivo:
             for linea in archivo:
                 registro = linea.strip().split(";")
-                if registro[0][0] != "u":
+                if registro[0][0] != "n":
                     lista = {}
-                    lista["usuario"] = registro[0]
-                    lista["ganancia"] = int(registro[1])
+                    lista["nombre"] = registro[0]
+                    lista["ganado"] = int(registro[1])
                     lista["dificultad"] = registro[2]
+                    lista["segundos"] = int(registro[3])
                     usuarios.append(lista)
     except FileNotFoundError:
         print(f"Error: El archivo '{path}' no existe.")
@@ -97,11 +98,12 @@ def guardar_usuario_csv(usuario_dic, path):
     """
     try:
         with open(path, 'a', encoding ='utf8') as archivo:
-            mensaje = '{0};{1};{2}'
+            mensaje = '{0};{1};{2};{3}'
             mensaje = mensaje.format(
-            usuario_dic['usuario'],
-            usuario_dic['ganancia'],
-            usuario_dic['dificultad'])
+            usuario_dic['nombre'],
+            usuario_dic['ganado'],
+            usuario_dic['dificultad'],
+            usuario_dic['segundos'])
             archivo.write(f'{mensaje}\n')
     except PermissionError:
         print("Error: No tienes permisos para modificar el archivo.")

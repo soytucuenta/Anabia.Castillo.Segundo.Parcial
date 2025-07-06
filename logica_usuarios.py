@@ -1,16 +1,17 @@
 from manejo_archivos import *
 from funciones_reutilizables import *
 
-def registrar_usuario(dinero:int, dificultad:str):
+def registrar_usuario(dinero:int, dificultad:str, tiempo:int):
     """ Guardar datos de usuario que recién jugó.
     Args:
         dinero (int): Dinero que ganó el usuario.
         dificultad (str): Dificultad en la que jugó.
     """
     usuario = {}
-    usuario["usuario"] = input("Ingrese el nombre de usuario: ")
-    usuario["ganancia"] = dinero
+    usuario["nombre"] = input("Ingrese el nombre de usuario: ")
+    usuario["ganado"] = dinero
     usuario["dificultad"] = dificultad
+    usuario["segundos"] = tiempo
 
     guardar_usuario_csv(usuario, "csv/usuarios.csv")
 
@@ -23,7 +24,7 @@ def leaderboard():
     usuarios = cargar_usuarios_csv("csv/usuarios.csv")
 
     # Ordernar lista
-    ordernar_lista_diccionarios(usuarios, "ganancia")
+    ordernar_lista_diccionarios(usuarios, "ganado")
 
     # Filtra lista
     usuarios_facil = filtrar_lista_diccionarios(usuarios, "dificultad", "fácil")

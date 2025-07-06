@@ -51,11 +51,11 @@ def ordernar_lista_diccionarios(lista:list, propiedad:str):
                 swap(lista,i,j)  
 
 def mostrar_lista_diccionarios(lista:list,):
-    """ Muestra valores de una lista de diccionarios.
+    """ Muestra propiedades y valores de una lista de diccionarios.
     Args:
         lista (list): Lista.
     """
     for elemento in lista:
         for propiedad in elemento:
-            print(f"{elemento[propiedad]}")
+            print(f"{propiedad :<12}{elemento[propiedad] :>13}")
         print("")

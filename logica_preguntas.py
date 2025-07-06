@@ -16,11 +16,11 @@ def mostrar_pregunta_y_opciones(pregunta_dict:dict):
     opciones = pregunta_dict["opciones"]
     for i in range(len(opciones)):
         print(f"{i+1}. {opciones[i]}")
-    
 
 def solicitar_apuestas(dinero:int, tiempo_limite:int)-> list:
     """
     Solicita al usuario que ingrese una cantidad de dinero para apostar por cada opción, validando que las apuestas no supere el dinero disponible.
+    Contralando el tiempo límite.
     Args:
         dinero (int): La cantidad de dinero disponible para apostar.
         tiempo_limite (int): La cantidad de tiempo límite para apostar.
@@ -78,6 +78,7 @@ def gameplay():
     dinero = 1000000
     reglas = cargar_config_json("config.json")
     preguntas = tuple(cargar_preguntas_csv("csv/preguntas.csv"))
+    tiempo_inicial = time.time()
 
     print(disclaimer)
     daltonico = int(input("\nEs usted daltonico?\n1. Si\n2. No\n\nSeleccione una opción: "))
@@ -131,4 +132,7 @@ def gameplay():
     else:
         print(f"Juego terminado. Se va con ${dinero}.\n")
 
-    registrar_usuario(dinero, nivel_dificultad)
+    tiempo_final = time.time()
+    tiempo_de_partida = round(tiempo_final - tiempo_inicial)
+
+    registrar_usuario(dinero, nivel_dificultad, tiempo_de_partida)
