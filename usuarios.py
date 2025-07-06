@@ -1,5 +1,5 @@
 import copy
-def inicializar_usuarios(lista_dicc_usuarios)-> dict:
+def inicializar_usuario_actual(lista_dicc_usuarios)-> dict:
 
     datos_usuario = {"id": 0,"nombre": None, "ganancias": 0 , "participaciones": 0,"mejor racha": 0, "ranking": 0}
     datos_usuario["nombre"] = input("ingrese nombre de usuario: ")
@@ -8,8 +8,11 @@ def inicializar_usuarios(lista_dicc_usuarios)-> dict:
     datos_usuario["participaciones"] = 0
     datos_usuario['mejor racha'] = 0
     datos_usuario['ranking'] = 0
-    lista_dicc_usuarios.append(datos_usuario)
     return datos_usuario
+
+def finalizar_sesion(usuario_actual:dict, lista_dicc_usuarios:list):
+    lista_dicc_usuarios.append(usuario_actual)
+    return lista_dicc_usuarios
 
 
 

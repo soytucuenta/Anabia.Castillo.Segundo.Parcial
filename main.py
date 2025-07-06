@@ -13,11 +13,15 @@ cheats = True #pasa por parametro a gameplay y despues a la de mostrar pregunta 
 todas_las_preguntas = cargar_preguntas() #carga las preguntas desde el CSV
 #prueba_usuarios = cargar_usuarios('csv/usuarios.csv') #carga los usuarios desde el CSV
 #print(prueba_usuarios)
-lista_usuarios = cargar_usuarios('csv/usuarios.csv') #carga los usuarios desde el CSV
-usuarios = inicializar_usuarios(lista_usuarios) #carga los usuarios desde el CSV
-for usuario in usuarios:
-    print(f"Usuario cargado: {usuario['nombre']}")
-    print(f"id: {usuario['id']}")
+usuarios = cargar_usuarios('csv/usuarios.csv') #carga los usuarios desde el CSV
+info_usuario = inicializar_usuario_actual(usuarios) #carga los usuarios desde el CSV
+
+print(f"nombre - {info_usuario['nombre']}")
+print(f"id - {info_usuario['id']}")
+print(f"ganancias - {info_usuario['ganancias']}")
+print(f"participaciones - {info_usuario['participaciones']}")
+print(f"mejor racha - {info_usuario['mejor racha']}")
+print(f"ranking - {info_usuario['ranking']}")
 
 config = cargar_configuracion(configuracion_default) #carga la configuracion desde el JSON
 #menu principal
