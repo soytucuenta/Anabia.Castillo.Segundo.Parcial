@@ -1,6 +1,12 @@
 import json
 
-def cargar_config_json(path: str):
+def cargar_config_json(path: str)->dict:
+    """ Carga archivo json con las configuraciones del juego.
+    Args:
+        path (str): Dirección del json.
+    Returns:
+        (dict): Diccionario con las configuraciones.
+    """
     try:
         with open(path, "r", encoding ='utf8') as archivo: 
             config = json.load(archivo)
@@ -19,6 +25,12 @@ def cargar_config_json(path: str):
         return None
 
 def cargar_preguntas_csv(path: str) ->list:
+    """ Carga archhivo csv con las preguntas del juego.
+    Args:
+        path (str): Dirección del csv.
+    Returns:
+        list: Lista con las preguntas.
+    """
     preguntas = []
     try:
         with open (path, "r", encoding ='utf8') as archivo:
@@ -47,6 +59,12 @@ def cargar_preguntas_csv(path: str) ->list:
     return preguntas
 
 def cargar_usuarios_csv(path: str) ->list:
+    """ Carga archhivo csv con los usuarios del juego.
+    Args:
+        path (str): Dirección del csv.
+    Returns:
+        list: Lista con los usuarios.
+    """
     usuarios = []
     try:
         with open (path, "r", encoding ='utf8') as archivo:
@@ -73,6 +91,10 @@ def cargar_usuarios_csv(path: str) ->list:
     return usuarios
 
 def guardar_usuario_csv(usuario_dic, path):
+    """ Guarda diccionario de usuario en archivo csv de usuarios.
+    Args:
+        path (str): Dirección del csv.
+    """
     try:
         with open(path, 'a', encoding ='utf8') as archivo:
             mensaje = '{0};{1};{2}'

@@ -22,6 +22,7 @@ def solicitar_apuestas(dinero:int, tiempo_limite:int)-> list:
     Solicita al usuario que ingrese una cantidad de dinero para apostar por cada opción, validando que las apuestas no supere el dinero disponible.
     Args:
         dinero (int): La cantidad de dinero disponible para apostar.
+        tiempo_limite (int): La cantidad de tiempo límite para apostar.
     Returns:
         (list): La cantidad/es apostada/s por el usuario.
     """
@@ -53,16 +54,16 @@ def procesar_respuestas(pregunta_dict:dict, apuestas:list) -> int:
     """
     Procesa las respuestas del usuario, y devuelve el nuevo dinero.
     Args:
-        dinero (int): Cantidad actual de dinero antes de la/s apuesta/s.
         apuestas (int): Cantidad de dinero apostado en cada opción.
     Returns:
         int: Cantidad actualizada del dinero del usuarios después de procesar la/s apuesta/s.
     """
     correcta = pregunta_dict["correcta"]
+    respuesta = pregunta_dict["opciones"][correcta]
     dinero = apuestas[correcta]
 
     print("\n-------------------------------------------------")
-    print(f"¡Y la respuesta correcta era {pregunta_dict["opciones"][correcta]}!")
+    print(f"¡Y la respuesta correcta era {respuesta}!")
     print(f"¡La opción número {correcta+1}!")
     print(f"¡Espero que haya apostado bien!")
     print("-------------------------------------------------\n")

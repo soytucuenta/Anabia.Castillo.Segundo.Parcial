@@ -33,7 +33,7 @@ def leaderboard():
     # Muestra lista
     print("---Difícil---")
     mostrar_lista_diccionarios(usuarios_dificil)
-    print("---Media---")
+    print("---Medio---")
     mostrar_lista_diccionarios(usuarios_media)
     print("---Fácil---")
     mostrar_lista_diccionarios(usuarios_facil)
