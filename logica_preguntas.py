@@ -76,7 +76,7 @@ def gameplay():
     nivel = 1
     dinero = 1000000
     reglas = cargar_config_json("config.json")
-    preguntas = cargar_preguntas_csv("csv/preguntas.csv")
+    preguntas = tuple(cargar_preguntas_csv("csv/preguntas.csv"))
 
     print(disclaimer)
     daltonico = int(input("\nEs usted daltonico?\n1. Si\n2. No\n\nSeleccione una opción: "))
