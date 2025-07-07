@@ -6,7 +6,7 @@ from colorama import Fore, Back, Style, init
 def minijuego()->bool:
     init() 
     se_gano = False
-    palabras = ["playa", "mundo", "volar", "libro", "dulce", "gorra", "cielo", "fuego", "cinco", "arbol", "lapiz"]
+    palabras = ["playa", "amigo", "bueno", "mejor" "mundo", "libre", "volar", "libro", "dulce", "gorra", "cielo", "fuego", "cinco", "arbol", "verde", "lapiz"]
     palabra_random = lista_random(palabras)
     intentos = 1
     filas = 6
@@ -38,10 +38,10 @@ def minijuego()->bool:
                 cadena += (Fore.WHITE + "[#, #, #, #, #]" + Style.RESET_ALL)
             cadena += "\n"
         print(cadena)
-
+        
         # calcular si ganó
         if aciertos == 5:
-            print("\n¡Enorabuena! Ganó el juego!\n")
+            print("¡Enorabuena! Ganó el juego!\n")
             gano = True
             break
             
@@ -68,6 +68,9 @@ def minijuego()->bool:
         # aumentar intentos
         intentos += 1
 
-    return gano
+    if intentos > 6:
+        print("\nLo siento, más suerte la próxima.\n")
+
+    return se_gano
 
 minijuego()
