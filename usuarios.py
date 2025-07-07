@@ -130,7 +130,7 @@ def buscar_nombre_en_lista_diccionarios(nombre:str, lista_usuarios:list)-> bool:
     """
     bandera = False
     for usuario in lista_usuarios:
-        if usuario["nombre"].lower() == nombre.lower() or usuario['nombre'] == None:
+        if usuario["nombre"].lower() == nombre.lower(): #or usuario['nombre'] != None:
             bandera = True
             break
     return bandera
@@ -167,6 +167,7 @@ def seleccion_usuario_consola(lista_usuarios:list,mensaje:str = 'Ingrese usuario
     seleccion_de_usuario = input(mensaje)
     if buscar_nombre_en_lista_diccionarios(seleccion_de_usuario, lista_usuarios) == False:
         datos_usuario = agregar_nuevo_usuario_consola(lista_usuarios, seleccion_de_usuario)
+        print(f"Usuario nuevo: {seleccion_de_usuario}")
     else:
         print(f"{mensaje_usuario_encontrado}: {seleccion_de_usuario}")
         datos_usuario = copiar_usuario_por_nombre(seleccion_de_usuario, lista_usuarios)

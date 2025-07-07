@@ -11,9 +11,11 @@ def restar_en_clave(diccionario:dict, clave:str, valor:int):
 
 def multiplicar_en_clave(diccionario:dict, clave:str, valor:int):
     diccionario[clave] *= valor
+
 def mostrar_lista_diccionarios(lista:list, mensaje:str=None):
     for diccionario in lista:
         mostrar_diccionario_individual(diccionario, mensaje)
+
 def dividir_en_clave(diccionario:dict, clave:str, valor:int):
     resultado = None
     if valor != 0:
@@ -22,6 +24,7 @@ def dividir_en_clave(diccionario:dict, clave:str, valor:int):
 
 def reemplazar_en_clave(diccionario:dict, clave:str, valor):
     diccionario[clave] = valor
+
 def sincronizar_diccionario(diccionario:dict, lista_usuarios:list, clave_busqueda:str):
     """
     Sincroniza un diccionario de usuario con una lista de usuarios, actualizando el usuario en la lista si existe.
@@ -53,6 +56,7 @@ def buscar_maximo_lista(lista:list):
             if lista[i] > maximo:
                 maximo = lista[i]
     return maximo
+
 def buscar_maximo(maximo_anterior:int, nuevo_valor:int):
     """
     Compara un valor nuevo con un máximo anterior y devuelve el mayor de los dos.
@@ -66,6 +70,7 @@ def buscar_maximo(maximo_anterior:int, nuevo_valor:int):
     if nuevo_valor > maximo_anterior:
         salida = nuevo_valor
     return salida
+
 def promediar_lista(lista:list):
     """
     Calcula el promedio (media) de los valores numéricos en una lista.
