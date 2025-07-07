@@ -6,6 +6,17 @@ from funciones_genericas import mostrar_diccionario_individual
 """-----------------------CONFIGURACION-----------------------"""
 
 def escribir_configuracion(configuracion:dict, archivo:str='config.json'):
+    """
+    Guarda un diccionario de configuración en un archivo JSON.
+    Args:
+        configuracion (dict): Diccionario que contiene la configuración a guardar.
+        archivo (str, optional): Nombre del archivo donde se guardará la configuración. 
+            Por defecto es 'config.json'.
+    Raises:
+        TypeError: Si 'configuracion' no es un diccionario.
+        IOError: Si ocurre un error al escribir el archivo.
+    """
+
     with open(archivo, 'w', encoding='utf8') as archivo:
         json.dump(configuracion, archivo, indent=4)
 

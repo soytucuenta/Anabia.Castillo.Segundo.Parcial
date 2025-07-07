@@ -1,7 +1,15 @@
 import copy
 from funciones_genericas import *
 from prints import *
+from config import seleccion_dificultad
 def inicializar_usuario_actual(lista_dicc_usuarios)-> dict:
+    """
+    Inicializa un nuevo usuario con datos predeterminados y solicita el nombre por consola.
+    Args:
+        lista_dicc_usuarios (list): Lista de diccionarios que representan los usuarios existentes.
+    Returns:
+        dict: Diccionario con los datos del nuevo usuario, incluyendo id, nombre, ganancias, participaciones, mejor racha y ranking.
+    """
 
     datos_usuario = {"id": 0,"nombre": None, "ganancias": 0 , "participaciones": 0,"mejor racha": 0, "ranking": 0}
     datos_usuario["nombre"] = input("ingrese nombre de usuario: ")
@@ -12,9 +20,6 @@ def inicializar_usuario_actual(lista_dicc_usuarios)-> dict:
     datos_usuario['ranking'] = 0
     return datos_usuario
 
-def finalizar_sesion(usuario_actual:dict, lista_dicc_usuarios:list):
-    lista_dicc_usuarios.append(usuario_actual)
-    return lista_dicc_usuarios
 def ordenar_ranking(lista_dicc_usuarios:list):
     """
     Ordena la lista de usuarios por ganancias y asigna un ranking.
@@ -30,6 +35,18 @@ def ordenar_ranking(lista_dicc_usuarios:list):
     lista_dicc_usuarios = cargar_matriz_en_diccionario(matriz_ranking, lista_dicc_usuarios)
     return lista_dicc_usuarios
 def cargar_matriz_en_diccionario(matriz:list, lista_dicc_usuarios:list):
+    """
+    Actualiza una lista de diccionarios de usuarios con los valores de 'ganancias' y 'ranking' provenientes de una matriz dada.
+    Args:
+        matriz (list): Una lista de listas, donde cada lista interna contiene datos de usuario en el orden [id, ganancias, ranking].
+        lista_dicc_usuarios (list): Una lista de diccionarios, cada uno representando un usuario con al menos la clave 'id'.
+    Returns:
+        list: La lista actualizada de diccionarios de usuarios con los campos 'ganancias' y 'ranking' establecidos según la matriz.
+    Nota:
+        Solo se actualizarán los usuarios cuyo 'id' coincida entre la matriz y la lista de diccionarios de usuarios.
+    """
+
+    
     lista_temporal = []
     for i in range(len(matriz)):
         fila = {}
@@ -45,7 +62,15 @@ def cargar_matriz_en_diccionario(matriz:list, lista_dicc_usuarios:list):
     return lista_dicc_usuarios
         
 
-def crear_matriz_ranking_ids(lista_dicc_usuarios:list):    
+def crear_matriz_ranking_ids(lista_dicc_usuarios:list):  
+    """
+    Genera una matriz que contiene los valores de 'id', 'ganancias' y 'ranking' para cada usuario en la lista de entrada.
+    Args:
+        lista_dicc_usuarios (list): Una lista de diccionarios, donde cada diccionario representa un usuario y contiene las claves 'id', 'ganancias' y 'ranking'.
+    Returns:
+        list: Una lista de listas (matriz), donde cada lista interna contiene el 'id', 'ganancias' y 'ranking' de un usuario.
+    """
+
     matriz_ranking = []
     for i in range(len(lista_dicc_usuarios)):
         fila = []
@@ -62,6 +87,15 @@ def leer_matriz_columna(matriz:list, columna:int)-> list:
     return columna_leida
 
 def ordenar_matriz_burbujeo(matriz:list, columna:int)-> list:
+    """
+    Ordena una matriz (lista de listas) en orden descendente según los valores de una columna especificada utilizando el algoritmo de burbujeo.
+    Args:
+        matriz (list): La matriz a ordenar, donde cada elemento es una lista que representa una fila.
+        columna (int): El índice de la columna por la cual se ordenará.
+    Returns:
+        list: La matriz ordenada en orden descendente según la columna especificada.
+    """
+
     for i in range(len(matriz)):
         for j in range(0,len(matriz) - i  - 1):
             if matriz[j][columna] < matriz[j + 1][columna]:
@@ -137,5 +171,26 @@ def seleccion_usuario_consola(lista_usuarios:list,mensaje:str = 'Ingrese usuario
         print(f"{mensaje_usuario_encontrado}: {seleccion_de_usuario}")
         datos_usuario = copiar_usuario_por_nombre(seleccion_de_usuario, lista_usuarios)
     return datos_usuario
+def agregar_nuevo_usuario_main(lista_usuarios:list)-> dict:
+    """
+    Crea un nuevo usuario con el nombre proporcionado y lo agrega a la lista de usuarios.
+    Args:
+        lista_usuarios (list): Lista de diccionarios de usuarios.
+        nombre (str): Nombre del nuevo usuario.
+    Returns:
+        dict: El diccionario del nuevo usuario creado.
+    """
+    seleccion_nombre = input(f"Ingrese nombre de usuario: ")
+    if buscar_nombre_en_lista_diccionarios(seleccion_nombre, lista_usuarios)== False:
+        print(f"El nombre {seleccion_nombre} ya existe, ingrese desde inicio de partida")
+        nuevo_usuario = None
+    else:
+        print(f"Creando nuevo usuario: {seleccion_nombre}")
+        dificultad_default = "media"
+        dificultad = seleccion_dificultad(mensaje_dificultad, dificultad_default)
+        if dificultad == None:
+            dificultad = "media"
+        nuevo_usuario = {"id": len(lista_usuarios) + 1, "nombre": seleccion_nombre, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": dificultad}
+    return nuevo_usuario
 
 

@@ -3,6 +3,25 @@ from funciones_genericas import *
 from usuarios import *
 from config import *
 def jugar_consola(lista_usuarios:list, configuracion:dict, preguntas:list, cheats:bool):
+    """
+    Permite jugar una partida de preguntas y respuestas en la consola para un usuario seleccionado.
+    Parámetros:
+        lista_usuarios (list): Lista de diccionarios que contienen la información de los usuarios.
+        configuracion (dict): Diccionario con la configuración general del juego.
+        preguntas (list): Lista de preguntas disponibles para la partida.
+        cheats (bool): Indica si los trucos están habilitados.
+    El flujo de la función es el siguiente:
+        - Selecciona un usuario de la lista.
+        - Inicializa la racha y las estadísticas del usuario.
+        - Ejecuta rondas de juego mientras el usuario desee continuar.
+        - Calcula las ganancias y actualiza la racha según el desempeño.
+        - Permite al usuario decidir si continúa o termina la partida.
+        - Al finalizar, actualiza la mejor racha y sincroniza la información del usuario en la lista.
+    Retorno:
+        None
+    """
+
+    
     info_usuario = seleccion_usuario_consola(lista_usuarios)
     racha_previa = info_usuario['mejor racha']
     lista_rachas = [racha_previa]

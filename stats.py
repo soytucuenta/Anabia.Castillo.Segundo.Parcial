@@ -3,20 +3,17 @@ from usuarios import ordenar_ranking
 from funciones_genericas import *
 from prints import *
 
-def mostrar_por_ranking(lista_dicc_usuarios:list):
-    """
-    Muestra la lista de usuarios ordenada por ranking.
-    Args:
-        lista_dicc_usuarios (list): Lista de diccionarios de usuarios.
-    """
-    lista_dicc_usuarios = ordenar_ranking(lista_dicc_usuarios)
-    print("Usuarios ordenados por ranking:")
-    for usuario in lista_dicc_usuarios:
-        print(f"ID: {usuario['id']}, Nombre: {usuario['nombre']}, Ganancias: {usuario['ganancias']}, Participaciones: {usuario['participaciones']}, Mejor racha: {usuario['mejor racha']}, Ranking: {usuario['ranking']}")
-
-
-
 def burbujear_top(lista_dicc_usuarios:list, cantidad:int = 10,clave:str = 'ranking') -> list:
+    """
+        Ordena una lista de diccionarios de usuarios utilizando el método de burbuja según una clave especificada y retorna los N primeros elementos.
+        Args:
+            lista_dicc_usuarios (list): Lista de diccionarios, cada uno representando un usuario con al menos la clave especificada.
+            cantidad (int, opcional): Cantidad de elementos superiores a retornar. Por defecto es 10.
+            clave (str, opcional): Clave en los diccionarios por la cual ordenar. Por defecto es 'ranking'.
+        Returns:
+            list: Una lista con los N primeros diccionarios de usuarios ordenados en orden ascendente según la clave especificada.
+        """
+
     lista_copiada = copy.deepcopy(lista_dicc_usuarios)
     lista_copiada = ordenar_ranking(lista_copiada)
     for i in range(len(lista_copiada)):
@@ -27,6 +24,17 @@ def burbujear_top(lista_dicc_usuarios:list, cantidad:int = 10,clave:str = 'ranki
                 lista_copiada[j + 1] = aux
     return lista_copiada[:cantidad]
 def usuarios_arriba_del_promedio(lista_dicc_usuarios:list, clave:str = 'ganancias') -> list:
+    """
+        Devuelve una lista de diccionarios de usuarios cuyo valor para la clave especificada está por encima del promedio.
+        Args:
+            lista_dicc_usuarios (list): Lista de diccionarios, cada uno representando un usuario con al menos la clave especificada.
+            clave (str, opcional): Clave en los diccionarios de usuario a comparar. Por defecto es 'ganancias'.
+        Returns:
+            list: Lista de diccionarios de usuarios donde el valor para la clave especificada es mayor al promedio de esa clave entre todos los usuarios.
+        Raises:
+            KeyError: Si algún diccionario de usuario no contiene la clave especificada.
+        """
+
     lista_ganancias = []
     for usuario in lista_dicc_usuarios:
         lista_ganancias.append(usuario[clave])
@@ -36,7 +44,19 @@ def usuarios_arriba_del_promedio(lista_dicc_usuarios:list, clave:str = 'ganancia
         if usuario[clave] > promedio:
             lista_arriba_promedio.append(usuario)
     return lista_arriba_promedio
+def mostrar_usuarios_por_clave(lista_usuarios:list, clave:str = 'ganancias'):
+    """
+    Muestra información de usuarios basada en una clave específica.
+    Args:
+        lista_usuarios (list): Lista de diccionarios, donde cada diccionario representa un usuario.
+        clave (str, optional): Clave del diccionario cuyo valor se desea mostrar junto al nombre del usuario. 
+            Por defecto es 'ganancias'.
+    Returns:
+        None: Esta función imprime la información en consola y no retorna ningún valor.
+    """
 
+    for usuario in lista_usuarios:
+        print(f"Nombre: {usuario['nombre']}, {clave}: {usuario[clave]}")
 def mostrar_usuarios_top(lista_dicc_usuarios:list, cantidad:int = 10, clave:str = 'ranking'):
     """
     Muestra los usuarios con el mejor ranking.
@@ -62,7 +82,3 @@ def seleccion_stats(lista_usuarios,mensaje:str):
                 print("Selección no válida. Intente nuevamente.")
         seleccion = int(input(mensaje))
 """---------TESTING---------"""
-#mostrar_por_ranking(lista_dicc_usuarios)
-#mostrar_usuarios_top(lista_dicc_usuarios,10,'ranking')
-#mostrar_usuarios_por_clave(usuarios_arriba_del_promedio(lista_dicc_usuarios), 'ganancias')
-

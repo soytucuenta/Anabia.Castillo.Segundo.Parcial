@@ -5,8 +5,9 @@ menu = (
     "2. Instrucciones\n"
     "3. Estadisticas\n"
     "4. Informacion de todos los usuarios\n"
-    "5. Configuracion\n"
-    "6. Guardar y Salir\n\n"
+    "5. Configuracion\n" \
+    "6. Agregar nuevo usuario\n"
+    "7. Guardar y Salir\n\n"
     "Ingrese una opción: "
 )
 
