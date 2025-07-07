@@ -61,13 +61,14 @@ def escribir_csv_usuarios(lista_dic_usuarios, archivo='csv/usuarios.csv'):
         delimitador = ','
         archivo.write('id,nombre,ganancias,participaciones,mejor_racha,ranking\n')
         for i in lista_dic_usuarios:
-            mensaje = '{0},{1},{2},{3},{4},{5}'
+            mensaje = '{0},{1},{2},{3},{4},{5},{6}'
             mensaje = mensaje.format(i['id'] ,
                                 i['nombre'],
                                 i['ganancias'],
                                 i['participaciones'],
                                 i['mejor racha'],
-                                i['ranking'])
+                                i['ranking'],
+                                i['dificultad'])
             archivo.write(f'{mensaje}\n')
 
 
@@ -99,6 +100,7 @@ def cargar_usuarios(path:str="csv/usuarios.csv") ->list:
             dato['participaciones'] = int(lectura[3])
             dato['mejor racha'] = int(lectura[4])
             dato['ranking'] = int(lectura[5])
+            dato['dificultad'] = lectura[6]
             lista.append(dato)
     return lista
 

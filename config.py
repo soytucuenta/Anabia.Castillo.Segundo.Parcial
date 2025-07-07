@@ -26,7 +26,7 @@ def limitar_tiempo(dificultad:str) -> int:
     return tiempo
 
 
-def preparar_partida(config:dict, todas_las_preguntas:list) -> tuple:
+def preparar_partida(config:dict, todas_las_preguntas:list,dificultad_usuario) -> tuple:
     """
     Prepara la configuración de una partida seleccionando preguntas y estableciendo el tiempo límite.
 
@@ -42,6 +42,8 @@ def preparar_partida(config:dict, todas_las_preguntas:list) -> tuple:
     Notas:
         - Si no se selecciona una categoría, se utilizarán preguntas de todo el pool.
     """
+    if dificultad_usuario != None:
+        config['dificultad'] = dificultad_usuario
     cantidad_preguntas = determinar_cantidad_preguntas(config)
     tiempo_limite = limitar_tiempo(config['dificultad'])
     print(f"\nTiempo limite: {tiempo_limite} segundos")

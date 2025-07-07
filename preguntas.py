@@ -2,6 +2,7 @@ from leer_escribir_archivos import *
 import copy
 import random
 
+
 def cargar_preguntas(ubicacion:str="csv/preguntas.csv")-> list:
     """
     Carga preguntas desde un archivo CSV y las almacena en una lista de diccionarios.
