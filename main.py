@@ -5,6 +5,7 @@ from usuarios import *
 from leer_escribir_archivos import *
 from funciones_genericas import *
 from config import *
+from stats import *
 # meter tuplas o sets
 # Trampa
 cheats = True #pasa por parametro a gameplay y despues a la de mostrar pregunta y dice el numero de opcion de la correcta
@@ -24,7 +25,7 @@ while opcion_menu != 6:
         case 2:
             print(instrucciones)
         case 3:
-            pass #stats aca
+            seleccion_stats(usuarios, mensaje_usuarios_stats)
         case 4:#muestra el listado de usuarios
             mostrar_lista_diccionarios(usuarios, "Usuarios registrados:")
         case 5:#configuracion del juego

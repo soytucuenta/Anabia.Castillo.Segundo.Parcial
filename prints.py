@@ -51,7 +51,14 @@ mensaje_categoria = (
     "8. Volver al menú anterior\n\n"
     "Ingrese una opción: "
 )
-
+mensaje_usuarios_stats = (
+    "\n### Estadísticas de Usuarios ###\n\n"
+    "1. Ver TOP 10 usuarios\n"
+    "2. Ver usuarios arriba del promedio\n"
+    "3. Ver usuarios con más participaciones\n"
+    "4. Volver al menú principal\n\n"
+    "Ingrese una opción: "
+)
 
 mensajes_config = [mensaje_configuraciones, mensaje_dificultad, mensaje_categoria]
 

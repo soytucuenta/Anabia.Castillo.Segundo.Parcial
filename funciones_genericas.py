@@ -59,6 +59,7 @@ def buscar_maximo(maximo_anterior:int, nuevo_valor:int):
         salida = nuevo_valor
     return salida
 def promediar_lista(lista:list):
+    acumulador = 0
     for i in range(len(lista)):
         acumulador += lista[i]
     promedio = acumulador / len(lista)
