@@ -16,7 +16,7 @@ def jugar_consola(lista_usuarios:list, configuracion:dict, preguntas:list, cheat
         dinero =  50000 * fajos
         if dinero > 0:
             racha  += 1
-            dinero = multiplicador_de_dificultad(configuraciones_partida[0]) * dinero
+            dinero = multiplicador_de_dificultad(dificultad_usuario) * dinero
             dinero = int(dinero)
             sumar_en_clave(info_usuario, 'ganancias', dinero)
             print(f"\n¡Felicidades! ¡Usted salvó ${dinero}!\n")
@@ -82,12 +82,16 @@ def solicitar_apuestas(dinero:int,tiempo_limite:int)-> list:
         while apostando + apuestas[i] > dinero:
             print(f"\nLo siento, no cuenta con fajos suficientes. Usted tiene {dinero - apostando} fajos.")
             apuestas[i] = int(input(f"¿Cuántos fajos por la opción {i+1}?: "))    
-        apostando += apuestas[i]
+        apostando += apuestas[i]        
         tiempo_final = time.time()
         tiempo_transcurrido = tiempo_final - tiempo_inicial
         if tiempo_transcurrido > tiempo_limite:
             print("\n Excediste el tiempo limite para responder, perdes todo ")    
             flag_tiempo = True
+        if apostando == dinero:
+            print("\n¡Apostaste todo tu dinero!")
+            break
+
     if flag_tiempo:
         apuestas = [0, 0, 0, 0]
     return apuestas

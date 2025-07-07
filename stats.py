@@ -36,11 +36,7 @@ def usuarios_arriba_del_promedio(lista_dicc_usuarios:list, clave:str = 'ganancia
         if usuario[clave] > promedio:
             lista_arriba_promedio.append(usuario)
     return lista_arriba_promedio
-def usuarios_mas_participaciones(lista_dicc_usuarios:list, cantidad:int = 10) -> list:
-def mostrar_usuarios_por_clave(lista_usuarios:list, clave:str = 'ganancias'):
 
-    for usuario in lista_usuarios:
-        print(f"Nombre: {usuario['nombre']}, {clave}: {usuario[clave]}")
 def mostrar_usuarios_top(lista_dicc_usuarios:list, cantidad:int = 10, clave:str = 'ranking'):
     """
     Muestra los usuarios con el mejor ranking.

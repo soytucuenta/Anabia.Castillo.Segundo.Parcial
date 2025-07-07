@@ -74,8 +74,3 @@ def mezclar_lista_diccionarios_cortando(lista:list, cantidad:int):
     random.shuffle(mezclada)
     
     return mezclada[:cantidad]
-
-#preguntas_leidas = cargar_preguntas("csv/preguntas.csv")
-#preguntas = obtener_preguntas_filtrando(preguntas_leidas, 5, dificultad='media', categoria='ciencia')
-#print(obtener_preguntas_filtrando(preguntas, 2, dificultad='media', categoria='ciencia'))
-

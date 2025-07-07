@@ -110,6 +110,15 @@ def configurar_juego(config:dict, lista_mensajes:list) -> dict:
 
 
 def seleccion_dificultad(mensaje_menu:str, valor_actual: str):
+    """
+    Solicita al usuario que seleccione un nivel de dificultad mediante un menú y devuelve la dificultad seleccionada.
+    Args:
+        mensaje_menu (str): El mensaje que se muestra al solicitar la entrada del usuario.
+        valor_actual (str): El valor actual de la dificultad, usado como valor por defecto si el usuario cancela la selección.
+    Returns:
+        str: La dificultad seleccionada ('fácil', 'media' o 'difícil'). Si el usuario cancela (selecciona 4), retorna el valor original (`valor_actual`).
+    """
+
     control = valor_actual
     seleccion = int(input(mensaje_menu))
     while seleccion != 4:
@@ -128,8 +137,16 @@ def seleccion_dificultad(mensaje_menu:str, valor_actual: str):
         dificultad = control
     return dificultad
 def seleccion_categoria(mensaje_menu: str, valor_actual: str):
-    control = valor_actual
-    lista_categorias = [ #esto puede entrar por una lectura de lista de preguntas
+    """
+    Solicita al usuario que seleccione una categoría de una lista predefinida mediante un menú.
+    Args:
+        mensaje_menu (str): El mensaje que se muestra al solicitar la entrada del usuario.
+        valor_actual (str): El valor actual de la categoría, usado como valor por defecto si no se realiza una nueva selección.
+    Returns:
+        str o None: La categoría seleccionada como cadena, o None si no se selecciona ninguna categoría.
+    """
+
+    lista_categorias =[
         "ciencia",
         "arte",
         "historia",
@@ -143,25 +160,18 @@ def seleccion_categoria(mensaje_menu: str, valor_actual: str):
         match seleccion:
             case 1:
                 categoria = lista_categorias[0]
-                break
             case 2:
                 categoria= lista_categorias[1]
-                break
             case 3:
                 categoria = lista_categorias[2]
-                break
             case 4:
                 categoria = lista_categorias[3]
-                break
             case 5:
                 categoria = lista_categorias[4]
-                break
             case 6:
                 categoria = lista_categorias[5]
-                break
             case 7:
                 categoria = None
-                break
         
         seleccion = int(input(mensaje_menu))
     if valor_actual == None and categoria == None:

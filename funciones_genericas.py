@@ -37,6 +37,14 @@ def sincronizar_diccionario(diccionario:dict, lista_usuarios:list, clave_busqued
     lista_usuarios.append(copy.deepcopy(diccionario))
 
 def buscar_maximo_lista(lista:list):
+    """
+    Busca y retorna el valor máximo de una lista de números.
+    Args:
+        lista (list): Lista de números a evaluar.
+    Returns:
+        int or float: El valor máximo encontrado en la lista. Si la lista está vacía, retorna 0.
+    """
+
     if len(lista) == 0:
         maximo = 0
     else:
@@ -59,6 +67,17 @@ def buscar_maximo(maximo_anterior:int, nuevo_valor:int):
         salida = nuevo_valor
     return salida
 def promediar_lista(lista:list):
+    """
+    Calcula el promedio (media) de los valores numéricos en una lista.
+    Args:
+        lista (list): Una lista de valores numéricos (int o float).
+    Returns:
+        float: El valor promedio de los elementos en la lista.
+    Raises:
+        ZeroDivisionError: Si la lista de entrada está vacía.
+        TypeError: Si la lista contiene elementos no numéricos.
+    """
+
     acumulador = 0
     for i in range(len(lista)):
         acumulador += lista[i]
@@ -66,6 +85,15 @@ def promediar_lista(lista:list):
     return promedio
 
 def mostrar_diccionario_individual(diccionario:dict,mensaje:str=None):
+    """
+    Muestra los elementos de un diccionario en formato clave: valor, precedidos opcionalmente por un mensaje.
+    Args:
+        diccionario (dict): El diccionario cuyos elementos se desean mostrar.
+        mensaje (str, optional): Un mensaje opcional que se imprime antes de mostrar el diccionario. Por defecto es None.
+    Returns:
+        None
+    """
+
     if type(mensaje) == str:
         print(mensaje)
     for dato in diccionario:

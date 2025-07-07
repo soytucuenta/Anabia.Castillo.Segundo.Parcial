@@ -1,6 +1,5 @@
 import copy
 from funciones_genericas import *
-from config import seleccion_dificultad
 from prints import *
 def inicializar_usuario_actual(lista_dicc_usuarios)-> dict:
 
