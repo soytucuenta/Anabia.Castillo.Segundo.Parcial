@@ -57,5 +57,5 @@ def mostrar_lista_diccionarios(lista:list,):
     """
     for elemento in lista:
         for propiedad in elemento:
-            print(f"{propiedad :<12}{elemento[propiedad] :>13}")
+            print(f"{elemento[propiedad] :<13} {propiedad :>12}")
         print("")

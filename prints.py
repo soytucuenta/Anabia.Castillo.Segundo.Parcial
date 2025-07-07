@@ -36,8 +36,13 @@ disclaimer = ("\nDISCLAIMER: Este juego fue desarrollado teniendo en cuenta\n"
     "que debemos realizarle para personalizar la experiencia de juego."
 )
 
-bienvenida_minijuego = ("\n### ¡Bienvenido al minijuego! ###\n"
-    "Este minijuego te dara una opción para que puedas seguir jugando,\n"
-    "y regresar con el dinero que tenías antes\n"
-    "Estas listo? ¡Vamos!\n"
+bienvenida_minijuego = ("\n### ¡Bienvenidos al minijuego! ###\n"
+    "Este minijuego te dara una chance más para que puedas seguir jugando.\n"
+    "Si ganas, regresas con el mismo dinero que tenías antes de perderlo.\n"
+    "Si no, lo siento mucho y hasta luego!\n"
+    "El juego consiste en adivinar una palabra de 5 caracteres\n"
+    "Vas a tener 6 intentos para adivinarla\n"
+    "Por cada letra que coincida con la palabra, se pinta de verda\n"
+    "Si la letra esta en la palabra pero no coincide en el orden, se muestra en amarillo.\n\n"
+    "Estas listo? ¡Vamos!"
 )
