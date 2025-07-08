@@ -20,10 +20,12 @@ while flag_run:
     for evento in pygame.event.get():
         print(evento)
         ###############################################
-        VENTANA.blit(fondo, (0, 0)) 
-        VENTANA.blit(superficie_texto, (posicion_texto))
+
         ###############################################
-        pygame.display.flip()
         flag_run = salida_pygame(evento, flag_run)
+    VENTANA.blit(fondo, (0, 0)) 
+    VENTANA.blit(superficie_texto, (posicion_texto))
+    pygame.display.flip()
+
     pygame.display.update()
 
