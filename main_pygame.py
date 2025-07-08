@@ -7,7 +7,8 @@ CENTRO_PANTALLA = (ANCHO_VENTANA // 2, ALTO_VENTANA // 2)
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
 VENTANA = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA))
-imagen = pygame.image.load('your_image.png')
+fondo = pygame.image.load('assets/susan_fondo_bienvenidad.png')  # Carga la imagen desde tu carpeta
+fondo = pygame.transform.scale(fondo, (ANCHO_VENTANA, ALTO_VENTANA))  # Escala la imagen al tamaño de la ventana
 texto_prueba = "Hola, esto es un texto de prueba"
 fuente = pygame.font.Font(None, 36)  
 superficie_texto = fuente.render(texto_prueba, True, BLANCO)
@@ -19,8 +20,8 @@ while flag_run:
     for evento in pygame.event.get():
         print(evento)
         ###############################################
+        VENTANA.blit(fondo, (0, 0)) 
         VENTANA.blit(superficie_texto, (posicion_texto))
-
         ###############################################
         pygame.display.flip()
         flag_run = salida_pygame(evento, flag_run)
