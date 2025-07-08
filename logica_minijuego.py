@@ -1,5 +1,5 @@
-from prints import *
 import random
+from prints import *
 from funciones_reutilizables import *
 from colorama import Fore, Back, Style, init
 
@@ -7,26 +7,34 @@ def minijuego()->bool:
     init() 
     se_gano = False
     palabras = ["playa", "amigo", "bueno", "mejor" "mundo", "libre", "volar", "libro", "dulce", "gorra", "cielo", "fuego", "cinco", "arbol", "verde", "lapiz"]
-    palabra_random = lista_random(palabras)
-    intentos = 1
-    filas = 6
-    resultado_intento = [0, 0, 0, 0, 0]
-    resultados_intentos = []
+    palabra_adivinar = lista_random(palabras)
+    nivel = 1
+    coincidencias = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+    ]
     palabras_intentadas = ["", "", "", "", "", ""]
     print(bienvenida_minijuego)
     
-    while intentos <= 6:
-        # mostrar matriz
+    while nivel <= 6:
         cadena = "\n"
-        aciertos = 0
-        for i in range(filas):
+
+        # mostrar matriz
+        for i in range(len(coincidencias)):
+            aciertos = 0
             if len(palabras_intentadas[i]) > 0:
                 cadena += "["
                 for j in range(len(palabras_intentadas[i])):
-                    match resultados_intentos[i][j]: 
+                    match coincidencias[i][j]: 
                         case 1:
                             cadena += (Fore.GREEN + palabras_intentadas[i][j] + Style.RESET_ALL)
                             aciertos += 1
+                            if aciertos == 5:
+                                se_gano = True
                         case 2:
                             cadena += (Fore.YELLOW + palabras_intentadas[i][j] + Style.RESET_ALL)
                         case 0:
@@ -38,37 +46,35 @@ def minijuego()->bool:
                 cadena += (Fore.WHITE + "[#, #, #, #, #]" + Style.RESET_ALL)
             cadena += "\n"
         print(cadena)
-        
-        # calcular si ganó
-        if aciertos == 5:
-            print("¡Enorabuena! Ganó el juego!\n")
-            gano = True
+
+        if se_gano:
             break
-            
-        # ingresar palabras
-        palabra_intento = input(f"Ingrese palabra: ")
-        while len(palabra_intento) != 5:
-            palabra_intento = input(f"Ingrese palabra de 5 caracteres: ")
-
-        # buscar coincidencias
-        resultado_intento = [0, 0, 0, 0, 0]
-        for i in range(len(palabra_intento)):
-            if palabra_intento[i] == palabra_random[i]:
-                    resultado_intento[i] = 1
-            else:
-                for j in range(len(palabra_random)):
-                    if palabra_intento[i] == palabra_random[j]:
-                        resultado_intento[i] = 2
-                        break
-
-        # agregar palabra y resultados a listas
-        palabras_intentadas[intentos - 1] = palabra_intento
-        resultados_intentos.append(resultado_intento)
         
-        # aumentar intentos
-        intentos += 1
+        # ingresar palabras
+        palabra_ingresada = input(f"Ingrese palabra: ")
+        while len(palabra_ingresada) != 5:
+            palabra_ingresada = input(f"Ingrese palabra de 5 caracteres: ")
 
-    if intentos > 6:
+        # calcular las coincidencias
+        j = nivel - 1
+        for i in range(len(coincidencias[j])):
+            if palabra_ingresada[i] == palabra_adivinar[i]:
+                    coincidencias[j][i] = 1
+            else:
+                for k in range(len(palabra_adivinar)):
+                    if palabra_adivinar[k] == palabra_ingresada[i]:
+                        coincidencias[j][i] = 2
+                        break
+            
+        # agregar palabra a lista de palabras
+        palabras_intentadas[j] = palabra_ingresada
+        
+        # aumentar nivel
+        nivel += 1
+
+    if se_gano == True:
+        print("¡Enorabuena! Ganó el juego!\n")
+    else:
         print("\nLo siento, más suerte la próxima.\n")
 
     return se_gano
