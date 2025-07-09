@@ -6,9 +6,8 @@ from colorama import Fore, Back, Style, init
 def minijuego()->bool:
     init() 
     se_gano = False
-    palabras = ["playa", "amigo", "mejor" "mundo", "libre", "volar", "libro", "dulce", "gorra", "cielo", "fuego", "cinco", "arbol", "verde", "lapiz", 
-    "nivel", "mando", "pixel", "logro", "ronda", "power", "poder", "piano", "otaku", "ollie", "skate", "truco", "rueda",
-    "rampa", "combo", "bonus", "pista", "album", "amiga"]
+    palabras = ["playa"]
+    
     palabra_adivinar = lista_random(palabras)
     nivel = 1
     coincidencias = [
@@ -22,7 +21,7 @@ def minijuego()->bool:
     palabras_intentadas = ["", "", "", "", "", ""]
     print(bienvenida_minijuego)
     
-    while nivel <= 6:
+    while nivel <= 7:
         cadena = "\n"
 
         # mostrar matriz
@@ -48,8 +47,9 @@ def minijuego()->bool:
                 cadena += (Fore.WHITE + "[#, #, #, #, #]" + Style.RESET_ALL)
             cadena += "\n"
         print(cadena)
-
-        if se_gano:
+        
+        # chequea si gano o que
+        if se_gano or nivel == 7:
             break
         
         # ingresar palabras
@@ -77,7 +77,7 @@ def minijuego()->bool:
     if se_gano == True:
         print("¡Enorabuena! Ganó el juego!\n")
     else:
-        print("\nLo siento, más suerte la próxima.\n")
+        print("Lo siento ¡usted perdió!, más suerte la próxima.\n")
 
     return se_gano
 
