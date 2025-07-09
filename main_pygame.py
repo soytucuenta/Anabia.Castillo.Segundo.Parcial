@@ -9,12 +9,16 @@ musica_fondo = pygame.mixer.Sound('assets/cancion_fondo.mp3')
 musica_fondo.set_volume(0.50)
 musica_fondo.play(-1)
 
-ANCHO_VENTANA = 1280
-ALTO_VENTANA = 720
-CENTRO_PANTALLA = (ANCHO_VENTANA // 2, ALTO_VENTANA // 2)
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
+#####ventana##########
+ANCHO_VENTANA = 1280
+ALTO_VENTANA = 720
 VENTANA = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA))
+CENTRO_PANTALLA = (ANCHO_VENTANA // 2, ALTO_VENTANA // 2)
+pygame.display.set_caption("Botones con Pygame")#-------------------titulo de la ventana
+icono = pygame.image.load("assets/ver_guita.png")#------------------ icono de la ventana
+pygame.display.set_icon(icono)#------------------ icono de la ventana
 # imagén de fondo
 fondo = pygame.image.load('assets/susan_fondo_bienvenidad.png')
 fondo = pygame.transform.scale(fondo, (ANCHO_VENTANA, ALTO_VENTANA))
@@ -38,3 +42,4 @@ while flag_run:
 
     pygame.display.update()
     # musica_fondo.stop()  # Detiene la música al salir
+pygame.quit()
