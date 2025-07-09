@@ -1,4 +1,3 @@
-
 menu = (
     "\n#### ¡Bienvenido al juego del millón copiado de Susana Gimenez! ####\n\n"
     "1. Inciar Juego\n"
