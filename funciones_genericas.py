@@ -103,8 +103,3 @@ def mostrar_diccionario_individual(diccionario:dict,mensaje:str=None):
         print(mensaje)
     for dato in diccionario:
         print(f"{dato}: {diccionario[dato]}")
-
-"""---------------------DEPRECATED---------------------"""
-
-
-

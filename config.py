@@ -8,7 +8,6 @@ configuracion_default = {
     "recuperatorio": False
 }
 
-
 def limitar_tiempo(dificultad:str) -> int:
     """
     Limita el tiempo de respuesta según la dificultad.

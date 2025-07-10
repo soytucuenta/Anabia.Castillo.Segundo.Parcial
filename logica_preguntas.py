@@ -2,6 +2,7 @@ import time
 from funciones_genericas import *
 from usuarios import *
 from config import *
+
 def jugar_consola(lista_usuarios:list, configuracion:dict, preguntas:list, cheats:bool):
     """
     Permite jugar una partida de preguntas y respuestas en la consola para un usuario seleccionado.
@@ -21,7 +22,6 @@ def jugar_consola(lista_usuarios:list, configuracion:dict, preguntas:list, cheat
         None
     """
 
-    
     info_usuario = seleccion_usuario_consola(lista_usuarios)
     racha_previa = info_usuario['mejor racha']
     lista_rachas = [racha_previa]
@@ -48,6 +48,7 @@ def jugar_consola(lista_usuarios:list, configuracion:dict, preguntas:list, cheat
     if len(lista_rachas) > 0:
         info_usuario['mejor racha'] = buscar_maximo_lista(lista_rachas)
     sincronizar_diccionario(info_usuario,lista_usuarios, 'id')
+    
 def multiplicador_de_dificultad(dificultad:str) -> float:
     """
     Retorna un multiplicador basado en la dificultad de la pregunta.

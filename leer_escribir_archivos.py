@@ -2,7 +2,6 @@ import re
 import json
 from funciones_genericas import mostrar_diccionario_individual
 
-#usar try except para manejar errores de lectura/escritura de archivos
 """-----------------------CONFIGURACION-----------------------"""
 
 def escribir_configuracion(configuracion:dict, archivo:str='config.json'):
@@ -47,7 +46,6 @@ def cargar_configuracion(configuracion_default:dict,archivo:str='config.json') -
     return configuracion
 
 """-----------------------CSV USUARIOS-----------------------"""
-
 
 def escribir_csv_usuarios(lista_dic_usuarios, archivo='csv/usuarios.csv'):
     """
@@ -114,7 +112,3 @@ def cargar_usuarios(path:str="csv/usuarios.csv") ->list:
             dato['dificultad'] = lectura[6]
             lista.append(dato)
     return lista
-
-
-
-"""-----------------------TESTING-----------------------"""

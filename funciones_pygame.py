@@ -1,4 +1,5 @@
 import pygame
+
 def salida_pygame(evento, flag_run):
     if evento.type == pygame.KEYDOWN:
         if evento.key == pygame.K_ESCAPE:#cambiable por si queremos retroceder a un menu despues
