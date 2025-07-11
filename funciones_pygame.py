@@ -1,6 +1,15 @@
 import pygame
 
 def salida_pygame(evento, flag_run):
+    """
+    Maneja los eventos de salida de Pygame para actualizar la bandera de ejecución.
+    Parámetros:
+        evento (pygame.event.Event): El evento de Pygame a procesar.
+        flag_run (bool): El estado actual de la bandera de ejecución.
+    Retorna:
+        bool: Bandera de ejecución actualizada. Retorna False si se presiona la tecla ESC o se cierra la ventana, de lo contrario retorna el valor original de flag_run.
+    """
+
     if evento.type == pygame.KEYDOWN:
         if evento.key == pygame.K_ESCAPE:#cambiable por si queremos retroceder a un menu despues
             flag_run = False
@@ -13,6 +22,22 @@ def salida_pygame(evento, flag_run):
 # el boton de ejemplo que dieron en clase
 
 def crear_boton(dimensiones, posicion, ventana,color_texto="Black",color_fondo="Yellow" , imagen = None, fuente = None, texto = None):
+    """
+    Crea un diccionario que representa un botón para usar en una interfaz gráfica con Pygame.
+    Args:
+        dimensiones (tuple): Tamaño del botón como (ancho, alto).
+        posicion (tuple): Posición del botón en la ventana como (x, y).
+        ventana (pygame.Surface): Superficie de Pygame donde se dibujará el botón.
+        color_texto (str or tuple, optional): Color del texto del botón. Por defecto es "Black".
+        color_fondo (str or tuple, optional): Color de fondo del botón. Por defecto es "Yellow".
+        imagen (str, optional): Ruta a una imagen para usar como fondo del botón. Si se proporciona, se ignoran fuente y texto.
+        fuente (tuple, optional): Tupla con el nombre de la fuente y tamaño (nombre_fuente, tamaño). Por defecto usa "droidsans" y tamaño 24.
+        texto (str, optional): Texto a mostrar en el botón. Solo se usa si no se proporciona una imagen.
+    Returns:
+        dict: Diccionario con las propiedades del botón, incluyendo la superficie, rectángulo, colores, estado y referencia a la ventana.
+    """
+    
+
     boton = {}
     boton["Ventana"] = ventana
     boton["Dimensiones"] = dimensiones
@@ -36,9 +61,32 @@ def crear_boton(dimensiones, posicion, ventana,color_texto="Black",color_fondo="
     return boton
 
 def dibujar_boton(boton:dict):
+    """
+    Dibuja un botón en la ventana de Pygame especificada usando las propiedades definidas en el diccionario dado.
+    Args:
+        boton (dict): Un diccionario que contiene las siguientes claves:
+            - "Ventana": La superficie de Pygame (ventana) donde se dibujará el botón.
+            - "Superficie": La superficie de Pygame que representa la apariencia del botón.
+            - "Posicion": Una tupla (x, y) que indica la posición para dibujar el botón.
+            - "ColorTexto": El color (tupla RGB) para el borde del botón.
+            - "Rectangulo": Un objeto pygame.Rect que define el área rectangular del botón.
+    Returns:
+        None
+    """
+
     boton["Ventana"].blit(boton["Superficie"], boton["Posicion"])
     pygame.draw.rect(boton["Ventana"],boton["ColorTexto"],boton["Rectangulo"],2)
 
 def boton_presionado(boton:dict, evento):
+    """
+    Verifica si un botón ha sido presionado basado en un evento de ratón.
+    Args:
+        boton (dict): Un diccionario que representa el botón, debe tener la clave 'Rectangulo' con un valor pygame.Rect y la clave 'Presionado'.
+        evento: Un objeto de evento de pygame, típicamente un evento MOUSEBUTTONDOWN.
+    Efectos secundarios:
+        Establece boton['Presionado'] en True si la posición del evento de ratón está dentro del rectángulo del botón.
+    """
+    bandera = False
     if boton['Rectangulo'].collidepoint(evento.pos):
-        boton['Presionado'] = True
+        bandera = True
+    return bandera
