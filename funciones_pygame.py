@@ -1,6 +1,6 @@
 import pygame
 
-def salida_pygame(evento, flag_run):
+def salida_pygame(evento):
     """
     Maneja los eventos de salida de Pygame para actualizar la bandera de ejecución.
     Parámetros:
@@ -9,13 +9,13 @@ def salida_pygame(evento, flag_run):
     Retorna:
         bool: Bandera de ejecución actualizada. Retorna False si se presiona la tecla ESC o se cierra la ventana, de lo contrario retorna el valor original de flag_run.
     """
-
+    bandera = False
     if evento.type == pygame.KEYDOWN:
         if evento.key == pygame.K_ESCAPE:#cambiable por si queremos retroceder a un menu despues
-            flag_run = False
+            bandera = True
     elif evento.type == pygame.QUIT:        
-        flag_run = False
-    return flag_run
+        bandera = True
+    return bandera
 
 
 #######################
@@ -79,14 +79,50 @@ def dibujar_boton(boton:dict):
 
 def boton_presionado(boton:dict, evento):
     """
-    Verifica si un botón ha sido presionado basado en un evento de ratón.
+    Verifica si un botón ha sido presionado basado en un evento dado.
     Args:
-        boton (dict): Un diccionario que representa el botón, debe tener la clave 'Rectangulo' con un valor pygame.Rect y la clave 'Presionado'.
-        evento: Un objeto de evento de pygame, típicamente un evento MOUSEBUTTONDOWN.
-    Efectos secundarios:
-        Establece boton['Presionado'] en True si la posición del evento de ratón está dentro del rectángulo del botón.
+        boton (dict): Un diccionario que representa el botón, debe tener la clave 'Rectangulo' con un valor de tipo pygame.Rect.
+        evento: El objeto de evento, típicamente un evento de pygame, que debe tener el atributo 'pos' indicando la posición del mouse.
+    Returns:
+        bool: True si la posición del evento colisiona con el rectángulo del botón, False en caso contrario.
     """
+
     bandera = False
     if boton['Rectangulo'].collidepoint(evento.pos):
         bandera = True
     return bandera
+
+def buscar_boton_presionado(lista_botones, evento):
+    for boton in lista_botones:                    
+        if boton_presionado(boton,evento):
+            boton['Presionado'] = True
+
+
+def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa):
+    boton_iniciar = lista_de_botones_menu_principal[0]
+    boton_estadisticas = lista_de_botones_menu_principal[1]
+    boton_configuracion = lista_de_botones_menu_principal[2]
+    boton_seleccion_usuario = lista_de_botones_menu_principal[3]
+    boton_salir = lista_de_botones_menu_principal[4]
+    for boton in lista_de_botones_menu_principal:
+        if boton['Presionado']:
+            boton['Presionado'] = False
+            if boton == boton_salir:
+                estado_del_programa["salir"] = True
+            elif boton == boton_iniciar:#chequear si se selecciono un usuario pendiente
+                estado_del_programa["partida_en_curso"] = True
+                estado_del_programa["menu_principal"] = False
+                print("Iniciar partida")
+            elif boton == boton_estadisticas:
+                print("Estadísticas seleccionadas")
+                estado_del_programa["estadisticas"] = True
+                estado_del_programa["menu_principal"] = False
+            elif boton == boton_seleccion_usuario:
+                print("Seleccionar usuario")
+                estado_del_programa["seleccion_usuario"] = True
+                estado_del_programa["menu_principal"] = False
+            elif boton == boton_configuracion:
+                estado_del_programa["configuracion"] = True
+                estado_del_programa["menu_principal"] = False
+                print("Configuración seleccionada")
+

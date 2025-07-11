@@ -31,62 +31,71 @@ posicion_texto = superficie_texto.get_rect(center=POSICION_BOTON_INICIAR)
 boton_iniciar = crear_boton((200, 50), POSICION_BOTON_INICIAR, VENTANA, color_texto="Black", color_fondo="Yellow", texto="Iniciar", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_estadisticas = crear_boton((200, 50), (40, 470), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Estadisticas", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_configuracion = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Configuracion", fuente=('assets/PokemonGb-RAeo.ttf', 24))
-boton_salir = crear_boton((200, 50), (40, 610), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Salir", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_seleccion_usuario = crear_boton((200, 50), (40, 610), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Seleccionar Usuario", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_salir = crear_boton((200, 50), (40, 670), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Salir", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 
 
 
-lista_de_botones_menu_principal = [boton_iniciar,boton_estadisticas, boton_configuracion,boton_salir]#lista de botones
+lista_de_botones_menu_principal = [boton_iniciar,boton_estadisticas, boton_configuracion,boton_seleccion_usuario,boton_salir]#lista de botones
 #################################
 #banderas menues
-flag_menu_principal = True
-
-
+# flag_menu_principal = True
+# flag_partida_iniciada = False
 
 #########
-flag_run = True 
+estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE CAMBIA DE MENU
+    "menu_principal": True,
+    "partida_iniciada": False,
+    "seleccion_usuario": False,
+    "estadisticas": False,
+    "configuracion": False,
+    "salir": False,
 
-while flag_run:
+}
+#########
+
+
+while estado_del_programa['salir'] == False:
     VENTANA.fill(NEGRO)
     VENTANA.blit(fondo, (0, 0))#FONDO
-    for evento in pygame.event.get():
+    for evento in pygame.event.get():#gestor de eventos
         print(evento)
         ###############################################
         if evento.type == pygame.MOUSEBUTTONDOWN:
             print("raton presionado")
-            if flag_menu_principal:#buscar como modularizar esto
-                if boton_presionado(boton_iniciar,evento):
-                    boton_iniciar['Presionado'] = True
-                elif boton_presionado(boton_estadisticas,evento):
-                    boton_estadisticas['Presionado'] = True
-                elif boton_presionado(boton_configuracion,evento):
-                    boton_configuracion['Presionado'] = True
-                elif boton_presionado(boton_salir,evento):
-                    boton_salir['Presionado'] = True
+            if estado_del_programa["menu_principal"]:#buscar como modularizar esto
+                buscar_boton_presionado(lista_de_botones_menu_principal, evento)
+            elif estado_del_programa["partida_iniciada"]:
+                pass
+            elif estado_del_programa["configuracion"]:
+                pass
+            elif estado_del_programa["estadisticas"]:
+                pass
+            elif estado_del_programa["seleccion_usuario"]:
+                pass
         ###############################################
-        salida_pygame(evento, flag_run)
-    if flag_menu_principal:
+        estado_del_programa['salir'] = salida_pygame(evento)
+    #############################
+    # Dibujado de menues
+
+    if estado_del_programa["menu_principal"]:
         for boton in lista_de_botones_menu_principal:
             dibujar_boton(boton)
+    elif estado_del_programa["partida_iniciada"]:
+        pass
+    elif estado_del_programa["configuracion"]:
+        pass
+    elif estado_del_programa["estadisticas"]:
+        pass
+    elif estado_del_programa["seleccion_usuario"]:
+        pass
     ##########################################################
     """Los booleanos que devuelven los botones pienso que pueden servir para activar o desactivar menues"""
     ##########################################################
-    if boton_iniciar['Presionado'] == True:
-        print("APRETASTE EL INICIAR")
-        boton_iniciar['Presionado'] = False
-        flag_menu_principal = False
-    elif boton_estadisticas['Presionado']:
-        print("apretaste stats")
-        boton_estadisticas['Presionado'] = False
-    elif boton_configuracion['Presionado']:
-        print("apretaste configuracion")
-        boton_configuracion['Presionado'] = False
-    elif boton_salir['Presionado']:
-        print("apretaste salir")
-        flag_run = False
-        # pygame.quit()  # Descomentar si se quiere cerrar la ventana al salir del juego
+    acciones_menu_principal(lista_de_botones_menu_principal, estado_del_programa)
 
     pygame.display.flip()
 
-    pygame.display.update()
+    #pygame.display.update()
     # musica_fondo.stop()  # Detiene la música al salir
 pygame.quit()
