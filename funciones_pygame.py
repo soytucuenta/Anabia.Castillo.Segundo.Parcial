@@ -23,6 +23,8 @@ def crear_boton(dimensiones, posicion, ventana, color_borde, imagen = None, fuen
         img = pygame.image.load(imagen)
         boton["Superficie"] = pygame.transform.scale(img, boton["Dimensiones"])
     else:
+        if fuente == None:
+            fuente = pygame.font.Font("Arial", 24)
         tipo, tamano = fuente
         fuente = pygame.font.SysFont(tipo, tamano)
         boton["Superficie"] = fuente.render(texto,False, "Red","Orange")
