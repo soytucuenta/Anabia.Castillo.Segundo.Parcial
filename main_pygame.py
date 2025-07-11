@@ -1,5 +1,6 @@
 import pygame
 from funciones_pygame import *
+
 pygame.init()
 from prints import *
 
@@ -12,10 +13,11 @@ POSICION_BOTON_INICIAR = (40,395)
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
 #####ventana##########
-ANCHO_VENTANA = 1280
-ALTO_VENTANA = 720
+ANCHO_VENTANA = 640
+ALTO_VENTANA = 360
 CENTRO_PANTALLA = (ANCHO_VENTANA // 2, ALTO_VENTANA // 2)
 VENTANA = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA))
+
 pygame.display.set_caption("Salven el Millon")#-------------------titulo de la ventana
 icono = pygame.image.load("assets/ver_guita.png")#------------------ icono de la ventana
 pygame.display.set_icon(icono)#------------------ icono de la ventana
@@ -59,10 +61,9 @@ estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE 
 }
 #########
 
+VENTANA.blit(fondo, (0, 0))#FONDO
 
 while estado_del_programa['salir'] == False:
-    VENTANA.fill(NEGRO)
-    VENTANA.blit(fondo, (0, 0))#FONDO
     for evento in pygame.event.get():#gestor de eventos
         print(evento)
         ###############################################
@@ -71,8 +72,7 @@ while estado_del_programa['salir'] == False:
             if estado_del_programa["menu_principal"]:#buscar como modularizar esto
                 buscar_boton_presionado(lista_de_botones_menu_principal, evento)
             elif estado_del_programa["partida_iniciada"]:
-                 VENTANA.blit(fondo_jugando, (0, 0))#FONDO
-                 console.log("jajaj")
+                VENTANA.blit(fondo_jugando, (0, 0))#FONDO
             elif estado_del_programa["configuracion"]:
                 pass
             elif estado_del_programa["estadisticas"]:

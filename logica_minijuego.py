@@ -6,7 +6,12 @@ from colorama import Fore, Back, Style, init
 def minijuego()->bool:
     init() 
     se_gano = False
-    palabras = ["playa"]
+    palabras = [
+    "arena", "skate", "manga", "notas", "nivel", "bosque",
+    "playa", "ollie", "otaku", "ritmo", "pixel", "flora",
+    "marea", "grind", "senpu", "sonar", "vidas", "hojas",
+    "coros", "rampa", "chibi", "guitar", "logro", "viento"
+    ]
     
     palabra_adivinar = lista_random(palabras)
     nivel = 1
