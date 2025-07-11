@@ -16,6 +16,8 @@ def escribir_configuracion(configuracion:dict, archivo:str='config.json'):
         IOError: Si ocurre un error al escribir el archivo.
     """
 
+
+    # valIDACIONES
     with open(archivo, 'w', encoding='utf8') as archivo:
         json.dump(configuracion, archivo, indent=4)
 
