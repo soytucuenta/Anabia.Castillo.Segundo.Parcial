@@ -16,10 +16,11 @@ def escribir_configuracion(configuracion:dict, archivo:str='config.json'):
         IOError: Si ocurre un error al escribir el archivo.
     """
 
-
-    # valIDACIONES
-    with open(archivo, 'w', encoding='utf8') as archivo:
-        json.dump(configuracion, archivo, indent=4)
+    try:
+        with open(archivo, 'w', encoding='utf8') as archivo:
+            json.dump(configuracion, archivo, indent=4)
+    except FileNotFoundError:
+        print(f"El archivo {archivo} no existe. Se creará uno nuevo.")
 
 
 def cargar_configuracion(configuracion_default:dict,archivo:str='config.json') -> dict:
@@ -67,21 +68,22 @@ def escribir_csv_usuarios(lista_dic_usuarios, archivo='csv/usuarios.csv'):
 
     La función sobrescribe el archivo si ya existe.
     """
-
-    with open(archivo,'w',encoding ='utf8') as archivo:
-        delimitador = ','
-        archivo.write('id,nombre,ganancias,participaciones,mejor_racha,ranking\n')
-        for i in lista_dic_usuarios:
-            mensaje = '{0},{1},{2},{3},{4},{5},{6}'
-            mensaje = mensaje.format(i['id'] ,
-                                i['nombre'],
-                                i['ganancias'],
-                                i['participaciones'],
-                                i['mejor racha'],
-                                i['ranking'],
-                                i['dificultad'])
-            archivo.write(f'{mensaje}\n')
-
+    try:
+        with open(archivo,'w',encoding ='utf8') as archivo:
+            delimitador = ','
+            archivo.write('id,nombre,ganancias,participaciones,mejor_racha,ranking\n')
+            for i in lista_dic_usuarios:
+                mensaje = '{0},{1},{2},{3},{4},{5},{6}'
+                mensaje = mensaje.format(i['id'] ,
+                                    i['nombre'],
+                                    i['ganancias'],
+                                    i['participaciones'],
+                                    i['mejor racha'],
+                                    i['ranking'],
+                                    i['dificultad'])
+                archivo.write(f'{mensaje}\n')
+    except FileNotFoundError:
+        print(f"El archivo {archivo} no existe. Se creará uno nuevo.")
 
 def cargar_usuarios(path:str="csv/usuarios.csv") ->list:
     """
@@ -100,19 +102,22 @@ def cargar_usuarios(path:str="csv/usuarios.csv") ->list:
     """
 
     lista =[]
-    with open(path, 'r', encoding='UTF8') as archivo:
-        archivo.readline()
-        for linea in archivo:
-            lectura = re.split(',|\n', linea)
-            dato = {}
-            dato['id'] = int(lectura[0])
-            dato['nombre'] = lectura[1]
-            dato['ganancias'] = int(lectura[2])
-            dato['participaciones'] = int(lectura[3])
-            dato['mejor racha'] = int(lectura[4])
-            dato['ranking'] = int(lectura[5])
-            dato['dificultad'] = lectura[6]
-            lista.append(dato)
+    try:
+        with open(path, 'r', encoding='UTF8') as archivo:
+            archivo.readline()
+            for linea in archivo:
+                lectura = re.split(',|\n', linea)
+                dato = {}
+                dato['id'] = int(lectura[0])
+                dato['nombre'] = lectura[1]
+                dato['ganancias'] = int(lectura[2])
+                dato['participaciones'] = int(lectura[3])
+                dato['mejor racha'] = int(lectura[4])
+                dato['ranking'] = int(lectura[5])
+                dato['dificultad'] = lectura[6]
+                lista.append(dato)
+    except FileNotFoundError:
+        print(f"El archivo {path} no existe.")
     return lista
 
 
@@ -131,17 +136,20 @@ def cargar_preguntas(ubicacion:str="csv/preguntas.csv")-> list:
     :return: Lista de diccionarios con las preguntas cargadas.
     """
     preguntas = []
-    with open (ubicacion, "r", encoding='utf-8') as archivo:
-        archivo.readline()
-        for linea in archivo:
-            registro = linea.strip().split(",")
-            if registro[0][0] != "i":
-                lista = {}
-                lista["id"] = int(registro[0])
-                lista["pregunta"] = registro[1]
-                lista["opciones"] = registro[2].split("|")
-                lista["correcta"] = int(registro[3])
-                lista["dificultad"] = registro[4]
-                lista["categoría"] = registro[5]
-                preguntas.append(lista)
+    try:
+        with open (ubicacion, "r", encoding='utf-8') as archivo:
+            archivo.readline()
+            for linea in archivo:
+                registro = linea.strip().split(",")
+                if registro[0][0] != "i":
+                    lista = {}
+                    lista["id"] = int(registro[0])
+                    lista["pregunta"] = registro[1]
+                    lista["opciones"] = registro[2].split("|")
+                    lista["correcta"] = int(registro[3])
+                    lista["dificultad"] = registro[4]
+                    lista["categoría"] = registro[5]
+                    preguntas.append(lista)
+    except FileNotFoundError:
+        print(f"El archivo {ubicacion} no existe.")
     return preguntas
