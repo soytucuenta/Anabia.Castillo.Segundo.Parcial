@@ -23,16 +23,19 @@ pygame.display.set_icon(icono)#------------------ icono de la ventana
 fondo = pygame.image.load('assets/susan_fondo_bienvenidad.png')
 fondo = pygame.transform.scale(fondo, (ANCHO_VENTANA, ALTO_VENTANA))
 texto_prueba = menu
-fuente_importada = pygame.font.Font('assets/PokemonGb-RAeo.ttf', 24) ####### NO RECONOCE LAS FUENTES IMPORTADAS EN BOTONES, INVESTIGAR 
+fuente_importada = pygame.font.Font('assets/PokemonGb-RAeo.ttf',24) ####### NO RECONOCE LAS FUENTES IMPORTADAS EN BOTONES, INVESTIGAR 
 superficie_texto = fuente_importada.render(texto_prueba, True, BLANCO)
 posicion_texto = superficie_texto.get_rect(center=POSICION_BOTON_INICIAR)
 #################################
 # BOTONES
-boton_iniciar = crear_boton((200, 50), POSICION_BOTON_INICIAR, VENTANA, "White", fuente=('Arial', 24), texto='Iniciar Juego')
+boton_iniciar = crear_boton((200, 50), POSICION_BOTON_INICIAR, VENTANA, color_texto="Black", color_fondo="Yellow", texto="Iniciar", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_estadisticas = crear_boton((200, 50), (40, 470), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Estadisticas", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_configuracion = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Configuracion", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_salir = crear_boton((200, 50), (40, 610), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Salir", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 
 
 
-lista_de_botones = [boton_iniciar]#lista de botones
+lista_de_botones = [boton_iniciar,boton_estadisticas, boton_configuracion,boton_salir]#lista de botones
 #################################
 flag_run = True 
 
@@ -44,15 +47,28 @@ while flag_run:
         ###############################################
         if evento.type == pygame.MOUSEBUTTONDOWN:
             print("raton presionado")
-            if boton_iniciar["Rectangulo"].collidepoint(evento.pos):
+            if boton_presionado(boton_iniciar,evento):
                 boton_iniciar['Presionado'] = True
+            elif boton_presionado(boton_estadisticas,evento):
+                boton_estadisticas['Presionado'] = True
+            elif boton_presionado(boton_configuracion,evento):
+                boton_configuracion['Presionado'] = True
+            elif boton_presionado(boton_salir,evento):
+                boton_salir['Presionado'] = True
+                flag_run = False
+                break
         ###############################################
         flag_run = salida_pygame(evento, flag_run)
     for boton in lista_de_botones:
-        dibujar_boton(boton_iniciar)
+        dibujar_boton(boton)
+
     if boton_iniciar['Presionado'] == True:
         print("APRETASTE EL INICIAR")
         boton_iniciar['Presionado'] = False
+    elif boton_estadisticas['Presionado']:
+        print("apretaste stats")
+        boton_estadisticas['Presionado'] = False
+
     pygame.display.flip()
 
     pygame.display.update()

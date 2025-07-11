@@ -12,22 +12,23 @@ def salida_pygame(evento, flag_run):
 #######################
 # el boton de ejemplo que dieron en clase
 
-def crear_boton(dimensiones, posicion, ventana, color_borde, imagen = None, fuente = None, texto = None):#constructor
+def crear_boton(dimensiones, posicion, ventana,color_texto="Black",color_fondo="Yellow" , imagen = None, fuente = None, texto = None):
     boton = {}
     boton["Ventana"] = ventana
     boton["Dimensiones"] = dimensiones
     boton["Posicion"] = posicion
-    boton["ColorBorde"] = color_borde
+    boton['ColorTexto'] = color_texto
+    boton['ColorFondo'] = color_fondo
     boton["Presionado"] = False
     if imagen != None:
         img = pygame.image.load(imagen)
         boton["Superficie"] = pygame.transform.scale(img, boton["Dimensiones"])
     else:
         if fuente == None:
-            fuente = pygame.font.Font("Arial", 24)
+            fuente = pygame.font.Font("droidsans", 24)
         tipo, tamano = fuente
         fuente = pygame.font.SysFont(tipo, tamano)
-        boton["Superficie"] = fuente.render(texto,False, "Red","Orange")
+        boton["Superficie"] = fuente.render(texto,False, color_texto,color_fondo)
     boton["Rectangulo"] = boton["Superficie"].get_rect()
     boton["Rectangulo"].topleft = boton["Posicion"]
     
@@ -36,4 +37,8 @@ def crear_boton(dimensiones, posicion, ventana, color_borde, imagen = None, fuen
 
 def dibujar_boton(boton:dict):
     boton["Ventana"].blit(boton["Superficie"], boton["Posicion"])
-    pygame.draw.rect(boton["Ventana"],boton["ColorBorde"],boton["Rectangulo"],2)
+    pygame.draw.rect(boton["Ventana"],boton["ColorTexto"],boton["Rectangulo"],2)
+
+def boton_presionado(boton:dict, evento):
+    if boton['Rectangulo'].collidepoint(evento.pos):
+        boton['Presionado'] = True
