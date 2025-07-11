@@ -2,6 +2,7 @@ import time
 from funciones_genericas import *
 from usuarios import *
 from config import *
+from logica_minijuego import *
 
 def jugar_consola(lista_usuarios:list, configuracion:dict, preguntas:list, cheats:bool):
     """
@@ -130,7 +131,7 @@ def procesar_respuesta(pregunta_dict:dict, dinero:int, apuestas:list) -> int:
     print(f"\n¡Y la respuesta correcta era {pregunta_dict["opciones"][correcta]}!")
     print(f"¡La opción número {correcta+1}!")
     print(f"¡Espero que haya apostado bien!")
-    print("Te quedan...")
+    print(f"Te quedan...{dinero} fajos\n")
     return dinero
 
 def gameplay(dinero:int,tiempo_limite:int,cheats:bool,preguntas:list):
@@ -146,8 +147,15 @@ def gameplay(dinero:int,tiempo_limite:int,cheats:bool,preguntas:list):
         print("(!) Recuerde que lo que no apuesta, lo pierde. (!)\n")
         mostrar_pregunta_y_opciones(preguntas[i],tiempo_limite,cheats)
         apuestas = solicitar_apuestas(dinero,tiempo_limite)
+        dinero_antes_apostar = dinero
         dinero = procesar_respuesta(preguntas[i], dinero, apuestas)
         nivel += 1
+        if dinero == 0:
+            changui = int(input("¿Desea tener una oportunidad más?\n1. Si\n2. No\nSeleccione una opción: "))
+            if changui == 1:
+                if minijuego():
+                    dinero = dinero_antes_apostar
+                    nivel -= 1
         if dinero <= 0: #Aca el minijuego si te quedas sin dinero?
             print("\n¡Te has quedado sin dinero! Fin del juego.")
             break

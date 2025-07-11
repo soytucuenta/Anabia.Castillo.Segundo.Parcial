@@ -1,4 +1,5 @@
 import copy
+import random
 
 def incrementar_clave_especifica(diccionario_usuario:dict, clave:str):
     diccionario_usuario[clave] += 1
@@ -103,3 +104,15 @@ def mostrar_diccionario_individual(diccionario:dict,mensaje:str=None):
         print(mensaje)
     for dato in diccionario:
         print(f"{dato}: {diccionario[dato]}")
+
+def lista_random(lista:list):
+    """ Devuelve un elemento random de una lista.
+    Args:
+        lista (list): Lista 
+    Returns:
+        (_type_): Elemento random, del tipo que sea.
+    """
+    indice_random = random.randint(0, len(lista) - 1)
+    elemento_random = lista[indice_random]
+
+    return elemento_random

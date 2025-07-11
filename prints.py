@@ -62,3 +62,12 @@ mensaje_usuarios_stats = (
 
 mensajes_config = [mensaje_configuraciones, mensaje_dificultad, mensaje_categoria]
 
+bienvenida_minijuego = ("\n### ¡Bienvenidos al minijuego! ###\n"
+    "Este minijuego te dara una chance más para que puedas seguir jugando.\n"
+    "Si ganas, regresas con el mismo dinero que tenías antes de perderlo.\n\n"
+    "El juego consiste en adivinar una palabra de 5 caracteres,\n"
+    "Vas a tener 6 intentos para adivinarla,\n"
+    "por cada letra que coincida con la palabra, se pinta de verde,\n"
+    "si la letra esta en la palabra pero no coincide en el orden, se muestra en amarillo.\n"
+    "¿Estas listo? ¡Vamos!"
+)
