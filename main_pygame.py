@@ -20,8 +20,13 @@ pygame.display.set_caption("Salven el Millon")#-------------------titulo de la v
 icono = pygame.image.load("assets/ver_guita.png")#------------------ icono de la ventana
 pygame.display.set_icon(icono)#------------------ icono de la ventana
 # imagén de fondo
+
 fondo = pygame.image.load('assets/susan_fondo_bienvenidad.png')
+fondo_2 = pygame.image.load('assets/susana_fondo_jugando.png')
+
 fondo = pygame.transform.scale(fondo, (ANCHO_VENTANA, ALTO_VENTANA))
+fondo_jugando = pygame.transform.scale(fondo_2, (ANCHO_VENTANA, ALTO_VENTANA))
+
 texto_prueba = menu
 fuente_importada = pygame.font.Font('assets/PokemonGb-RAeo.ttf',24) ####### NO RECONOCE LAS FUENTES IMPORTADAS EN BOTONES, INVESTIGAR 
 superficie_texto = fuente_importada.render(texto_prueba, True, BLANCO)
@@ -66,7 +71,8 @@ while estado_del_programa['salir'] == False:
             if estado_del_programa["menu_principal"]:#buscar como modularizar esto
                 buscar_boton_presionado(lista_de_botones_menu_principal, evento)
             elif estado_del_programa["partida_iniciada"]:
-                pass
+                 VENTANA.blit(fondo_jugando, (0, 0))#FONDO
+                 console.log("jajaj")
             elif estado_del_programa["configuracion"]:
                 pass
             elif estado_del_programa["estadisticas"]:
@@ -76,6 +82,7 @@ while estado_del_programa['salir'] == False:
         ###############################################
         estado_del_programa['salir'] = salida_pygame(evento)
     #############################
+
     # Dibujado de menues
 
     if estado_del_programa["menu_principal"]:
@@ -89,6 +96,7 @@ while estado_del_programa['salir'] == False:
         pass
     elif estado_del_programa["seleccion_usuario"]:
         pass
+    
     ##########################################################
     """Los booleanos que devuelven los botones pienso que pueden servir para activar o desactivar menues"""
     ##########################################################
