@@ -3,35 +3,7 @@ import copy
 import random
 
 
-def cargar_preguntas(ubicacion:str="csv/preguntas.csv")-> list:
-    """
-    Carga preguntas desde un archivo CSV y las almacena en una lista de diccionarios.
 
-    Cada pregunta se representa como un diccionario con las siguientes claves:
-    - 'id': Identificador de la pregunta.
-    - 'pregunta': Texto de la pregunta.
-    - 'opciones': Lista de opciones posibles.
-    - 'correcta': Índice de la opción correcta.
-    - 'dificultad': Dificultad de la pregunta ('facil', 'media', 'dificil').
-    - 'categoría': Categoría a la que pertenece la pregunta.
-
-    :return: Lista de diccionarios con las preguntas cargadas.
-    """
-    preguntas = []
-    with open (ubicacion, "r") as archivo:
-        archivo.readline()
-        for linea in archivo:
-            registro = linea.strip().split(",")
-            if registro[0][0] != "i":
-                lista = {}
-                lista["id"] = int(registro[0])
-                lista["pregunta"] = registro[1]
-                lista["opciones"] = registro[2].split("|")
-                lista["correcta"] = int(registro[3])
-                lista["dificultad"] = registro[4]
-                lista["categoría"] = registro[5]
-                preguntas.append(lista)
-    return preguntas
 
 
 def obtener_preguntas_filtrando(preguntas:list, cantidad:int, dificultad:str=None, categoria:str=None):
