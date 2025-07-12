@@ -21,7 +21,7 @@ def salida_pygame(evento):
 #######################
 # el boton de ejemplo que dieron en clase
 
-def crear_boton(dimensiones, posicion, ventana,color_texto="Black",color_fondo="Yellow" , imagen = None, fuente = None, texto = None):
+def crear_boton(dimensiones, posicion, ventana, color_texto="Black", color_fondo="Yellow", imagen=None, fuente=None, texto=None):
     """
     Crea un diccionario que representa un botón para usar en una interfaz gráfica con Pygame.
     Args:
@@ -103,7 +103,7 @@ def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa)
     boton_configuracion = lista_de_botones_menu_principal[2]
     boton_seleccion_usuario = lista_de_botones_menu_principal[3]
     boton_salir = lista_de_botones_menu_principal[4]
-    
+
     for boton in lista_de_botones_menu_principal:
         if boton['Presionado']:
             boton['Presionado'] = False
