@@ -97,13 +97,13 @@ def buscar_boton_presionado(lista_botones, evento):
         if boton_presionado(boton,evento):
             boton['Presionado'] = True
 
-
 def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa):
     boton_iniciar = lista_de_botones_menu_principal[0]
     boton_estadisticas = lista_de_botones_menu_principal[1]
     boton_configuracion = lista_de_botones_menu_principal[2]
     boton_seleccion_usuario = lista_de_botones_menu_principal[3]
     boton_salir = lista_de_botones_menu_principal[4]
+    
     for boton in lista_de_botones_menu_principal:
         if boton['Presionado']:
             boton['Presionado'] = False

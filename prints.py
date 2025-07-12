@@ -23,6 +23,7 @@ instrucciones = (
 
     "Creado por Fransico Anabia y Brandon Castillo. 2025.\n"
 )
+
 mensaje_dificultad = (
     "\n### Seleccione la dificultad del juego ###\n\n"
     "1. Fácil\n"
@@ -31,6 +32,7 @@ mensaje_dificultad = (
     "4. Volver al menú panterior\n\n"
     "Ingrese una opción: "
 )
+
 mensaje_configuraciones = (
     "\n### Configuraciones ###\n\n"
     "1. Cambiar Dificultad\n"
@@ -39,6 +41,7 @@ mensaje_configuraciones = (
     "4. Volver al menú principal\n\n"
     "Ingrese una opción: "
 )
+
 mensaje_categoria = (
     "\n### Seleccione la categoría del juego ###\n\n"
     "1. Ciencia\n"
@@ -51,6 +54,7 @@ mensaje_categoria = (
     "8. Volver al menú anterior\n\n"
     "Ingrese una opción: "
 )
+
 mensaje_usuarios_stats = (
     "\n### Estadísticas de Usuarios ###\n\n"
     "1. Ver TOP 10 usuarios\n"

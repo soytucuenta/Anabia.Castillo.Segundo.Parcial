@@ -2,10 +2,6 @@ from leer_escribir_archivos import *
 import copy
 import random
 
-
-
-
-
 def obtener_preguntas_filtrando(preguntas:list, cantidad:int, dificultad:str=None, categoria:str=None):
     """
     Filtra preguntas por dificultad y categoria, y retorna una cantidad determinada aleatoria.

@@ -24,7 +24,6 @@ def limitar_tiempo(dificultad:str) -> int:
         tiempo = 30
     return tiempo
 
-
 def preparar_partida(config:dict, todas_las_preguntas:list,dificultad_usuario) -> tuple:
     """
     Prepara la configuración de una partida seleccionando preguntas y estableciendo el tiempo límite.
@@ -54,7 +53,6 @@ def preparar_partida(config:dict, todas_las_preguntas:list,dificultad_usuario) -
         preguntas_filtradas = obtener_preguntas_filtrando(todas_las_preguntas, cantidad_preguntas, dificultad=config['dificultad'], categoria=config['categoria'])
     tupla_salida = (tiempo_limite, preguntas_filtradas)
     return tupla_salida
-
 
 def determinar_cantidad_preguntas(config:dict) -> int:
     """
@@ -107,7 +105,6 @@ def configurar_juego(config:dict, lista_mensajes:list) -> dict:
     
     return config
 
-
 def seleccion_dificultad(mensaje_menu:str, valor_actual: str):
     """
     Solicita al usuario que seleccione un nivel de dificultad mediante un menú y devuelve la dificultad seleccionada.
@@ -134,7 +131,9 @@ def seleccion_dificultad(mensaje_menu:str, valor_actual: str):
         seleccion = int(input(mensaje_menu))
     if dificultad == None:
         dificultad = control
+        
     return dificultad
+
 def seleccion_categoria(mensaje_menu: str, valor_actual: str):
     """
     Solicita al usuario que seleccione una categoría de una lista predefinida mediante un menú.

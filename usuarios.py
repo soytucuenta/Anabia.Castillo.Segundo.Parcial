@@ -2,6 +2,7 @@ import copy
 from funciones_genericas import *
 from prints import *
 from config import seleccion_dificultad
+
 def inicializar_usuario_actual(lista_dicc_usuarios)-> dict:
     """
     Inicializa un nuevo usuario con datos predeterminados y solicita el nombre por consola.
@@ -34,6 +35,7 @@ def ordenar_ranking(lista_dicc_usuarios:list):
         matriz_ranking[i][2] = i + 1
     lista_dicc_usuarios = cargar_matriz_en_diccionario(matriz_ranking, lista_dicc_usuarios)
     return lista_dicc_usuarios
+
 def cargar_matriz_en_diccionario(matriz:list, lista_dicc_usuarios:list):
     """
     Actualiza una lista de diccionarios de usuarios con los valores de 'ganancias' y 'ranking' provenientes de una matriz dada.
@@ -46,7 +48,6 @@ def cargar_matriz_en_diccionario(matriz:list, lista_dicc_usuarios:list):
         Solo se actualizarán los usuarios cuyo 'id' coincida entre la matriz y la lista de diccionarios de usuarios.
     """
 
-    
     lista_temporal = []
     for i in range(len(matriz)):
         fila = {}
@@ -104,7 +105,6 @@ def ordenar_matriz_burbujeo(matriz:list, columna:int)-> list:
                 matriz[j + 1] = aux
     return matriz
 
-
 def copiar_usuario_por_nombre(nombre:str, lista_usuarios:list)-> dict:
     """
     Busca un usuario por su nombre en una lista de usuarios.
@@ -119,6 +119,7 @@ def copiar_usuario_por_nombre(nombre:str, lista_usuarios:list)-> dict:
         if usuario["nombre"].lower() == nombre.lower():
             datos_usuario =  copy.deepcopy(usuario)
     return datos_usuario
+
 def buscar_nombre_en_lista_diccionarios(nombre:str, lista_usuarios:list)-> bool:
     """
     Busca si un nombre dado existe en una lista de diccionarios de usuarios.
@@ -134,6 +135,7 @@ def buscar_nombre_en_lista_diccionarios(nombre:str, lista_usuarios:list)-> bool:
             bandera = True
             break
     return bandera
+
 def agregar_nuevo_usuario_consola(lista_usuarios:list, nombre:str,)-> dict:
     """
     Crea un nuevo usuario con el nombre proporcionado y lo agrega a la lista de usuarios.
@@ -146,6 +148,7 @@ def agregar_nuevo_usuario_consola(lista_usuarios:list, nombre:str,)-> dict:
     nuevo_usuario = {"id": len(lista_usuarios) + 1, "nombre": nombre, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": "media"}
     lista_usuarios.append(nuevo_usuario)
     return nuevo_usuario
+
 def seleccion_usuario_consola(lista_usuarios:list,mensaje:str = 'Ingrese usuario ', mensaje_usuario_encontrado:str = 'Usuario encontrado')-> dict:
     """
     Solicita al usuario que seleccione o ingrese un nombre de usuario por consola, luego recupera o crea los datos correspondientes.
@@ -172,6 +175,7 @@ def seleccion_usuario_consola(lista_usuarios:list,mensaje:str = 'Ingrese usuario
         print(f"{mensaje_usuario_encontrado}: {seleccion_de_usuario}")
         datos_usuario = copiar_usuario_por_nombre(seleccion_de_usuario, lista_usuarios)
     return datos_usuario
+
 def agregar_nuevo_usuario_main(lista_usuarios:list)-> dict:
     """
     Crea un nuevo usuario con el nombre proporcionado y lo agrega a la lista de usuarios.

@@ -2,8 +2,6 @@ import re
 import json
 from funciones_genericas import mostrar_diccionario_individual
 
-"""-----------------------CONFIGURACION-----------------------"""
-
 def escribir_configuracion(configuracion:dict, archivo:str='config.json'):
     """
     Guarda un diccionario de configuración en un archivo JSON.
@@ -21,7 +19,6 @@ def escribir_configuracion(configuracion:dict, archivo:str='config.json'):
             json.dump(configuracion, archivo, indent=4)
     except FileNotFoundError:
         print(f"El archivo {archivo} no existe. Se creará uno nuevo.")
-
 
 def cargar_configuracion(configuracion_default:dict,archivo:str='config.json') -> dict:
     """
@@ -47,8 +44,6 @@ def cargar_configuracion(configuracion_default:dict,archivo:str='config.json') -
     if bandera:
         print(f"Archivo de configuracion no encontrado o incompleto, se usara la configuracion por defecto: {configuracion_default}")
     return configuracion
-
-"""-----------------------CSV USUARIOS-----------------------"""
 
 def escribir_csv_usuarios(lista_dic_usuarios, archivo='csv/usuarios.csv'):
     """
