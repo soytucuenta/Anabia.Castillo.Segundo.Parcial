@@ -1,6 +1,12 @@
 import pygame
 from funciones_pygame import *
 from prints import *
+from leer_escribir_archivos import *
+lista_usuarios = cargar_usuarios()
+todas_las_preguntas = cargar_preguntas()
+
+
+
 
 pygame.init()
 
@@ -44,10 +50,9 @@ boton_seleccion_usuario = crear_boton((200, 50), (40, 610), VENTANA, color_texto
 boton_salir = crear_boton((200, 50), (40, 670), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Salir", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 lista_de_botones_menu_principal = [boton_iniciar,boton_estadisticas, boton_configuracion,boton_seleccion_usuario,boton_salir]#lista de botones
 #################################
-#banderas menues
-# flag_menu_principal = True
-# flag_partida_iniciada = False
-
+#ESTADO DEL PROGRAMA
+#Esto es un diccionario que contiene el estado del programa, para saber en que menu estamos
+#y que acciones tomar en cada caso
 #########
 estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE CAMBIA DE MENU
     "menu_principal": True,
@@ -63,7 +68,7 @@ estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE 
 
 while estado_del_programa['salir'] == False:
     if estado_del_programa["partida_iniciada"] == False:
-        VENTANA.blit(fondo, (0, 0))#FONDO
+        VENTANA.blit(fondo, (0, 0))
     else:
         VENTANA.blit(fondo_jugando, (0, 0))
     for evento in pygame.event.get():#gestor de eventos
@@ -109,3 +114,5 @@ while estado_del_programa['salir'] == False:
     # musica_fondo.stop()  # Detiene la música al salir
 
 pygame.quit()
+
+escribir_csv_usuarios(lista_usuarios)
