@@ -29,10 +29,8 @@ def minijuego()->bool:
 
         ganador = chequear_horizontal(matriz)
         ganador = chequear_vertical(matriz)
-        # ganador = chequear_diagonal_bajada()
-        # ganador = chequear_diagonal_subida()
-
-        
+        ganador = chequear_diagonal_bajada(matriz)
+        ganador = chequear_diagonal_subida(matriz)
 
         empate = 0
         if ganador == 1:
