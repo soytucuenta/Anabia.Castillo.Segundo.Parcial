@@ -5,8 +5,8 @@ from prints import *
 pygame.init()
 
 #PROPIEDADES
-ANCHO_VENTANA = 640
-ALTO_VENTANA = 360
+ANCHO_VENTANA = 1280#francisco: los cambio porque sino no veo los botones
+ALTO_VENTANA = 720
 VENTANA = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA))
 CENTRO_PANTALLA = (ANCHO_VENTANA // 2, ALTO_VENTANA // 2)
 POSICION_BOTON_INICIAR = (40,395)
@@ -63,8 +63,10 @@ estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE 
 
 
 while estado_del_programa['salir'] == False:
-    VENTANA.blit(fondo, (0, 0))#FONDO
-
+    if estado_del_programa["partida_iniciada"] == False:
+        VENTANA.blit(fondo, (0, 0))#FONDO
+    else:
+        VENTANA.blit(fondo_jugando, (0, 0))
     for evento in pygame.event.get():#gestor de eventos
         print(evento)
         ###############################################
@@ -73,7 +75,7 @@ while estado_del_programa['salir'] == False:
             if estado_del_programa["menu_principal"]:#buscar como modularizar esto
                 buscar_boton_presionado(lista_de_botones_menu_principal, evento)
             elif estado_del_programa["partida_iniciada"]:
-                VENTANA.blit(fondo_jugando, (0, 0)) #FONDO_JUGANDO
+                pass
             elif estado_del_programa["configuracion"]:
                 pass
             elif estado_del_programa["estadisticas"]:

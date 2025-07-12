@@ -110,7 +110,7 @@ def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa)
             if boton == boton_salir:
                 estado_del_programa["salir"] = True
             elif boton == boton_iniciar:#chequear si se selecciono un usuario pendiente
-                estado_del_programa["partida_en_curso"] = True
+                estado_del_programa["partida_iniciada"] = True
                 estado_del_programa["menu_principal"] = False
                 print("Iniciar partida")
             elif boton == boton_estadisticas:
