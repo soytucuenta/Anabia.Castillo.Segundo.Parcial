@@ -19,7 +19,23 @@ def salida_pygame(evento):
 
 
 #######################
-# el boton de ejemplo que dieron en clase
+def manipular_texto(evento, texto, limite = 11):
+    """
+    Maneja los eventos de entrada de texto para una aplicación Pygame, permitiendo agregar caracteres y eliminar con retroceso.
+    Args:
+        evento (pygame.event.Event): El objeto de evento de Pygame que contiene la información de la tecla presionada.
+        texto (str): La cadena de texto actual a manipular.
+        limite (int, opcional): La longitud máxima permitida del texto. Por defecto es 11.
+    Returns:
+        str: La cadena de texto actualizada después de procesar el evento de entrada.
+    """
+
+    if evento.key == pygame.K_BACKSPACE:
+        texto = texto[:-1]
+    else:
+        if len(texto) <= limite:
+            texto += evento.unicode
+    return texto
 
 def crear_boton(dimensiones, posicion, ventana, color_texto="Black", color_fondo="Yellow", imagen=None, fuente=None, texto=None):
     """
@@ -45,6 +61,7 @@ def crear_boton(dimensiones, posicion, ventana, color_texto="Black", color_fondo
     boton['ColorTexto'] = color_texto
     boton['ColorFondo'] = color_fondo
     boton["Presionado"] = False
+    boton['Habilitado'] = True
     if imagen != None:
         img = pygame.image.load(imagen)
         boton["Superficie"] = pygame.transform.scale(img, boton["Dimensiones"])
@@ -88,7 +105,7 @@ def boton_presionado(boton:dict, evento):
     """
 
     bandera = False
-    if boton['Rectangulo'].collidepoint(evento.pos):
+    if boton['Rectangulo'].collidepoint(evento.pos) and boton['Habilitado']:
         bandera = True
     return bandera
 
@@ -96,6 +113,7 @@ def buscar_boton_presionado(lista_botones, evento):
     for boton in lista_botones:                    
         if boton_presionado(boton,evento):
             boton['Presionado'] = True
+
 
 def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa):
     boton_iniciar = lista_de_botones_menu_principal[0]
@@ -109,8 +127,8 @@ def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa)
             boton['Presionado'] = False
             if boton == boton_salir:
                 estado_del_programa["salir"] = True
-            elif boton == boton_iniciar:#chequear si se selecciono un usuario pendiente
-                estado_del_programa["partida_en_curso"] = True
+            elif boton == boton_iniciar and boton_iniciar['Habilitado']:#chequear si se selecciono un usuario pendiente
+                estado_del_programa["partida_iniciada"] = True
                 estado_del_programa["menu_principal"] = False
                 print("Iniciar partida")
             elif boton == boton_estadisticas:
