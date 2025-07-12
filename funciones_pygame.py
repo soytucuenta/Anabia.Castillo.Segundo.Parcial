@@ -45,6 +45,7 @@ def crear_boton(dimensiones, posicion, ventana, color_texto="Black", color_fondo
     boton['ColorTexto'] = color_texto
     boton['ColorFondo'] = color_fondo
     boton["Presionado"] = False
+    boton['Habilitado'] = True
     if imagen != None:
         img = pygame.image.load(imagen)
         boton["Superficie"] = pygame.transform.scale(img, boton["Dimensiones"])
@@ -88,7 +89,7 @@ def boton_presionado(boton:dict, evento):
     """
 
     bandera = False
-    if boton['Rectangulo'].collidepoint(evento.pos):
+    if boton['Rectangulo'].collidepoint(evento.pos) and boton['Habilitado']:
         bandera = True
     return bandera
 
@@ -109,7 +110,7 @@ def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa)
             boton['Presionado'] = False
             if boton == boton_salir:
                 estado_del_programa["salir"] = True
-            elif boton == boton_iniciar:#chequear si se selecciono un usuario pendiente
+            elif boton == boton_iniciar and boton_iniciar['Habilitado']:#chequear si se selecciono un usuario pendiente
                 estado_del_programa["partida_iniciada"] = True
                 estado_del_programa["menu_principal"] = False
                 print("Iniciar partida")
