@@ -13,7 +13,7 @@ def restar_en_clave(diccionario:dict, clave:str, valor:int):
 def multiplicar_en_clave(diccionario:dict, clave:str, valor:int):
     diccionario[clave] *= valor
 
-def mostrar_lista_diccionarios(lista:list, mensaje:str=None):
+def mostrar_lista_diccionarios(lista:list, mensaje):
     for diccionario in lista:
         mostrar_diccionario_individual(diccionario, mensaje)
 
@@ -90,7 +90,7 @@ def promediar_lista(lista:list):
     promedio = acumulador / len(lista)
     return promedio
 
-def mostrar_diccionario_individual(diccionario:dict,mensaje:str=None):
+def mostrar_diccionario_individual(diccionario:dict,mensaje=None):
     """
     Muestra los elementos de un diccionario en formato clave: valor, precedidos opcionalmente por un mensaje.
     Args:

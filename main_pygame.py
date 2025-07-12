@@ -2,6 +2,7 @@ import pygame
 from funciones_pygame import *
 from prints import *
 from leer_escribir_archivos import *
+from usuarios import *
 lista_usuarios = cargar_usuarios()
 todas_las_preguntas = cargar_preguntas()
 
@@ -55,7 +56,7 @@ texto_usuario  = ''
 rectangulo_usuario = pygame.Rect(40, 500, 325, 50)  # Rectángulo para el input box
 color_usuario = pygame.Color('cyan')  # Color del texto del input box
 boton_usuario = crear_boton((250, 75), (60, 300), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Guardar y volver al menu anterior", fuente=('assets/PokemonGb-RAeo.ttf', 24))
-
+boton_usuario['Habilitado'] = False  # Deshabilitado inicialmente
 
 #################################
 #ESTADO DEL PROGRAMA
@@ -66,10 +67,10 @@ estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE 
     "menu_principal": True,
     "partida_iniciada": False,
     "seleccion_usuario": False,
-    "cuadro_texto_usuario": False,
     'usuario_elegido_exitoso': False,
     "estadisticas": False,
     "configuracion": False,
+    'partida_lista': False,
     "salir": False,
 
 }
@@ -81,6 +82,10 @@ while estado_del_programa['salir'] == False:
         VENTANA.blit(fondo, (0, 0))
     else:
         VENTANA.blit(fondo_jugando, (0, 0))
+    if estado_del_programa["usuario_elegido_exitoso"] and len(texto_usuario.strip()) > 0:
+        info_usuario = buscar_usuario_pygame(lista_usuarios, texto_usuario)
+        print(f"Usuario seleccionado: {info_usuario['nombre']} con id {info_usuario['id']}")
+        
     for evento in pygame.event.get():#gestor de eventos
         print(evento)
         ###############################################
@@ -99,14 +104,17 @@ while estado_del_programa['salir'] == False:
                     estado_del_programa["cuadro_texto_usuario"] = True
                 elif boton_presionado(boton_usuario, evento) and boton_usuario['Habilitado']:
                     estado_del_programa["seleccion_usuario"] = False
-                    estado_del_programa["cuadro_texto_usuario"] = False
                     estado_del_programa["menu_principal"] = True
+                    estado_del_programa['usuario_elegido_exitoso'] = True
 
         elif evento.type == pygame.KEYDOWN:
             if estado_del_programa["seleccion_usuario"] and estado_del_programa["cuadro_texto_usuario"] == True:
                 texto_usuario = manipular_texto(evento, texto_usuario)
-                if len(texto_usuario) < 1:
+                if len(texto_usuario.strip()) >0:
+                    boton_usuario['Habilitado'] = True
+                else:
                     boton_usuario['Habilitado'] = False
+
                 
         ###############################################
         estado_del_programa['salir'] = salida_pygame(evento)
@@ -142,5 +150,5 @@ while estado_del_programa['salir'] == False:
     # musica_fondo.stop()  # Detiene la música al salir
 
 pygame.quit()
-
+sincronizar_diccionario(info_usuario, lista_usuarios, "id")
 escribir_csv_usuarios(lista_usuarios)
