@@ -198,11 +198,6 @@ def agregar_nuevo_usuario_main(lista_usuarios:list)-> dict:
         nuevo_usuario = {"id": len(lista_usuarios) + 1, "nombre": seleccion_nombre, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": dificultad}
     return nuevo_usuario
 
-def buscar_usuario_pygame(lista_usuarios:list, usuario:str)-> dict:
-    if buscar_nombre_en_lista_diccionarios(usuario, lista_usuarios):
-        usuario_encontrado = copiar_usuario_por_nombre(usuario, lista_usuarios)
-    else:
-        usuario_encontrado = {"id": len(lista_usuarios) + 1, "nombre": usuario, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": "nada"}
-    return usuario_encontrado
+
 
 

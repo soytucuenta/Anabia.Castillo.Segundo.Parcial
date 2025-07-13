@@ -7,7 +7,10 @@ configuracion_default = {
     "neurodivergente": False,
     "recuperatorio": False
 }
-
+configuracion_pygame = {
+    "categoria": None,
+    'daltonismo': "no"
+}
 def limitar_tiempo(dificultad:str) -> int:
     """
     Limita el tiempo de respuesta según la dificultad.

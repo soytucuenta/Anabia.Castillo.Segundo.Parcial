@@ -3,6 +3,7 @@ from funciones_pygame import *
 from prints import *
 from leer_escribir_archivos import *
 from usuarios import *
+from menues_pygame import *
 lista_usuarios = cargar_usuarios()
 todas_las_preguntas = cargar_preguntas()
 
@@ -59,6 +60,12 @@ boton_usuario = crear_boton((250, 75), (60, 300), VENTANA, color_texto="Black", 
 boton_usuario['Habilitado'] = False  # Deshabilitado inicialmente
 
 #################################
+
+boton_dificultad = crear_boton((200, 50), (40, 395), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Dificultad", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_categoria = crear_boton((200, 50), (40, 470), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Categoria", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_daltonismo = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Daltonismo", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_menu_principal = crear_boton((200, 50), (40, 610), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Menu Principal", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+lista_de_botones_menu_configuracion = [boton_dificultad, boton_categoria, boton_daltonismo, boton_menu_principal]#lista de botones
 #ESTADO DEL PROGRAMA
 #Esto es un diccionario que contiene el estado del programa, para saber en que menu estamos
 #y que acciones tomar en cada caso
@@ -96,7 +103,7 @@ while estado_del_programa['salir'] == False:
             elif estado_del_programa["partida_iniciada"]:
                 pass
             elif estado_del_programa["configuracion"]:
-                pass
+                buscar_boton_presionado(lista_de_botones_menu_configuracion, evento)
             elif estado_del_programa["estadisticas"]:
                 pass
             elif estado_del_programa["seleccion_usuario"]:
@@ -120,29 +127,27 @@ while estado_del_programa['salir'] == False:
         estado_del_programa['salir'] = salida_pygame(evento)
     #############################
 
-    # if estado_del_programa["seleccion_usuario"]:
-    #     #usuario = input_box(estado_del_programa,(200, 50), (40, 300), VENTANA, color_texto="Black", color_fondo="Yellow", fuente=('assets/PokemonGb-RAeo.ttf', 24))
-    #     pass
-    # Dibujado de menues
+    # Dibujado segun estado del programa
     if estado_del_programa["menu_principal"]:
         for boton in lista_de_botones_menu_principal:
             dibujar_boton(boton)
+        acciones_menu_principal(lista_de_botones_menu_principal, estado_del_programa)
     elif estado_del_programa["partida_iniciada"]:
         pass
     elif estado_del_programa["configuracion"]:
-        pass
+        for boton in lista_de_botones_menu_configuracion:
+            dibujar_boton(boton)
+        acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa)
     elif estado_del_programa["estadisticas"]:
         pass
     elif estado_del_programa["seleccion_usuario"]:
-        pygame.draw.rect(VENTANA, color_usuario, rectangulo_usuario,3)  # Dibuja el rectángulo del input box
-        superficie_seleccion_usuario = fuente_importada.render(texto_usuario, True, color_usuario)
-        VENTANA.blit(superficie_seleccion_usuario, (rectangulo_usuario.x + 5, rectangulo_usuario.y + 5))  # Dibuja el texto dentro del input box
-        dibujar_boton(boton_usuario)
+        dibujar_seleccion_usuario(VENTANA,fuente_importada, rectangulo_usuario, color_usuario, texto_usuario, boton_usuario)
     
     ##########################################################
     """Los booleanos que devuelven los botones pienso que pueden servir para activar o desactivar menues"""
     ##########################################################
-    acciones_menu_principal(lista_de_botones_menu_principal, estado_del_programa)
+    
+    
 
     pygame.display.flip()
 
@@ -150,5 +155,6 @@ while estado_del_programa['salir'] == False:
     # musica_fondo.stop()  # Detiene la música al salir
 
 pygame.quit()
-sincronizar_diccionario(info_usuario, lista_usuarios, "id")
-escribir_csv_usuarios(lista_usuarios)
+if estado_del_programa['usuario_elegido_exitoso']:
+    sincronizar_diccionario(info_usuario, lista_usuarios, "id")
+    escribir_csv_usuarios(lista_usuarios)

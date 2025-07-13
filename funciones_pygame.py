@@ -1,5 +1,5 @@
 import pygame
-
+from usuarios import *
 def salida_pygame(evento):
     """
     Maneja los eventos de salida de Pygame para actualizar la bandera de ejecución.
@@ -143,4 +143,32 @@ def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa)
                 estado_del_programa["configuracion"] = True
                 estado_del_programa["menu_principal"] = False
                 print("Configuración seleccionada")
+
+
+
+def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa):
+    boton_dificultad = lista_de_botones_menu_configuracion[0]
+    boton_categoria = lista_de_botones_menu_configuracion[1]
+    boton_daltonismo = lista_de_botones_menu_configuracion[2]
+    boton_menu_principal = lista_de_botones_menu_configuracion[3]
+
+    for boton in lista_de_botones_menu_configuracion:
+        if boton['Presionado']:
+            boton['Presionado'] = False
+            if boton == boton_dificultad:
+                print("Cambiar dificultad")
+            elif boton == boton_categoria:
+                print("Cambiar categoria")
+            elif boton == boton_daltonismo:
+                print("Cambiar daltonismo")
+            elif boton == boton_menu_principal:
+                estado_del_programa["menu_principal"] = True
+                estado_del_programa["configuracion"] = False
+
+def buscar_usuario_pygame(lista_usuarios:list, usuario:str)-> dict:
+    if buscar_nombre_en_lista_diccionarios(usuario, lista_usuarios):
+        usuario_encontrado = copiar_usuario_por_nombre(usuario, lista_usuarios)
+    else:
+        usuario_encontrado = {"id": len(lista_usuarios) + 1, "nombre": usuario, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": "media"}
+    return usuario_encontrado
 
