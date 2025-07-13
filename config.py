@@ -29,7 +29,6 @@ def cambiar_dificultad_pygame(dificultad_actual):
         resultado = 'facil'
     else:
         resultado = 'facil'
-    resultado = dificultad_actual
     return resultado
 
 def cambiar_categoria(categoria_actual):
