@@ -65,12 +65,12 @@ def crear_boton(dimensiones, posicion, ventana, color_texto="Black", color_fondo
     boton['Habilitado'] = True
     if imagen != None:
         img = pygame.image.load(imagen)
-        boton["Superficie"] = pygame.transform.scale(img, boton["Dimensiones"])
+        boton["Superficie"] = pygame.transform.scale(img, boton["Dimensiones"])s
     else:
         if fuente == None:
-            fuente = pygame.font.Font("droidsans", 24)
+            fuente = pygame.font.Font(None, 24)
         tipo, tamano = fuente
-        fuente = pygame.font.SysFont(tipo, tamano)
+        fuente = pygame.font.Font(tipo, tamano)
         boton["Superficie"] = fuente.render(texto,False, color_texto,color_fondo)
     boton["Rectangulo"] = boton["Superficie"].get_rect()
     boton["Rectangulo"].topleft = boton["Posicion"]
@@ -115,6 +115,12 @@ def buscar_boton_presionado(lista_botones, evento):
         if boton_presionado(boton,evento):
             boton['Presionado'] = True
 
+def actualizar_texto_boton(boton, nuevo_texto):
+    """Actualiza el texto de un botón existente"""
+    fuente = pygame.font.Font('assets/PokemonGb-RAeo.ttf', 24)
+    boton["Superficie"] = fuente.render(nuevo_texto, False, boton['ColorTexto'], boton['ColorFondo'])
+    boton["Rectangulo"] = boton["Superficie"].get_rect()
+    boton["Rectangulo"].topleft = boton["Posicion"]
 
 def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa):
     boton_iniciar = lista_de_botones_menu_principal[0]
@@ -159,6 +165,7 @@ def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_
             if boton == boton_dificultad:
                 print(f"Dificultad ANTES: {info_usuario['dificultad']}")
                 info_usuario['dificultad'] = cambiar_dificultad_pygame(info_usuario['dificultad'])
+                actualizar_texto_boton(boton_dificultad, f"Dificultad: {info_usuario['dificultad']}")
                 print(f"Dificultad DESPUÉS: {info_usuario['dificultad']}")
             elif boton == boton_categoria:
                 print("Cambiar categoria")

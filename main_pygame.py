@@ -32,6 +32,21 @@ fondo_2 = pygame.image.load('assets/susana_fondo_jugando.png')
 fondo = pygame.transform.scale(fondo, (ANCHO_VENTANA, ALTO_VENTANA))
 fondo_jugando = pygame.transform.scale(fondo_2, (ANCHO_VENTANA, ALTO_VENTANA))
 
+#########
+estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE CAMBIA DE MENU
+    "menu_principal": True,
+    "partida_iniciada": False,
+    "seleccion_usuario": False,
+    'usuario_elegido_exitoso': False,
+    "usuario_ya_cargado": False,
+    "estadisticas": False,
+    "configuracion": False,
+    'partida_lista': False,
+    "salir": False,
+
+}
+info_usuario = {"id": 0, "nombre": None, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": "media"} #diccionario que contiene los datos del usuario seleccionado
+#########
 #FUENTES
 texto_prueba = menu
 fuente_importada = pygame.font.Font('assets/PokemonGb-RAeo.ttf',24) ####### NO RECONOCE LAS FUENTES IMPORTADAS EN BOTONES, INVESTIGAR 
@@ -61,7 +76,7 @@ boton_usuario['Habilitado'] = False  # Deshabilitado inicialmente
 
 #################################
 
-boton_dificultad = crear_boton((200, 50), (40, 395), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Dificultad", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_dificultad = crear_boton((200, 50), (40, 395), VENTANA, color_texto="Black", color_fondo="Yellow", texto=f"Dificultad: {info_usuario['dificultad']}", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_categoria = crear_boton((200, 50), (40, 470), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Categoria", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_daltonismo = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Daltonismo", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_menu_principal = crear_boton((200, 50), (40, 610), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Menu Principal", fuente=('assets/PokemonGb-RAeo.ttf', 24))
@@ -69,21 +84,6 @@ lista_de_botones_menu_configuracion = [boton_dificultad, boton_categoria, boton_
 #ESTADO DEL PROGRAMA
 #Esto es un diccionario que contiene el estado del programa, para saber en que menu estamos
 #y que acciones tomar en cada caso
-#########
-estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE CAMBIA DE MENU
-    "menu_principal": True,
-    "partida_iniciada": False,
-    "seleccion_usuario": False,
-    'usuario_elegido_exitoso': False,
-    "usuario_ya_cargado": False,
-    "estadisticas": False,
-    "configuracion": False,
-    'partida_lista': False,
-    "salir": False,
-
-}
-info_usuario = {"id": 0, "nombre": None, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": "media"} #diccionario que contiene los datos del usuario seleccionado
-#########
 
 
 while estado_del_programa['salir'] == False:
