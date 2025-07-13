@@ -75,6 +75,7 @@ estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE 
     "partida_iniciada": False,
     "seleccion_usuario": False,
     'usuario_elegido_exitoso': False,
+    "usuario_ya_cargado": False,
     "estadisticas": False,
     "configuracion": False,
     'partida_lista': False,
@@ -90,16 +91,17 @@ while estado_del_programa['salir'] == False:
         VENTANA.blit(fondo, (0, 0))
     else:
         VENTANA.blit(fondo_jugando, (0, 0))
-    if estado_del_programa["usuario_elegido_exitoso"] and len(texto_usuario.strip()) > 0:
+    if estado_del_programa["usuario_elegido_exitoso"] and len(texto_usuario.strip()) > 0 and estado_del_programa["usuario_ya_cargado"] == False:
         info_usuario = buscar_usuario_pygame(lista_usuarios, texto_usuario)
-        print(f"Usuario seleccionado: {info_usuario['nombre']} con id {info_usuario['id']} dificultad {info_usuario['dificultad']}")
+        #print(f"Usuario seleccionado: {info_usuario['nombre']} con id {info_usuario['id']} dificultad {info_usuario['dificultad']}")
+        estado_del_programa["usuario_ya_cargado"] = True
         
     for evento in pygame.event.get():#gestor de eventos
         print(evento)
         ###############################################
         if evento.type == pygame.MOUSEBUTTONDOWN:
             print("raton presionado")
-            if estado_del_programa["menu_principal"]:#buscar como modularizar esto
+            if estado_del_programa["menu_principal"]:
                 buscar_boton_presionado(lista_de_botones_menu_principal, evento)
             elif estado_del_programa["partida_iniciada"]:
                 pass

@@ -66,7 +66,7 @@ def escribir_csv_usuarios(lista_dic_usuarios, archivo='csv/usuarios.csv'):
     try:
         with open(archivo,'w',encoding ='utf8') as archivo:
             delimitador = ','
-            archivo.write('id,nombre,ganancias,participaciones,mejor_racha,ranking\n')
+            archivo.write('id,nombre,ganancias,participaciones,mejor_racha,ranking,dificultad\n')
             for i in lista_dic_usuarios:
                 mensaje = '{0},{1},{2},{3},{4},{5},{6}'
                 mensaje = mensaje.format(i['id'] ,

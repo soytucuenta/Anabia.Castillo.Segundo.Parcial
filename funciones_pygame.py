@@ -157,8 +157,9 @@ def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_
         if boton['Presionado']:
             boton['Presionado'] = False
             if boton == boton_dificultad:
-                print("Cambiar dificultad")
-                info_usuario['dificultad']=cambiar_dificultad_pygame(info_usuario['dificultad'])
+                print(f"Dificultad ANTES: {info_usuario['dificultad']}")
+                info_usuario['dificultad'] = cambiar_dificultad_pygame(info_usuario['dificultad'])
+                print(f"Dificultad DESPUÉS: {info_usuario['dificultad']}")
             elif boton == boton_categoria:
                 print("Cambiar categoria")
             elif boton == boton_daltonismo:
