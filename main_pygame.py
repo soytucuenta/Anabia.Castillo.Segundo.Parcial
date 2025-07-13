@@ -72,6 +72,7 @@ boton_salir = crear_boton((200, 50), (40, 670), VENTANA, color_texto="Black", co
 lista_de_botones_menu_principal = [boton_iniciar,boton_estadisticas, boton_configuracion,boton_seleccion_usuario,boton_salir]#lista de botones
 ##################
 
+#INPUT USUARIO
 texto_usuario  = ''
 rectangulo_usuario = pygame.Rect(40, 500, 325, 50)  # Rectángulo para el input box
 color_usuario = pygame.Color('cyan')  # Color del texto del input box
@@ -79,7 +80,7 @@ boton_usuario = crear_boton((250, 75), (40, 300), VENTANA, color_texto="Black", 
 boton_usuario['Habilitado'] = False  # Deshabilitado inicialmente
 
 #################################
-
+#LISTA DE BOTONES
 boton_dificultad = crear_boton((200, 50), (40, 395), VENTANA, color_texto="Black", color_fondo="Yellow", texto=f"Dificultad: {info_usuario['dificultad']}", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_categoria = crear_boton((200, 50), (40, 470), VENTANA, color_texto="Black", color_fondo="Yellow", texto=f'Categoria: {configuracion_pygame['categoria']}', fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_daltonismo = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black", color_fondo="Yellow", texto=f'Daltonismo: {configuracion_pygame['daltonismo']}', fuente=('assets/PokemonGb-RAeo.ttf', 24))
@@ -92,6 +93,7 @@ while estado_del_programa['salir'] == False:
         VENTANA.blit(fondo, (0, 0))
     else:
         VENTANA.blit(fondo_jugando, (0, 0))
+        
     if estado_del_programa["usuario_elegido_exitoso"] and len(texto_usuario.strip()) > 0 and estado_del_programa["usuario_ya_cargado"] == False:
         info_usuario = buscar_usuario_pygame(lista_usuarios, texto_usuario)
         estado_del_programa["usuario_ya_cargado"] = True
@@ -99,6 +101,7 @@ while estado_del_programa['salir'] == False:
     for evento in pygame.event.get():#gestor de eventos
         print(evento)
         ###############################################
+        # MOUSE CLICKS 
         if evento.type == pygame.MOUSEBUTTONDOWN:
             print("raton presionado")
             if estado_del_programa["menu_principal"]:
@@ -145,7 +148,6 @@ while estado_del_programa['salir'] == False:
         pass
     elif estado_del_programa["seleccion_usuario"]:
         dibujar_seleccion_usuario(VENTANA,fuente_importada, rectangulo_usuario, color_usuario, texto_usuario, boton_usuario)
-
 
     pygame.display.flip()
 

@@ -1,4 +1,7 @@
 import random
+from colorama import Fore, Back, Style, init
+init() 
+
 
 def ingresar_int(mensaje, inicio, fin):
     num = int(input(mensaje))

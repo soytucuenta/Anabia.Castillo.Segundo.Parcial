@@ -27,10 +27,12 @@ def minijuego()->bool:
         mostrar_matriz(matriz)
         turno = not turno
 
-        ganador = chequear_horizontal(matriz)
-        ganador = chequear_vertical(matriz)
-        ganador = chequear_diagonal_bajada(matriz)
-        ganador = chequear_diagonal_subida(matriz)
+        ganador = (
+        chequear_horizontal(matriz) 
+        or chequear_vertical(matriz)
+        or chequear_diagonal_bajada(matriz)
+        or chequear_diagonal_subida(matriz)
+    )
 
         empate = 0
         if ganador == 1:
