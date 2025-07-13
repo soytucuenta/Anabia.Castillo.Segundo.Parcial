@@ -142,7 +142,8 @@ while estado_del_programa['salir'] == False:
             dibujar_boton(boton)
         acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa,info_usuario)
     elif estado_del_programa["estadisticas"]:
-        pass
+        mostrar_texto( VENTANA,(ANCHO_VENTANA//3, ALTO_VENTANA // 2),'estadisticas',fuente_importada)
+        mostrar_texto_multilinea(VENTANA, (ANCHO_VENTANA // 2 , ALTO_VENTANA // 2 + 50), ["estadisticas","jabon","pedro"], fuente_importada, color_fondo="Yellow")
     elif estado_del_programa["seleccion_usuario"]:
         dibujar_seleccion_usuario(VENTANA,fuente_importada, rectangulo_usuario, color_usuario, texto_usuario, boton_usuario)
 
