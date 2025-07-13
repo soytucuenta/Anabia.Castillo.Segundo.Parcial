@@ -33,6 +33,9 @@ fondo = pygame.transform.scale(fondo, (ANCHO_VENTANA, ALTO_VENTANA))
 fondo_jugando = pygame.transform.scale(fondo_2, (ANCHO_VENTANA, ALTO_VENTANA))
 
 #########
+#ESTADO DEL PROGRAMA
+#Esto es un diccionario que contiene el estado del programa, para saber en que menu estamos
+#y que acciones tomar en cada caso
 estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE CAMBIA DE MENU
     "menu_principal": True,
     "partida_iniciada": False,
@@ -45,6 +48,7 @@ estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE 
     "salir": False,
 
 }
+
 info_usuario = {"id": 0, "nombre": None, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": "media"} #diccionario que contiene los datos del usuario seleccionado
 #########
 #FUENTES
@@ -71,19 +75,16 @@ lista_de_botones_menu_principal = [boton_iniciar,boton_estadisticas, boton_confi
 texto_usuario  = ''
 rectangulo_usuario = pygame.Rect(40, 500, 325, 50)  # Rectángulo para el input box
 color_usuario = pygame.Color('cyan')  # Color del texto del input box
-boton_usuario = crear_boton((250, 75), (60, 300), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Guardar y volver al menu anterior", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_usuario = crear_boton((250, 75), (40, 300), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Guardar y volver al menu anterior", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_usuario['Habilitado'] = False  # Deshabilitado inicialmente
 
 #################################
 
 boton_dificultad = crear_boton((200, 50), (40, 395), VENTANA, color_texto="Black", color_fondo="Yellow", texto=f"Dificultad: {info_usuario['dificultad']}", fuente=('assets/PokemonGb-RAeo.ttf', 24))
-boton_categoria = crear_boton((200, 50), (40, 470), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Categoria", fuente=('assets/PokemonGb-RAeo.ttf', 24))
-boton_daltonismo = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Daltonismo", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_categoria = crear_boton((200, 50), (40, 470), VENTANA, color_texto="Black", color_fondo="Yellow", texto=f'Categoria: {configuracion_pygame['categoria']}', fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_daltonismo = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black", color_fondo="Yellow", texto=f'Daltonismo: {configuracion_pygame['daltonismo']}', fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_menu_principal = crear_boton((200, 50), (40, 610), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Menu Principal", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 lista_de_botones_menu_configuracion = [boton_dificultad, boton_categoria, boton_daltonismo, boton_menu_principal]#lista de botones
-#ESTADO DEL PROGRAMA
-#Esto es un diccionario que contiene el estado del programa, para saber en que menu estamos
-#y que acciones tomar en cada caso
 
 
 while estado_del_programa['salir'] == False:
@@ -93,7 +94,6 @@ while estado_del_programa['salir'] == False:
         VENTANA.blit(fondo_jugando, (0, 0))
     if estado_del_programa["usuario_elegido_exitoso"] and len(texto_usuario.strip()) > 0 and estado_del_programa["usuario_ya_cargado"] == False:
         info_usuario = buscar_usuario_pygame(lista_usuarios, texto_usuario)
-        #print(f"Usuario seleccionado: {info_usuario['nombre']} con id {info_usuario['id']} dificultad {info_usuario['dificultad']}")
         estado_del_programa["usuario_ya_cargado"] = True
         
     for evento in pygame.event.get():#gestor de eventos
@@ -137,7 +137,7 @@ while estado_del_programa['salir'] == False:
         acciones_menu_principal(lista_de_botones_menu_principal, estado_del_programa)
     elif estado_del_programa["partida_iniciada"]:
         pass
-    elif estado_del_programa["configuracion"]:
+    elif estado_del_programa["configuracion"]:######### FALTA CAGAR LA CONFIGURACION DEL JUEGO DESDE JSON Y GUARDARLA
         for boton in lista_de_botones_menu_configuracion:
             dibujar_boton(boton)
         acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa,info_usuario)
@@ -145,12 +145,7 @@ while estado_del_programa['salir'] == False:
         pass
     elif estado_del_programa["seleccion_usuario"]:
         dibujar_seleccion_usuario(VENTANA,fuente_importada, rectangulo_usuario, color_usuario, texto_usuario, boton_usuario)
-    
-    ##########################################################
-    """Los booleanos que devuelven los botones pienso que pueden servir para activar o desactivar menues"""
-    ##########################################################
-    
-    
+
 
     pygame.display.flip()
 

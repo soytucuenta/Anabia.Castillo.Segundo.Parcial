@@ -1,6 +1,8 @@
 import pygame
 from usuarios import *
 from config import *
+
+lista_daltonismo = ['protanopia', 'deuteranopia', 'tritanopia', 'no']
 def salida_pygame(evento):
     """
     Maneja los eventos de salida de Pygame para actualizar la bandera de ejecución.
@@ -65,7 +67,7 @@ def crear_boton(dimensiones, posicion, ventana, color_texto="Black", color_fondo
     boton['Habilitado'] = True
     if imagen != None:
         img = pygame.image.load(imagen)
-        boton["Superficie"] = pygame.transform.scale(img, boton["Dimensiones"])s
+        boton["Superficie"] = pygame.transform.scale(img, boton["Dimensiones"])
     else:
         if fuente == None:
             fuente = pygame.font.Font(None, 24)
@@ -169,8 +171,14 @@ def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_
                 print(f"Dificultad DESPUÉS: {info_usuario['dificultad']}")
             elif boton == boton_categoria:
                 print("Cambiar categoria")
+                configuracion_pygame['categoria'] = cambiar_categoria_pygame(configuracion_pygame['categoria'])
+                actualizar_texto_boton(boton_categoria, f'Categoria: {configuracion_pygame["categoria"]}')
+                print(f"Categoria seleccionada: {configuracion_pygame['categoria']}")
             elif boton == boton_daltonismo:
                 print("Cambiar daltonismo")
+                configuracion_pygame['daltonismo'] = cambiar_categoria_pygame(configuracion_pygame['daltonismo'], lista_daltonismo, configuracion_pygame['daltonismo'])
+                actualizar_texto_boton(boton_daltonismo, f'Daltonismo: {configuracion_pygame["daltonismo"]}')
+                print(f"Daltonismo seleccionado: {configuracion_pygame['daltonismo']}")
             elif boton == boton_menu_principal:
                 estado_del_programa["menu_principal"] = True
                 estado_del_programa["configuracion"] = False

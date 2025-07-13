@@ -14,8 +14,7 @@ configuracion_pygame = {
 
 # Configuración del juego para pygame
 configuracion_pygame = {
-    'dificultad': 'media',
-    'categoria': 'Todas',
+    'categoria': 'todas',
     'daltonismo': 'no'
 }
 
@@ -31,27 +30,40 @@ def cambiar_dificultad_pygame(dificultad_actual):
         resultado = 'facil'
     return resultado
 
-def cambiar_categoria(categoria_actual):
-    """Cambia entre las categorías disponibles sin usar index"""
-    if categoria_actual == 'Todas':
-        return 'Ciencia'
-    elif categoria_actual == 'Ciencia':
-        return 'Arte'
-    elif categoria_actual == 'Arte':
-        return 'Historia'
-    elif categoria_actual == 'Historia':
-        return 'Deportes'
-    elif categoria_actual == 'Deportes':
-        return 'Todas'
+def cambiar_categoria_pygame(categoria_actual, lista_categorias= None,control = None):
+    if lista_categorias == None:
+        categorias = [
+            "todas",
+            "ciencia",
+            "arte",
+            "historia",
+            "matemáticas",
+            "deportes",
+            "geografía"
+        ]
     else:
-        return 'Todas'  # valor por defecto
+        categorias = lista_categorias
+    categoria_actual = categoria_actual.lower()
+    if control != None:
+        siguiente=control
+    else:
+        siguiente = "todas"
+    for i in range(len(categorias)):
+        if categorias[i] == categoria_actual:
+            siguiente = categorias[(i + 1) % len(categorias)]
+            break
+    return siguiente
 
-def cambiar_daltonismo(daltonismo_actual):
-    """Alterna el modo daltonismo sin usar index"""
-    if daltonismo_actual == 'no':
-        return 'si'
-    else:
-        return 'no'
+
+# def cambiar_daltonismo(daltonismo_actual):
+#     categorias = ['protanopia', 'deuteranopia', 'tritanopia', 'no']
+#     daltonismo_actual = daltonismo_actual.lower()
+#     siguiente = 'no'
+#     for i in range(len(categorias)):
+#         if categorias[i] == daltonismo_actual:
+#             siguiente = categorias[(i + 1) % len(categorias)]
+#             break
+#     return siguiente
 
 
 def limitar_tiempo(dificultad:str) -> int:
