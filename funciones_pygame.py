@@ -1,6 +1,29 @@
 import pygame
 from usuarios import *
 from config import *
+def cortar_string_por_palabras(texto, longitud_maxima):
+
+    
+    lineas = [texto]
+    palabras = texto.split()
+    lineas = []
+    linea_actual = ""
+    
+    for palabra in palabras:
+        if len(linea_actual + " " + palabra) <= longitud_maxima:
+            if linea_actual:
+                linea_actual += " " + palabra
+            else:
+                linea_actual = palabra
+        else:
+            if linea_actual:
+                lineas.append(linea_actual)
+            linea_actual = palabra
+    
+    if linea_actual:
+        lineas.append(linea_actual)
+    
+    return lineas
 
 lista_daltonismo = ['protanopia', 'deuteranopia', 'tritanopia', 'no']
 def salida_pygame(evento):
@@ -40,6 +63,29 @@ def manipular_texto(evento, texto, limite = 11):
             texto += evento.unicode
     return texto
 
+def mostrar_texto(superficie, posicion , texto, fuente,color=(255, 255, 255), color_fondo=None, centrado=False):
+
+    
+    texto_surface = fuente.render(texto, True, color, color_fondo)
+    
+    texto_rect = texto_surface.get_rect()
+    
+    if centrado:
+        texto_rect.center = posicion
+    else:
+        texto_rect.topleft = posicion
+    
+    superficie.blit(texto_surface, texto_rect)
+    
+    return texto_rect
+
+def mostrar_texto_multilinea(superficie, posicion, lineas, fuente, color=(255, 255, 255),color_fondo=None, 
+                            espaciado=5, centrado=False):
+    y_actual = posicion[1]
+    for linea in lineas:
+        linea = mostrar_texto(superficie,(posicion[0], y_actual), linea, fuente, color, color_fondo,
+                            centrado=centrado)
+        y_actual += linea.height + espaciado
 def crear_boton(dimensiones, posicion, ventana, color_texto="Black", color_fondo="Yellow", imagen=None, fuente=None, texto=None):
     """
     Crea un diccionario que representa un botón para usar en una interfaz gráfica con Pygame.
