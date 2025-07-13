@@ -1,6 +1,29 @@
 import pygame
 from usuarios import *
 from config import *
+def cortar_string_por_palabras(texto, longitud_maxima):
+
+    
+    lineas = [texto]
+    palabras = texto.split()
+    lineas = []
+    linea_actual = ""
+    
+    for palabra in palabras:
+        if len(linea_actual + " " + palabra) <= longitud_maxima:
+            if linea_actual:
+                linea_actual += " " + palabra
+            else:
+                linea_actual = palabra
+        else:
+            if linea_actual:
+                lineas.append(linea_actual)
+            linea_actual = palabra
+    
+    if linea_actual:
+        lineas.append(linea_actual)
+    
+    return lineas
 
 lista_daltonismo = ['protanopia', 'deuteranopia', 'tritanopia', 'no']
 def salida_pygame(evento):

@@ -52,11 +52,9 @@ estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE 
 info_usuario = {"id": 0, "nombre": None, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": "media"} #diccionario que contiene los datos del usuario seleccionado
 #########
 #FUENTES
-texto_prueba = menu
+
 fuente_importada = pygame.font.Font('assets/PokemonGb-RAeo.ttf',24) ####### NO RECONOCE LAS FUENTES IMPORTADAS EN BOTONES, INVESTIGAR 
-superficie_texto = fuente_importada.render(texto_prueba, True, BLANCO)
-posicion_texto = superficie_texto.get_rect(center=POSICION_BOTON_INICIAR)
-fuente_basica = pygame.font.Font(None, 36)  # Fuente básica para el input box
+
 #MÚSICA
 # pygame.mixer.init()
 # musica_fondo = pygame.mixer.Sound('assets/cancion_fondo.mp3')
@@ -142,8 +140,7 @@ while estado_del_programa['salir'] == False:
             dibujar_boton(boton)
         acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa,info_usuario)
     elif estado_del_programa["estadisticas"]:
-        mostrar_texto( VENTANA,(ANCHO_VENTANA//3, ALTO_VENTANA // 2),'estadisticas',fuente_importada)
-        mostrar_texto_multilinea(VENTANA, (ANCHO_VENTANA // 2 , ALTO_VENTANA // 2 + 50), ["estadisticas","jabon","pedro"], fuente_importada, color_fondo="Yellow")
+        #mostrar_texto_multilinea(VENTANA, (ANCHO_VENTANA // 2 -600, ALTO_VENTANA // 2 + 50), cortar_string_por_palabras(texto_prueba2,50), fuente_importada,color='black', color_fondo="Yellow")
     elif estado_del_programa["seleccion_usuario"]:
         dibujar_seleccion_usuario(VENTANA,fuente_importada, rectangulo_usuario, color_usuario, texto_usuario, boton_usuario)
 
