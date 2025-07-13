@@ -81,6 +81,7 @@ estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE 
     "salir": False,
 
 }
+info_usuario = {"id": 0, "nombre": None, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": "media"} #diccionario que contiene los datos del usuario seleccionado
 #########
 
 
@@ -91,7 +92,7 @@ while estado_del_programa['salir'] == False:
         VENTANA.blit(fondo_jugando, (0, 0))
     if estado_del_programa["usuario_elegido_exitoso"] and len(texto_usuario.strip()) > 0:
         info_usuario = buscar_usuario_pygame(lista_usuarios, texto_usuario)
-        print(f"Usuario seleccionado: {info_usuario['nombre']} con id {info_usuario['id']}")
+        print(f"Usuario seleccionado: {info_usuario['nombre']} con id {info_usuario['id']} dificultad {info_usuario['dificultad']}")
         
     for evento in pygame.event.get():#gestor de eventos
         print(evento)
@@ -137,7 +138,7 @@ while estado_del_programa['salir'] == False:
     elif estado_del_programa["configuracion"]:
         for boton in lista_de_botones_menu_configuracion:
             dibujar_boton(boton)
-        acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa)
+        acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa,info_usuario)
     elif estado_del_programa["estadisticas"]:
         pass
     elif estado_del_programa["seleccion_usuario"]:

@@ -1,5 +1,6 @@
 import pygame
 from usuarios import *
+from config import *
 def salida_pygame(evento):
     """
     Maneja los eventos de salida de Pygame para actualizar la bandera de ejecución.
@@ -146,7 +147,7 @@ def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa)
 
 
 
-def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa):
+def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa, info_usuario):
     boton_dificultad = lista_de_botones_menu_configuracion[0]
     boton_categoria = lista_de_botones_menu_configuracion[1]
     boton_daltonismo = lista_de_botones_menu_configuracion[2]
@@ -157,6 +158,7 @@ def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_
             boton['Presionado'] = False
             if boton == boton_dificultad:
                 print("Cambiar dificultad")
+                cambiar_dificultad_pygame(info_usuario['dificultad'])
             elif boton == boton_categoria:
                 print("Cambiar categoria")
             elif boton == boton_daltonismo:

@@ -11,6 +11,50 @@ configuracion_pygame = {
     "categoria": None,
     'daltonismo': "no"
 }
+
+# Configuración del juego para pygame
+configuracion_pygame = {
+    'dificultad': 'media',
+    'categoria': 'Todas',
+    'daltonismo': 'no'
+}
+
+def cambiar_dificultad_pygame(dificultad_actual):
+    """Cambia la dificultad del juego entre 'facil', 'media' y 'dificil'."""
+    if dificultad_actual == 'facil':
+        resultado = 'media'
+    elif dificultad_actual == 'media':
+        resultado = 'dificil'
+    elif dificultad_actual == 'dificil':
+        resultado = 'facil'
+    else:
+        resultado = 'facil'
+    resultado = dificultad_actual
+    return resultado
+
+def cambiar_categoria(categoria_actual):
+    """Cambia entre las categorías disponibles sin usar index"""
+    if categoria_actual == 'Todas':
+        return 'Ciencia'
+    elif categoria_actual == 'Ciencia':
+        return 'Arte'
+    elif categoria_actual == 'Arte':
+        return 'Historia'
+    elif categoria_actual == 'Historia':
+        return 'Deportes'
+    elif categoria_actual == 'Deportes':
+        return 'Todas'
+    else:
+        return 'Todas'  # valor por defecto
+
+def cambiar_daltonismo(daltonismo_actual):
+    """Alterna el modo daltonismo sin usar index"""
+    if daltonismo_actual == 'no':
+        return 'si'
+    else:
+        return 'no'
+
+
 def limitar_tiempo(dificultad:str) -> int:
     """
     Limita el tiempo de respuesta según la dificultad.
