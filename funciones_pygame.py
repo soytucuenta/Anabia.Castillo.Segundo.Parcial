@@ -289,36 +289,8 @@ def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_
                 estado_del_programa["configuracion"] = False
 
 
-def acciones_menu_estadisticas(lista_botones_stats, estado_del_programa):
-    boton_ranking = lista_botones_stats[0]
-    boton_arriba_promedio = lista_botones_stats[1]
-    boton_participaciones = lista_botones_stats[2]
-    boton_salir_estadisticas = lista_botones_stats[3]
-
-    for boton in lista_botones_stats:
-        if boton['Presionado']:
-            boton['Presionado'] = False
-            if boton == boton_ranking:
-                print("Ranking seleccionado")
-                estado_del_programa["ranking"] = True
-                estado_del_programa["usuarios_arriba_del_promedio"] = False
-                estado_del_programa["participaciones"] = False
-                
-            elif boton == boton_arriba_promedio:
-                print("Usuarios arriba del promedio seleccionados")
-                estado_del_programa["ranking"] = False
-                estado_del_programa["usuarios_arriba_del_promedio"] = True
-                estado_del_programa["participaciones"] = False
-            elif boton == boton_participaciones:
-                print("Participaciones seleccionadas")
-                estado_del_programa["ranking"] = False
-                estado_del_programa["usuarios_arriba_del_promedio"] = False
-                estado_del_programa["participaciones"] = True
-            elif boton == boton_salir_estadisticas:
-                print("Volver al menu principal")
-                estado_del_programa["estadisticas"] = False
-                estado_del_programa["menu_principal"] = True
-
+def acciones_menu_estadisticas():
+    pass
 
 
 def buscar_usuario_pygame(lista_usuarios:list, usuario:str)-> dict:

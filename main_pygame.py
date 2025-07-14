@@ -75,6 +75,7 @@ boton_estadisticas = crear_boton((200, 50), (40, 470), VENTANA, color_texto="Bla
 boton_configuracion = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Configuracion", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_seleccion_usuario = crear_boton((200, 50), (40, 610), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Seleccionar Usuario", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_salir = crear_boton((200, 50), (40, 670), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Salir", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_estadisticas['Habilitado'] = False
 lista_de_botones_menu_principal = [boton_iniciar,boton_estadisticas, boton_configuracion,boton_seleccion_usuario,boton_salir]#lista de botones
 ##################
 
@@ -93,14 +94,8 @@ boton_daltonismo = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black
 boton_menu_principal = crear_boton((200, 50), (40, 610), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Menu Principal", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 lista_de_botones_menu_configuracion = [boton_dificultad, boton_categoria, boton_daltonismo, boton_menu_principal]#lista de botones
 ##################################
-boton_ranking = crear_boton((200, 50), (40, 395), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Ranking", fuente=('assets/PokemonGb-RAeo.ttf', 24))
-boton_arriba_promedio = crear_boton((200, 50), (40, 470), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Usuarios arriba del promedio", fuente=('assets/PokemonGb-RAeo.ttf', 24))
-boton_participaciones = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Participaciones", fuente=('assets/PokemonGb-RAeo.ttf', 24))
-boton_salir_estadisticas = crear_boton((200, 50), (40, 610), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Volver al menu principal", fuente=('assets/PokemonGb-RAeo.ttf', 24))
-boton_ranking['Habilitado'] = False  
-boton_arriba_promedio['Habilitado'] = False  
-boton_participaciones['Habilitado'] = False  
-lista_botones_stats = [boton_ranking, boton_arriba_promedio, boton_participaciones,boton_salir_estadisticas]#lista de botones
+boton_salir_stats = crear_boton((200, 50), (40, 670), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Salir", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+
 while estado_del_programa['salir'] == False:
     if estado_del_programa["partida_iniciada"] == False:
         VENTANA.blit(fondo, (0, 0))
@@ -110,8 +105,7 @@ while estado_del_programa['salir'] == False:
     if estado_del_programa["usuario_elegido_exitoso"] and len(texto_usuario.strip()) > 0 and estado_del_programa["usuario_ya_cargado"] == False:
         info_usuario = buscar_usuario_pygame(lista_usuarios, texto_usuario)
         estado_del_programa["usuario_ya_cargado"] = True
-    if estado_del_programa["estadisticas"]:
-        mostrar_texto( VENTANA, (ANCHO_VENTANA // 2 -500, ALTO_VENTANA // 2 -40),"Menu estadisticas", fuente_importada,color=color_texto,color_fondo=color_fondo_texto)
+        boton_estadisticas['Habilitado'] = True
     for evento in pygame.event.get():#gestor de eventos
         print(evento)
         ###############################################
@@ -125,7 +119,10 @@ while estado_del_programa['salir'] == False:
             elif estado_del_programa["configuracion"]:
                 buscar_boton_presionado(lista_de_botones_menu_configuracion, evento)
             elif estado_del_programa["estadisticas"]:
-                buscar_boton_presionado(lista_botones_stats, evento)
+                if boton_presionado(boton_salir_stats, evento):
+                    estado_del_programa["estadisticas"] = False
+                    estado_del_programa["menu_principal"] = True
+
             elif estado_del_programa["seleccion_usuario"]:
                 if rectangulo_usuario.collidepoint(evento.pos):
                     estado_del_programa["cuadro_texto_usuario"] = True
@@ -159,30 +156,8 @@ while estado_del_programa['salir'] == False:
             dibujar_boton(boton)
         acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa,info_usuario,)
     elif estado_del_programa["estadisticas"]:
-        if estado_del_programa["usuario_ya_cargado"] == False:
-            mostrar_texto(VENTANA, (ANCHO_VENTANA // 2 -500, ALTO_VENTANA // 2 -40), "Debe seleccionar un usuario para ver sus estadisticas", fuente_chica, color=color_texto, color_fondo=color_fondo_texto)
-            boton_arriba_promedio['Habilitado'] = False
-            boton_participaciones['Habilitado'] = False
-            boton_ranking['Habilitado'] = False
-            boton_salir_estadisticas['Habilitado'] = True
-        else:
-            boton_arriba_promedio['Habilitado'] = True
-            boton_participaciones['Habilitado'] = True
-            boton_ranking['Habilitado'] = True
-            boton_salir_estadisticas['Habilitado'] = True
-            sincronizar_diccionario(info_usuario, lista_usuarios, "id")
-            acciones_menu_estadisticas(lista_botones_stats, estado_del_programa)
-            #mostrar_usuarios_top(lista_usuarios, 10, 'ranking', juego_grafico=True, superficie=VENTANA, posicion=(50, 50), fuente = fuente_chica, color=(255, 255, 255), color_fondo=(0, 0, 0), espaciado=5, centrado=False)
-        if estado_stats["ranking"]: 
-            estado_stats["menu_principal"] = False
-            mostrar_usuarios_top(lista_usuarios, 10, 'ranking', juego_grafico=True, superficie=VENTANA, posicion=(40, 200), fuente=fuente_chica, color=color_texto, color_fondo=color_fondo_texto, centrado=False)
-        elif estado_stats["usuarios_arriba_del_promedio"]:
-            pass
-        elif estado_stats["participaciones"]:
-            pass
-        if estado_stats["menu_principal"] == True:
-            for boton in lista_botones_stats:
-                dibujar_boton(boton)
+        sincronizar_diccionario(info_usuario, lista_usuarios, "id")
+        dibujar_boton(boton_salir_stats)
     elif estado_del_programa["seleccion_usuario"]:
         dibujar_seleccion_usuario(VENTANA,fuente_importada, rectangulo_usuario, color_usuario, texto_usuario, boton_usuario)
 
