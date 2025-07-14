@@ -233,33 +233,41 @@ def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa)
                 estado_del_programa["menu_principal"] = False
                 print("Configuración seleccionada")
 
-def mostrar_usuarios_top(lista_dicc_usuarios:list, cantidad:int = 10, clave:str = 'ranking', juego_grafico:bool = False,
-                        superficie = None, posicion = (0,0), fuente = None, color = None, color_fondo = None, espaciado = 5, centrado = False):
-    """
-    Muestra los usuarios con el mejor ranking.
-    Args:
-        lista_dicc_usuarios (list): Lista de diccionarios de usuarios.
-        cantidad (int): Cantidad de usuarios a mostrar. Por defecto es 10.
-        clave (str): Clave por la cual ordenar. Por defecto es 'ranking'.
-        juego_grafico (bool): Si True, muestra en modo gráfico. Por defecto es False.
-        superficie: Superficie de pygame donde dibujar (requerido si juego_grafico=True).
-        posicion (tuple): Posición inicial (x, y) para el texto. Por defecto es (0,0).
-        fuente: Fuente para el texto (requerido si juego_grafico=True).
-        color: Color del texto.
-        color_fondo: Color de fondo del texto.
-        espaciado (int): Espaciado entre líneas. Por defecto es 5.
-        centrado (bool): Si el texto debe estar centrado. Por defecto es False.
-    """
-    lista_top = burbujear_top(lista_dicc_usuarios, cantidad, clave)
+# def mostrar_usuarios_top(lista_dicc_usuarios:list, cantidad:int = 10, clave:str = 'ranking', juego_grafico:bool = False,
+#                         superficie = None, posicion = (0,0), fuente = None, color = None, color_fondo = None, espaciado = 5, centrado = False):
+#     """
+#     Muestra los usuarios con el mejor ranking.
+#     Args:
+#         lista_dicc_usuarios (list): Lista de diccionarios de usuarios.
+#         cantidad (int): Cantidad de usuarios a mostrar. Por defecto es 10.
+#         clave (str): Clave por la cual ordenar. Por defecto es 'ranking'.
+#         juego_grafico (bool): Si True, muestra en modo gráfico. Por defecto es False.
+#         superficie: Superficie de pygame donde dibujar (requerido si juego_grafico=True).
+#         posicion (tuple): Posición inicial (x, y) para el texto. Por defecto es (0,0).
+#         fuente: Fuente para el texto (requerido si juego_grafico=True).
+#         color: Color del texto.
+#         color_fondo: Color de fondo del texto.
+#         espaciado (int): Espaciado entre líneas. Por defecto es 5.
+#         centrado (bool): Si el texto debe estar centrado. Por defecto es False.
+#     """
+#     lista_top = burbujear_top(lista_dicc_usuarios, cantidad, clave)
     
-    if juego_grafico == False:
-        print(f"Top {cantidad} usuarios:")
-        for usuario in lista_top:
-            print(f"Nombre: {usuario['nombre']}, Ganancias: {usuario['ganancias']}, Mejor racha: {usuario['mejor racha']}, Ranking: {usuario['ranking']}")
-    else:
-        lineas = formatear_usuarios_string(lista_top)
-        mostrar_texto_multilinea(superficie, posicion, lineas, fuente, color, color_fondo, espaciado, centrado)
+#     if juego_grafico == False:
+#         print(f"Top {cantidad} usuarios:")
+#         for usuario in lista_top:
+#             print(f"Nombre: {usuario['nombre']}, Ganancias: {usuario['ganancias']}, Mejor racha: {usuario['mejor racha']}, Ranking: {usuario['ranking']}")
+#     else:
+#         lineas = formatear_usuarios_string(lista_top)
+#         for linea in lineas:
+#             print(linea)  # Imprime en consola para depuración
+#         mostrar_texto_multilinea(superficie, posicion, lineas, fuente, color, color_fondo, espaciado, centrado)
 
+
+def mostrar_top_simple(lista_dicc_usuarios:list,superficie, fuente,color ,color_fondo ,cantidad:int = 10, clave:str = 'ranking'):
+    lista_top = burbujear_top(lista_dicc_usuarios, cantidad, clave)
+    lista_formateada = formatear_usuarios_string(lista_top)
+    for linea in lista_formateada:
+        mostrar_texto_multilinea(superficie, (40, 100), [linea], fuente, color, color_fondo, espaciado=5, centrado=False)
 def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa, info_usuario):
     boton_dificultad = lista_de_botones_menu_configuracion[0]
     boton_categoria = lista_de_botones_menu_configuracion[1]
