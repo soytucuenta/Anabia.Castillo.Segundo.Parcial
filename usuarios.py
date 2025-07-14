@@ -198,6 +198,23 @@ def agregar_nuevo_usuario_main(lista_usuarios:list)-> dict:
         nuevo_usuario = {"id": len(lista_usuarios) + 1, "nombre": seleccion_nombre, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": dificultad}
     return nuevo_usuario
 
+def formatear_usuarios_string(lista_usuarios:list) -> list:
+    """
+    Formatea una lista de diccionarios de usuarios en una lista de cadenas formateadas.
+    Cada diccionario de usuario debe contener las claves: 'nombre', 'ganancias', 'mejor racha' y 'ranking'.
+    La función retorna una lista de cadenas, cada una representando un usuario con sus detalles formateados.
+    Args:
+        lista_usuarios (list): Una lista de diccionarios, cada uno representando un usuario.
+    Returns:
+        list: Una lista de cadenas formateadas con la información de los usuarios.
+    """
+
+    strings_formateados = []
+    for usuario in lista_usuarios:
+        string_formateado = f"Nombre: {usuario['nombre']}, Ganancias: {usuario['ganancias']}, Mejor racha: {usuario['mejor racha']}, Ranking: {usuario['ranking']}"
+        strings_formateados.append(string_formateado)
+    return strings_formateados
+
 
 
 

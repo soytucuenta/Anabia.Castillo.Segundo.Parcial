@@ -1,10 +1,9 @@
 import pygame
 from usuarios import *
 from config import *
+from stats import *
 def cortar_string_por_palabras(texto, longitud_maxima):
 
-    
-    lineas = [texto]
     palabras = texto.split()
     lineas = []
     linea_actual = ""
@@ -19,10 +18,8 @@ def cortar_string_por_palabras(texto, longitud_maxima):
             if linea_actual:
                 lineas.append(linea_actual)
             linea_actual = palabra
-    
     if linea_actual:
         lineas.append(linea_actual)
-    
     return lineas
 
 lista_daltonismo = ['protanopia', 'deuteranopia', 'tritanopia', 'no']
@@ -63,8 +60,21 @@ def manipular_texto(evento, texto, limite = 11):
             texto += evento.unicode
     return texto
 
-def mostrar_texto(superficie, posicion , texto, fuente,color=(255, 255, 255), color_fondo=None, centrado=False):
 
+def mostrar_texto(superficie, posicion , texto, fuente,color=(255, 255, 255), color_fondo=None, centrado=False):
+    """
+    Dibuja texto en una superficie de Pygame en una posición especificada, con color de fondo y centrado opcionales.
+    Args:
+        superficie (pygame.Surface): Superficie donde se dibujará el texto.
+        posicion (tuple): Posición (x, y) para dibujar el texto. Si 'centrado' es True, es el centro; si no, es la esquina superior izquierda.
+        texto (str): Cadena de texto a renderizar.
+        fuente (pygame.font.Font): Objeto de fuente para renderizar el texto.
+        color (tuple, opcional): Color RGB del texto. Por defecto es (255, 255, 255).
+        color_fondo (tuple o None, opcional): Color RGB de fondo del texto. Si es None, el fondo es transparente. Por defecto es None.
+        centrado (bool, opcional): Si es True, centra el texto en 'posicion'. Si es False, lo dibuja desde la esquina superior izquierda. Por defecto es False.
+    Returns:
+        pygame.Rect: Rectángulo que representa el área del texto renderizado en la superficie.
+    """
     
     texto_surface = fuente.render(texto, True, color, color_fondo)
     
@@ -79,13 +89,28 @@ def mostrar_texto(superficie, posicion , texto, fuente,color=(255, 255, 255), co
     
     return texto_rect
 
-def mostrar_texto_multilinea(superficie, posicion, lineas, fuente, color=(255, 255, 255),color_fondo=None, 
-                            espaciado=5, centrado=False):
+def mostrar_texto_multilinea(superficie, posicion, lineas, fuente, color=(255, 255, 255),color_fondo=None, espaciado=5, centrado=False):
+    """
+    Renderiza múltiples líneas de texto en una superficie de Pygame, permitiendo opciones de color, fondo, espaciado y centrado.
+    Args:
+        superficie (pygame.Surface): Superficie donde se dibujará el texto.
+        posicion (tuple): Coordenadas (x, y) iniciales para el texto.
+        lineas (list): Lista de cadenas de texto a mostrar, cada una será una línea.
+        fuente (pygame.font.Font): Fuente utilizada para renderizar el texto.
+        color (tuple, optional): Color del texto en formato RGB. Por defecto es blanco (255, 255, 255).
+        color_fondo (tuple, optional): Color de fondo del texto en formato RGB. Si es None, el fondo será transparente.
+        espaciado (int, optional): Espacio en píxeles entre líneas de texto. Por defecto es 5.
+        centrado (bool, optional): Si es True, centra el texto horizontalmente respecto a la posición dada.
+    Returns:
+        None
+    """
+        
     y_actual = posicion[1]
     for linea in lineas:
         linea = mostrar_texto(superficie,(posicion[0], y_actual), linea, fuente, color, color_fondo,
                             centrado=centrado)
         y_actual += linea.height + espaciado
+
 def crear_boton(dimensiones, posicion, ventana, color_texto="Black", color_fondo="Yellow", imagen=None, fuente=None, texto=None):
     """
     Crea un diccionario que representa un botón para usar en una interfaz gráfica con Pygame.
@@ -159,6 +184,15 @@ def boton_presionado(boton:dict, evento):
     return bandera
 
 def buscar_boton_presionado(lista_botones, evento):
+    """
+    Busca en una lista de botones cuál ha sido presionado según un evento dado y marca su estado como presionado.
+    Args:
+        lista_botones (list): Lista de diccionarios que representan los botones, cada uno con sus propiedades.
+        evento (pygame.event.Event): Evento de Pygame que se utiliza para determinar si un botón ha sido presionado.
+    Returns:
+        None: La función modifica la lista de botones en su lugar, estableciendo la clave 'Presionado' en True para el botón correspondiente.
+    """
+
     for boton in lista_botones:                    
         if boton_presionado(boton,evento):
             boton['Presionado'] = True
@@ -199,7 +233,32 @@ def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa)
                 estado_del_programa["menu_principal"] = False
                 print("Configuración seleccionada")
 
-
+def mostrar_usuarios_top(lista_dicc_usuarios:list, cantidad:int = 10, clave:str = 'ranking', juego_grafico:bool = False,
+                        superficie = None, posicion = (0,0), fuente = None, color = None, color_fondo = None, espaciado = 5, centrado = False):
+    """
+    Muestra los usuarios con el mejor ranking.
+    Args:
+        lista_dicc_usuarios (list): Lista de diccionarios de usuarios.
+        cantidad (int): Cantidad de usuarios a mostrar. Por defecto es 10.
+        clave (str): Clave por la cual ordenar. Por defecto es 'ranking'.
+        juego_grafico (bool): Si True, muestra en modo gráfico. Por defecto es False.
+        superficie: Superficie de pygame donde dibujar (requerido si juego_grafico=True).
+        posicion (tuple): Posición inicial (x, y) para el texto. Por defecto es (0,0).
+        fuente: Fuente para el texto (requerido si juego_grafico=True).
+        color: Color del texto.
+        color_fondo: Color de fondo del texto.
+        espaciado (int): Espaciado entre líneas. Por defecto es 5.
+        centrado (bool): Si el texto debe estar centrado. Por defecto es False.
+    """
+    lista_top = burbujear_top(lista_dicc_usuarios, cantidad, clave)
+    
+    if juego_grafico == False:
+        print(f"Top {cantidad} usuarios:")
+        for usuario in lista_top:
+            print(f"Nombre: {usuario['nombre']}, Ganancias: {usuario['ganancias']}, Mejor racha: {usuario['mejor racha']}, Ranking: {usuario['ranking']}")
+    else:
+        lineas = formatear_usuarios_string(lista_top)
+        mostrar_texto_multilinea(superficie, posicion, lineas, fuente, color, color_fondo, espaciado, centrado)
 
 def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa, info_usuario):
     boton_dificultad = lista_de_botones_menu_configuracion[0]
@@ -229,7 +288,50 @@ def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_
                 estado_del_programa["menu_principal"] = True
                 estado_del_programa["configuracion"] = False
 
+
+def acciones_menu_estadisticas(lista_botones_stats, estado_del_programa):
+    boton_ranking = lista_botones_stats[0]
+    boton_arriba_promedio = lista_botones_stats[1]
+    boton_participaciones = lista_botones_stats[2]
+    boton_salir_estadisticas = lista_botones_stats[3]
+
+    for boton in lista_botones_stats:
+        if boton['Presionado']:
+            boton['Presionado'] = False
+            if boton == boton_ranking:
+                print("Ranking seleccionado")
+                estado_del_programa["ranking"] = True
+                estado_del_programa["usuarios_arriba_del_promedio"] = False
+                estado_del_programa["participaciones"] = False
+                
+            elif boton == boton_arriba_promedio:
+                print("Usuarios arriba del promedio seleccionados")
+                estado_del_programa["ranking"] = False
+                estado_del_programa["usuarios_arriba_del_promedio"] = True
+                estado_del_programa["participaciones"] = False
+            elif boton == boton_participaciones:
+                print("Participaciones seleccionadas")
+                estado_del_programa["ranking"] = False
+                estado_del_programa["usuarios_arriba_del_promedio"] = False
+                estado_del_programa["participaciones"] = True
+            elif boton == boton_salir_estadisticas:
+                print("Volver al menu principal")
+                estado_del_programa["estadisticas"] = False
+                estado_del_programa["menu_principal"] = True
+
+
+
 def buscar_usuario_pygame(lista_usuarios:list, usuario:str)-> dict:
+    """
+    Busca un usuario en una lista de diccionarios de usuarios. Si el usuario existe, lo retorna; 
+    si no, crea y retorna un nuevo diccionario de usuario con valores predeterminados.
+    Args:
+        lista_usuarios (list): Lista de diccionarios, cada uno representando un usuario.
+        usuario (str): Nombre del usuario a buscar.
+    Returns:
+        dict: Diccionario con los datos del usuario encontrado o uno nuevo si no existe.
+    """
+
     if buscar_nombre_en_lista_diccionarios(usuario, lista_usuarios):
         usuario_encontrado = copiar_usuario_por_nombre(usuario, lista_usuarios)
     else:

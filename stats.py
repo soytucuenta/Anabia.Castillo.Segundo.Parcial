@@ -3,6 +3,8 @@ from usuarios import ordenar_ranking
 from funciones_genericas import *
 from prints import *
 
+#from funciones_pygame import  mostrar_texto
+
 def burbujear_top(lista_dicc_usuarios:list, cantidad:int = 10,clave:str = 'ranking') -> list:
     """
         Ordena una lista de diccionarios de usuarios utilizando el método de burbuja según una clave especificada y retorna los N primeros elementos.
@@ -57,7 +59,8 @@ def mostrar_usuarios_por_clave(lista_usuarios:list, clave:str = 'ganancias'):
 
     for usuario in lista_usuarios:
         print(f"Nombre: {usuario['nombre']}, {clave}: {usuario[clave]}")
-def mostrar_usuarios_top(lista_dicc_usuarios:list, cantidad:int = 10, clave:str = 'ranking'):
+def mostrar_usuarios_top(lista_dicc_usuarios:list, cantidad:int = 10, clave:str = 'ranking',juego_grafico:bool = False,
+                        superficie = None,posicion = (0,0), fuente = None,color = None, color_fondo = None, espaciado = 5, centrado = False):
     """
     Muestra los usuarios con el mejor ranking.
     Args:
@@ -65,9 +68,19 @@ def mostrar_usuarios_top(lista_dicc_usuarios:list, cantidad:int = 10, clave:str 
         cantidad (int): Cantidad de usuarios a mostrar. Por defecto es 10.
     """
     lista_top = burbujear_top(lista_dicc_usuarios, cantidad, clave)
-    print(f"Top {cantidad} usuarios:")
-    for usuario in lista_top:
-        print(f"Nombre: {usuario['nombre']}, Ganancias: {usuario['ganancias']}, Mejor racha: {usuario['mejor racha']}, Ranking: {usuario['ranking']}")
+    if juego_grafico == False:
+        print(f"Top {cantidad} usuarios:")
+        for usuario in lista_top:
+            print(f"Nombre: {usuario['nombre']}, Ganancias: {usuario['ganancias']}, Mejor racha: {usuario['mejor racha']}, Ranking: {usuario['ranking']}")
+    # else:
+    #     lista_dicc = burbujear_top(lista_dicc_usuarios, cantidad, clave)
+    #     lineas = formatear_usuarios_string(lista_dicc)
+    #     y_actual = posicion[1]
+    #     for linea in lineas:
+    #         linea = mostrar_texto(superficie,(posicion[0], y_actual), linea, fuente, color, color_fondo,
+    #                         centrado=centrado)
+    #     y_actual += linea.height + espaciado
+
 def seleccion_stats(lista_usuarios,mensaje:str):
     seleccion = int(input(mensaje))
     while seleccion != 4:
@@ -81,4 +94,9 @@ def seleccion_stats(lista_usuarios,mensaje:str):
             case _:
                 print("Selección no válida. Intente nuevamente.")
         seleccion = int(input(mensaje))
+
+
+
+
+'''------------------------pygame------------------------'''
 

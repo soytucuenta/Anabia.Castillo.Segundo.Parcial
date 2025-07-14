@@ -4,6 +4,7 @@ from prints import *
 from leer_escribir_archivos import *
 from usuarios import *
 from menues_pygame import *
+from stats import *
 lista_usuarios = cargar_usuarios()
 todas_las_preguntas = cargar_preguntas()
 
@@ -20,7 +21,8 @@ CENTRO_PANTALLA = (ANCHO_VENTANA // 2, ALTO_VENTANA // 2)
 POSICION_BOTON_INICIAR = (40,395)
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
-
+color_fondo_texto = "yellow"
+color_texto = "black"
 #VENTANA PROPIEDADES
 pygame.display.set_caption("SALVEN EL MILLÓN")
 icono = pygame.image.load("assets/ver_guita.png")
@@ -48,13 +50,19 @@ estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE 
     "salir": False,
 
 }
+estado_stats = {
+    "ranking": False,
+    "usuarios_arriba_del_promedio": False,
+    "participaciones": False,
+    "menu_principal": True
+}
 
 info_usuario = {"id": 0, "nombre": None, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": "media"} #diccionario que contiene los datos del usuario seleccionado
 #########
 #FUENTES
 
 fuente_importada = pygame.font.Font('assets/PokemonGb-RAeo.ttf',24) ####### NO RECONOCE LAS FUENTES IMPORTADAS EN BOTONES, INVESTIGAR 
-
+fuente_chica = pygame.font.Font('assets/PokemonGb-RAeo.ttf', 18) # Fuente más pequeña para textos secundarios
 #MÚSICA
 # pygame.mixer.init()
 # musica_fondo = pygame.mixer.Sound('assets/cancion_fondo.mp3')
@@ -84,8 +92,15 @@ boton_categoria = crear_boton((200, 50), (40, 470), VENTANA, color_texto="Black"
 boton_daltonismo = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black", color_fondo="Yellow", texto=f'Daltonismo: {configuracion_pygame['daltonismo']}', fuente=('assets/PokemonGb-RAeo.ttf', 24))
 boton_menu_principal = crear_boton((200, 50), (40, 610), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Menu Principal", fuente=('assets/PokemonGb-RAeo.ttf', 24))
 lista_de_botones_menu_configuracion = [boton_dificultad, boton_categoria, boton_daltonismo, boton_menu_principal]#lista de botones
-
-
+##################################
+boton_ranking = crear_boton((200, 50), (40, 395), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Ranking", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_arriba_promedio = crear_boton((200, 50), (40, 470), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Usuarios arriba del promedio", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_participaciones = crear_boton((200, 50), (40, 540), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Participaciones", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_salir_estadisticas = crear_boton((200, 50), (40, 610), VENTANA, color_texto="Black", color_fondo="Yellow", texto="Volver al menu principal", fuente=('assets/PokemonGb-RAeo.ttf', 24))
+boton_ranking['Habilitado'] = False  
+boton_arriba_promedio['Habilitado'] = False  
+boton_participaciones['Habilitado'] = False  
+lista_botones_stats = [boton_ranking, boton_arriba_promedio, boton_participaciones,boton_salir_estadisticas]#lista de botones
 while estado_del_programa['salir'] == False:
     if estado_del_programa["partida_iniciada"] == False:
         VENTANA.blit(fondo, (0, 0))
@@ -95,7 +110,8 @@ while estado_del_programa['salir'] == False:
     if estado_del_programa["usuario_elegido_exitoso"] and len(texto_usuario.strip()) > 0 and estado_del_programa["usuario_ya_cargado"] == False:
         info_usuario = buscar_usuario_pygame(lista_usuarios, texto_usuario)
         estado_del_programa["usuario_ya_cargado"] = True
-        
+    if estado_del_programa["estadisticas"]:
+        mostrar_texto( VENTANA, (ANCHO_VENTANA // 2 -500, ALTO_VENTANA // 2 -40),"Menu estadisticas", fuente_importada,color=color_texto,color_fondo=color_fondo_texto)
     for evento in pygame.event.get():#gestor de eventos
         print(evento)
         ###############################################
@@ -109,7 +125,7 @@ while estado_del_programa['salir'] == False:
             elif estado_del_programa["configuracion"]:
                 buscar_boton_presionado(lista_de_botones_menu_configuracion, evento)
             elif estado_del_programa["estadisticas"]:
-                pass
+                buscar_boton_presionado(lista_botones_stats, evento)
             elif estado_del_programa["seleccion_usuario"]:
                 if rectangulo_usuario.collidepoint(evento.pos):
                     estado_del_programa["cuadro_texto_usuario"] = True
@@ -141,9 +157,32 @@ while estado_del_programa['salir'] == False:
     elif estado_del_programa["configuracion"]:######### FALTA CAGAR LA CONFIGURACION DEL JUEGO DESDE JSON Y GUARDARLA
         for boton in lista_de_botones_menu_configuracion:
             dibujar_boton(boton)
-        acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa,info_usuario)
+        acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa,info_usuario,)
     elif estado_del_programa["estadisticas"]:
-        #mostrar_texto_multilinea(VENTANA, (ANCHO_VENTANA // 2 -600, ALTO_VENTANA // 2 + 50), cortar_string_por_palabras(texto_prueba2,50), fuente_importada,color='black', color_fondo="Yellow")
+        if estado_del_programa["usuario_ya_cargado"] == False:
+            mostrar_texto(VENTANA, (ANCHO_VENTANA // 2 -500, ALTO_VENTANA // 2 -40), "Debe seleccionar un usuario para ver sus estadisticas", fuente_chica, color=color_texto, color_fondo=color_fondo_texto)
+            boton_arriba_promedio['Habilitado'] = False
+            boton_participaciones['Habilitado'] = False
+            boton_ranking['Habilitado'] = False
+            boton_salir_estadisticas['Habilitado'] = True
+        else:
+            boton_arriba_promedio['Habilitado'] = True
+            boton_participaciones['Habilitado'] = True
+            boton_ranking['Habilitado'] = True
+            boton_salir_estadisticas['Habilitado'] = True
+            sincronizar_diccionario(info_usuario, lista_usuarios, "id")
+            acciones_menu_estadisticas(lista_botones_stats, estado_del_programa)
+            #mostrar_usuarios_top(lista_usuarios, 10, 'ranking', juego_grafico=True, superficie=VENTANA, posicion=(50, 50), fuente = fuente_chica, color=(255, 255, 255), color_fondo=(0, 0, 0), espaciado=5, centrado=False)
+        if estado_stats["ranking"]: 
+            estado_stats["menu_principal"] = False
+            mostrar_usuarios_top(lista_usuarios, 10, 'ranking', juego_grafico=True, superficie=VENTANA, posicion=(40, 200), fuente=fuente_chica, color=color_texto, color_fondo=color_fondo_texto, centrado=False)
+        elif estado_stats["usuarios_arriba_del_promedio"]:
+            pass
+        elif estado_stats["participaciones"]:
+            pass
+        if estado_stats["menu_principal"] == True:
+            for boton in lista_botones_stats:
+                dibujar_boton(boton)
     elif estado_del_programa["seleccion_usuario"]:
         dibujar_seleccion_usuario(VENTANA,fuente_importada, rectangulo_usuario, color_usuario, texto_usuario, boton_usuario)
 
