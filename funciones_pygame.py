@@ -263,11 +263,18 @@ def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa)
 #         mostrar_texto_multilinea(superficie, posicion, lineas, fuente, color, color_fondo, espaciado, centrado)
 
 
-def mostrar_top_simple(lista_dicc_usuarios:list,superficie, fuente,color ,color_fondo ,cantidad:int = 10, clave:str = 'ranking'):
+def mostrar_top_simple(lista_dicc_usuarios:list,superficie,posicion, fuente,color ,color_fondo ,cantidad:int = 10, clave:str = 'ranking'):
     lista_top = burbujear_top(lista_dicc_usuarios, cantidad, clave)
-    lista_formateada = formatear_usuarios_string(lista_top)
-    for linea in lista_formateada:
-        mostrar_texto_multilinea(superficie, (40, 100), [linea], fuente, color, color_fondo, espaciado=5, centrado=False)
+    lista_deconstruida = []
+    for i in range(len(lista_top)):
+        usuario = lista_top[i]
+        linea = f"{i+1}. {usuario['nombre']} - Ganancias: {usuario['ganancias']} - Mejor racha: {usuario['mejor racha']} - Ranking: {usuario['ranking']}"
+        lista_deconstruida.append(linea)
+    for linea in lista_deconstruida:
+        mostrar_texto(superficie, posicion, [linea], fuente, color, color_fondo, centrado=False)
+        posicion = (posicion[0], posicion[1] + fuente.get_height() + 5)  # Actualiza la posición para la siguiente línea
+
+    
 def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa, info_usuario):
     boton_dificultad = lista_de_botones_menu_configuracion[0]
     boton_categoria = lista_de_botones_menu_configuracion[1]

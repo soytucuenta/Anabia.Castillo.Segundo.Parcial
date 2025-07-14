@@ -50,12 +50,6 @@ estado_del_programa = {####!!!!!!!!!! ACORDARSE DE BAJAR LAS BANDERAS CUANDO SE 
     "salir": False,
 
 }
-estado_stats = {
-    "ranking": False,
-    "usuarios_arriba_del_promedio": False,
-    "participaciones": False,
-    "menu_principal": True
-}
 
 info_usuario = {"id": 0, "nombre": None, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": "media"} #diccionario que contiene los datos del usuario seleccionado
 #########
@@ -159,7 +153,7 @@ while estado_del_programa['salir'] == False:
         sincronizar_diccionario(info_usuario, lista_usuarios, "id")
         dibujar_boton(boton_salir_stats)
         #mostrar_usuarios_top(lista_usuarios, 10, 'ranking', juego_grafico=True, superficie=VENTANA, posicion=(40, 100), fuente=fuente_chica, color="Black", color_fondo="Yellow", espaciado=5, centrado=False)
-        mostrar_top_simple(lista_usuarios, VENTANA, fuente_chica, color_texto, color_fondo_texto, cantidad=10, clave='ranking')
+        mostrar_top_simple(lista_usuarios, VENTANA, (40,100), fuente_chica, color_texto, color_fondo_texto)
     elif estado_del_programa["seleccion_usuario"]:
         dibujar_seleccion_usuario(VENTANA,fuente_importada, rectangulo_usuario, color_usuario, texto_usuario, boton_usuario)
 
