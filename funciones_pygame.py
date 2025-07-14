@@ -2,6 +2,8 @@ import pygame
 from usuarios import *
 from config import *
 from stats import *
+from preguntas import obtener_preguntas_filtrando_pygame
+
 def cortar_string_por_palabras(texto, longitud_maxima):
 
     palabras = texto.split()
@@ -233,35 +235,6 @@ def acciones_menu_principal(lista_de_botones_menu_principal,estado_del_programa)
                 estado_del_programa["menu_principal"] = False
                 print("Configuración seleccionada")
 
-# def mostrar_usuarios_top(lista_dicc_usuarios:list, cantidad:int = 10, clave:str = 'ranking', juego_grafico:bool = False,
-#                         superficie = None, posicion = (0,0), fuente = None, color = None, color_fondo = None, espaciado = 5, centrado = False):
-#     """
-#     Muestra los usuarios con el mejor ranking.
-#     Args:
-#         lista_dicc_usuarios (list): Lista de diccionarios de usuarios.
-#         cantidad (int): Cantidad de usuarios a mostrar. Por defecto es 10.
-#         clave (str): Clave por la cual ordenar. Por defecto es 'ranking'.
-#         juego_grafico (bool): Si True, muestra en modo gráfico. Por defecto es False.
-#         superficie: Superficie de pygame donde dibujar (requerido si juego_grafico=True).
-#         posicion (tuple): Posición inicial (x, y) para el texto. Por defecto es (0,0).
-#         fuente: Fuente para el texto (requerido si juego_grafico=True).
-#         color: Color del texto.
-#         color_fondo: Color de fondo del texto.
-#         espaciado (int): Espaciado entre líneas. Por defecto es 5.
-#         centrado (bool): Si el texto debe estar centrado. Por defecto es False.
-#     """
-#     lista_top = burbujear_top(lista_dicc_usuarios, cantidad, clave)
-    
-#     if juego_grafico == False:
-#         print(f"Top {cantidad} usuarios:")
-#         for usuario in lista_top:
-#             print(f"Nombre: {usuario['nombre']}, Ganancias: {usuario['ganancias']}, Mejor racha: {usuario['mejor racha']}, Ranking: {usuario['ranking']}")
-#     else:
-#         lineas = formatear_usuarios_string(lista_top)
-#         for linea in lineas:
-#             print(linea)  # Imprime en consola para depuración
-#         mostrar_texto_multilinea(superficie, posicion, lineas, fuente, color, color_fondo, espaciado, centrado)
-
 
 def mostrar_top_simple(lista_dicc_usuarios:list,superficie,posicion, fuente,color ,color_fondo ,cantidad:int = 10, clave:str = 'ranking'):
     lista_top = burbujear_top(lista_dicc_usuarios, cantidad, clave)
@@ -271,10 +244,24 @@ def mostrar_top_simple(lista_dicc_usuarios:list,superficie,posicion, fuente,colo
         linea = f"{i+1}. {usuario['nombre']} - Ganancias: {usuario['ganancias']} - Mejor racha: {usuario['mejor racha']} - Ranking: {usuario['ranking']}"
         lista_deconstruida.append(linea)
     for linea in lista_deconstruida:
-        mostrar_texto(superficie, posicion, [linea], fuente, color, color_fondo, centrado=False)
-        posicion = (posicion[0], posicion[1] + fuente.get_height() + 5)  # Actualiza la posición para la siguiente línea
+        mostrar_texto(superficie, posicion, linea, fuente, color, color_fondo, centrado=False)
+        posicion = (posicion[0], posicion[1] + fuente.get_height() + 5) 
 
-    
+def mostrar_usuarios_arriba_del_promedio_grafico(lista_dicc_usuarios:list,superficie,posicion, fuente,color ,color_fondo ,cantidad:int = 10, clave:str = 'ganancias'):
+    lista_ganancias = []
+    for usuario in lista_dicc_usuarios:
+        lista_ganancias.append(usuario[clave])
+    promedio = promediar_lista(lista_ganancias)
+    lista_usuarios = usuarios_arriba_del_promedio(lista_dicc_usuarios, clave)
+    lista_filtrada = []
+    for i in range(len(lista_usuarios)):
+        usuario = lista_usuarios[i]
+        linea = f"{usuario['nombre']} esta arriba del promedio de {promedio:.2f} con {usuario['ganancias']} en ganancias"
+        lista_filtrada.append(linea)
+    for linea in lista_filtrada:
+        mostrar_texto(superficie, posicion, linea, fuente, color, color_fondo, centrado=False)
+        posicion = (posicion[0], posicion[1] + fuente.get_height() + 5)
+
 def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa, info_usuario):
     boton_dificultad = lista_de_botones_menu_configuracion[0]
     boton_categoria = lista_de_botones_menu_configuracion[1]
@@ -304,8 +291,11 @@ def acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_
                 estado_del_programa["configuracion"] = False
 
 
-def acciones_menu_estadisticas():
-    pass
+def acciones_menu_estadisticas(boton_salir_stats, lista_usuarios, VENTANA, fuente_chica, color_texto, color_fondo_texto):
+    
+    dibujar_boton(boton_salir_stats)
+    mostrar_top_simple(lista_usuarios, VENTANA, (40,100), fuente_chica, color_texto, color_fondo_texto)
+    mostrar_usuarios_arriba_del_promedio_grafico(lista_usuarios, VENTANA,(40,350) , fuente_chica, color_texto, color_fondo_texto)
 
 
 def buscar_usuario_pygame(lista_usuarios:list, usuario:str)-> dict:
@@ -324,4 +314,16 @@ def buscar_usuario_pygame(lista_usuarios:list, usuario:str)-> dict:
     else:
         usuario_encontrado = {"id": len(lista_usuarios) + 1, "nombre": usuario, "ganancias": 0, "participaciones": 0, "mejor racha": 0, "ranking": 0, "dificultad": "media"}
     return usuario_encontrado
+
+def preparar_partida_pygame(lista_preguntas:list, info_usuario:dict, configuracion:dict):
+    cantidad_preguntas =determinar_cantidad_preguntas_pygame(info_usuario)
+    preguntas_filtradas = obtener_preguntas_filtrando_pygame(lista_preguntas, cantidad_preguntas, dificultad=info_usuario['dificultad'], categoria=configuracion['categoria'])
+    tiempo_limite = limitar_tiempo(info_usuario['dificultad'])
+    resultado = {
+        "tiempo_limite": tiempo_limite,
+        "preguntas_filtradas": preguntas_filtradas,
+        "cantidad_preguntas": cantidad_preguntas
+    }
+    return resultado
+
 

@@ -26,6 +26,24 @@ def obtener_preguntas_filtrando(preguntas:list, cantidad:int, dificultad:str=Non
     filtradas = mezclar_lista_diccionarios_cortando(filtradas, cantidad)
     return filtradas
 
+def obtener_preguntas_filtrando_pygame(preguntas:list, cantidad:int, dificultad:str, categoria:str="todas"):
+
+    filtradas = []
+    for pregunta in preguntas:
+        cumple = True
+        
+        if pregunta["dificultad"] != dificultad:
+                cumple = False
+        if pregunta["categoría"] != categoria and categoria != "todas":
+                cumple = False
+        if cumple:
+            filtradas.append(pregunta)
+    filtradas = mezclar_lista_diccionarios_cortando(filtradas, cantidad)
+    return filtradas
+
+
+
+
 def mezclar_lista_diccionarios_cortando(lista:list, cantidad:int):
     """
     Mezcla aleatoriamente una lista de diccionarios y devuelve una sublista con una cantidad específica de elementos.

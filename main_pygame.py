@@ -144,16 +144,17 @@ while estado_del_programa['salir'] == False:
             dibujar_boton(boton)
         acciones_menu_principal(lista_de_botones_menu_principal, estado_del_programa)
     elif estado_del_programa["partida_iniciada"]:
-        pass
+        racha_previa = info_usuario['mejor racha']
+        lista_rachas = [racha_previa]
+        racha = 0
+        configuracion_partida = preparar_partida_pygame(todas_las_preguntas, info_usuario, configuracion_pygame)
     elif estado_del_programa["configuracion"]:######### FALTA CAGAR LA CONFIGURACION DEL JUEGO DESDE JSON Y GUARDARLA
         for boton in lista_de_botones_menu_configuracion:
             dibujar_boton(boton)
         acciones_menu_configuracion(lista_de_botones_menu_configuracion, estado_del_programa,info_usuario,)
     elif estado_del_programa["estadisticas"]:
         sincronizar_diccionario(info_usuario, lista_usuarios, "id")
-        dibujar_boton(boton_salir_stats)
-        #mostrar_usuarios_top(lista_usuarios, 10, 'ranking', juego_grafico=True, superficie=VENTANA, posicion=(40, 100), fuente=fuente_chica, color="Black", color_fondo="Yellow", espaciado=5, centrado=False)
-        mostrar_top_simple(lista_usuarios, VENTANA, (40,100), fuente_chica, color_texto, color_fondo_texto)
+        acciones_menu_estadisticas(boton_salir_stats, lista_usuarios, VENTANA, fuente_chica, color_texto, color_fondo_texto)
     elif estado_del_programa["seleccion_usuario"]:
         dibujar_seleccion_usuario(VENTANA,fuente_importada, rectangulo_usuario, color_usuario, texto_usuario, boton_usuario)
 

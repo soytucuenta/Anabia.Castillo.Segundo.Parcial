@@ -111,6 +111,15 @@ def preparar_partida(config:dict, todas_las_preguntas:list,dificultad_usuario) -
         preguntas_filtradas = obtener_preguntas_filtrando(todas_las_preguntas, cantidad_preguntas, dificultad=config['dificultad'], categoria=config['categoria'])
     tupla_salida = (tiempo_limite, preguntas_filtradas)
     return tupla_salida
+def determinar_cantidad_preguntas_pygame(info_usuario:dict) -> int:
+    
+    if info_usuario['dificultad'] == 'facil':
+        cantidad_preguntas = 5
+    elif info_usuario['dificultad'] == 'media':
+        cantidad_preguntas = 7
+    else:
+        cantidad_preguntas = 12
+    return cantidad_preguntas
 
 def determinar_cantidad_preguntas(config:dict) -> int:
     """

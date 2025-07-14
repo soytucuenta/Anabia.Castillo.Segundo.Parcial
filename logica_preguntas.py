@@ -1,8 +1,10 @@
 import time
+import pygame
 from funciones_genericas import *
 from usuarios import *
 from config import *
 from logica_minijuego import *
+from funciones_pygame import *
 
 def jugar_consola(lista_usuarios:list, configuracion:dict, preguntas:list, cheats:bool):
     """
@@ -160,3 +162,46 @@ def gameplay(dinero:int,tiempo_limite:int,cheats:bool,preguntas:list):
             print("\n¡Te has quedado sin dinero! Fin del juego.")
             break
     return dinero
+
+
+def mostrar_pregunta_y_opciones_pygame(pregunta_dict:dict,tiempo_limite:int,cheats:bool):
+    """
+    Muestra una pregunta y sus opciones por consola.
+    Args:
+        pregunta_dict (dict): Un diccionario que contiene la pregunta bajo la clave "pregunta" 
+        y una lista de opciones bajo la clave "opciones".
+    """
+    print(f"Llena cada pregunta en menos de {tiempo_limite} segundos o perdes todo")
+    #input("Ingrese cualquier cosa para continuar: ")
+    mostrar_texto_multilinea(pregunta_dict["pregunta"], (40, 100), fuente_chica, color_texto, color_fondo_texto)
+    print("")
+    if cheats == True:
+        print(f"APAGA LOS HACKS!!\n¡La respuesta correcta es la opción número {pregunta_dict['correcta'] + 1}!")
+    opciones = pregunta_dict["opciones"]
+    for i in range(len(opciones)):
+        print(f"{i+1}. {opciones[i]}")
+
+
+def gameplay_pygame(configuraciones, superficie,fuente, color_texto, color_fondo_texto):
+    preguntas = configuraciones["preguntas_filtradas"]
+    tiempo_limite = configuraciones["tiempo_limite"]
+    configuraciones['cheats'] = True
+    configuraciones["dinero"] = 20
+    nivel =1
+    for i in range(len(configuraciones["preguntas_filtradas"])):
+        print(f"[Pregunta {nivel:}]")
+        print("(!) Recuerde que lo que no apuesta, lo pierde. (!)\n")
+        mostrar_pregunta_y_opciones_pygame(preguntas[i], tiempo_limite, configuraciones["cheats"])
+        apuestas = solicitar_apuestas(configuraciones["dinero"], tiempo_limite)
+        dinero_antes_apostar = configuraciones["dinero"]
+        configuraciones["dinero"] = procesar_respuesta(preguntas, configuraciones["dinero"], apuestas)
+        nivel += 1
+        if configuraciones["dinero"] == 0:
+            changui = int(input("¿Desea tener una oportunidad más?\n1. Si\n2. No\nSeleccione una opción: "))
+            if changui == 1:
+                if minijuego():
+                    configuraciones["dinero"] = dinero_antes_apostar
+                    nivel -= 1
+        if configuraciones["dinero"] <= 0:
+            print("\n¡Te has quedado sin dinero! Fin del juego.")
+            break
