@@ -7,6 +7,7 @@ configuracion_default = {
     "neurodivergente": False,
     "recuperatorio": False
 }
+
 configuracion_pygame = {
     "categoria": None,
     'daltonismo': "no"

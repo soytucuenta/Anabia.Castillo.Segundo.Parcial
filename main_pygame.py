@@ -9,8 +9,6 @@ lista_usuarios = cargar_usuarios()
 todas_las_preguntas = cargar_preguntas()
 
 
-
-
 pygame.init()
 
 #PROPIEDADES
